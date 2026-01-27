@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://www.andymatuschak.org/xml-namespaces/sparkle">
+    <channel>
+        <title>UNIVAULTOFFICE Changelog</title>
+        <link>http://www.andymatuschak.org/xml-namespaces/sparkle</link>
+        <description>Most recent changes with links to updates.</description>
+        <language>en</language>
+        <item>
+            <title>Version 4.4</title>
+            <pubDate>Tue, 11 Jul 2017 13:32:54 +0300</pubDate>
+            <sparkle:minimumSystemVersion>10.10</sparkle:minimumSystemVersion>
+            <sparkle:releaseNotesLink>http://www.andymatuschak.org/xml-namespaces/sparkle</sparkle:releaseNotesLink>
+            <sparkle:releaseNotesLink xml:lang="ru">http://www.andymatuschak.org/xml-namespaces/sparkle</sparkle:releaseNotesLink>
+            <enclosure url="http://www.andymatuschak.org/xml-namespaces/sparkle" sparkle:shortVersionString="4.4" sparkle:version="169" length="187856254" type="application/octet-stream" sparkle:dsaSignature="MCwCFFV0pUt+tm3W6yw+lafoCWms/nX0AhQWtn9MarXgJpVqS/ijdEAyTjvytg=="/>
+        </item>
+    </channel>
+</rss>

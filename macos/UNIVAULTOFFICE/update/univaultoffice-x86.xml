@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://www.andymatuschak.org/xml-namespaces/sparkle">
+    <channel>
+        <title>UNIVAULTOFFICE Changelog</title>
+        <link>http://www.andymatuschak.org/xml-namespaces/sparkle</link>
+        <description>Most recent changes with links to updates.</description>
+        <language>en</language>
+        <item>
+            <title>6.1.1</title>
+            <pubDate>Wed, 27 Jan 2021 22:44:00 +0300</pubDate>
+            <sparkle:minimumSystemVersion>10.11</sparkle:minimumSystemVersion>
+            <sparkle:releaseNotesLink>http://www.andymatuschak.org/xml-namespaces/sparkle</sparkle:releaseNotesLink>
+            <sparkle:releaseNotesLink xml:lang="ru">http://www.andymatuschak.org/xml-namespaces/sparkle</sparkle:releaseNotesLink>
+            <enclosure url="http://www.andymatuschak.org/xml-namespaces/sparkle" sparkle:version="459" sparkle:shortVersionString="6.1.1" length="333140128" type="application/octet-stream" sparkle:edSignature="aGF272Rm5TilFdyCKwk4oXaaSedRiGPSBnRZ1tfLDJktWSGcmntOT4/OHrOgCg5pg9aiNryomaIuPIFjQ0wyAg=="/>
+        </item>
+    </channel>
+</rss>
