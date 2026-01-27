@@ -1,13 +1,13 @@
 //
 //  KSNavigationController.mm
 //
-//  Copyright © 2016 Alex Gordiyenko. All rights reserved.
+//  Copyright © 2026 Alex Gordiyenko. All rights reserved.
 //
 
 /*
  The MIT License (MIT)
  
- Copyright (c) 2016 A. Gordiyenko
+ Copyright (c) 2026 A. Gordiyenko
  
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal

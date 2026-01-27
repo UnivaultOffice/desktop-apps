@@ -9,8 +9,8 @@ case "$1" in
   ;;
 
   remove|upgrade)
-    rm -f /usr/share/mime/packages/onlyoffice-docxf.xml
-    rm -f /usr/share/mime/packages/onlyoffice-oform.xml
+    rm -f /usr/share/mime/packages/univaultoffice-docxf.xml
+    rm -f /usr/share/mime/packages/univaultoffice-oform.xml
   ;;
 
   failed-upgrade|abort-install|abort-upgrade|disappear)

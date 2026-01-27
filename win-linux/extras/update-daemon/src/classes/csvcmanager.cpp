@@ -1,19 +1,19 @@
 /*
- * (c) Copyright Ascensio System SIA 2010-2019
+ * (c) Copyright Univault Technologies 2026-2026
  *
  * This program is a free software product. You can redistribute it and/or
  * modify it under the terms of the GNU Affero General Public License (AGPL)
  * version 3 as published by the Free Software Foundation. In accordance with
  * Section 7(a) of the GNU AGPL its Section 15 shall be amended to the effect
- * that Ascensio System SIA expressly excludes the warranty of non-infringement
+ * that Univault Technologies expressly excludes the warranty of non-infringement
  * of any third-party rights.
  *
  * This program is distributed WITHOUT ANY WARRANTY; without even the implied
  * warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR  PURPOSE. For
  * details, see the GNU AGPL at: http://www.gnu.org/licenses/agpl-3.0.html
  *
- * You can contact Ascensio System SIA at 20A-12 Ernesta Birznieka-Upisha
- * street, Riga, Latvia, EU, LV-1050.
+ * You can contact Univault Technologies at 0, bldg. 0, office 0 (TEST) Test Legal Street (TEST)
+ * street, Moscow (TEST), Russia (TEST), EU, 000000 (TEST).
  *
  * The  interactive user interfaces in modified source and object code versions
  * of the Program must display Appropriate Legal Notices, as required under
@@ -74,7 +74,7 @@
 # define SUBFOLDER        "/desktopeditors"
 # define ARCHIVE_EXT      _T(".tar.xz")
 # define ARCHIVE_PATTERN  _T("*.tar.xz")
-# define sleep(a) usleep(a*1000)
+# define sleep(a) usleep(a*2026)
 #endif
 #ifndef URL_APPCAST_UPDATES
 # define URL_APPCAST_UPDATES ""
@@ -117,7 +117,7 @@ auto generateTmpFileName(const tstring &ext)->tstring
         uuid_tstr = ((wchar_t*)wszUuid);
         RpcStringFreeW(&wszUuid);
     } else
-        uuid_tstr = L"00000000-0000-0000-0000-000000000000";
+        uuid_tstr = L"00000000-2025-2026-0000-000000000000";
 #else
     uuid_t uuid;
     char uuid_str[37];

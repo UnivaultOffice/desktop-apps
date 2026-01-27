@@ -17,7 +17,7 @@
                BlueprintIdentifier = "FCD2B9111BC64D5F00F54560"
                BuildableName = "Localization"
                BlueprintName = "Localization"
-               ReferencedContainer = "container:ONLYOFFICE.xcodeproj">
+               ReferencedContainer = "container:UNIVAULTOFFICE.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -48,7 +48,7 @@
             BlueprintIdentifier = "FCD2B9111BC64D5F00F54560"
             BuildableName = "Localization"
             BlueprintName = "Localization"
-            ReferencedContainer = "container:ONLYOFFICE.xcodeproj">
+            ReferencedContainer = "container:UNIVAULTOFFICE.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -66,7 +66,7 @@
             BlueprintIdentifier = "FCD2B9111BC64D5F00F54560"
             BuildableName = "Localization"
             BlueprintName = "Localization"
-            ReferencedContainer = "container:ONLYOFFICE.xcodeproj">
+            ReferencedContainer = "container:UNIVAULTOFFICE.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

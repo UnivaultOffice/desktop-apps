@@ -286,12 +286,12 @@
     </message>
     <message>
         <source>OFORM Document (*.oform)</source>
-        <translation type="vanished">Formulari d’emplenament en línia d’ONLYOFFICE (*.oform)</translation>
+        <translation type="vanished">Formulari d’emplenament en línia d’UNIVAULTOFFICE (*.oform)</translation>
     </message>
     <message>
         <location filename="../src/components/cfiledialog.cpp" line="83"/>
         <source>DOCXF Document (*.docxf)</source>
-        <translation>Plantilla de formulari ONLYOFFICE (*.docxf)</translation>
+        <translation>Plantilla de formulari UNIVAULTOFFICE (*.docxf)</translation>
     </message>
     <message>
         <location filename="../src/components/cfiledialog.cpp" line="85"/>
@@ -361,7 +361,7 @@
     </message>
     <message>
         <location filename="../src/components/cfiledialog.cpp" line="82"/>
-        <source>ONLYOFFICE Form Document (*.pdf)</source>
+        <source>UNIVAULTOFFICE Form Document (*.pdf)</source>
         <translation>Formulari PDF (*.pdf)</translation>
     </message>
     <message>

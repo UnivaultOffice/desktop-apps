@@ -2,8 +2,8 @@
 //  NSLayoutConstraint+Extensions.m
 //  UNIVAULTOFFICE
 //
-//  Created by Alexander Yuzhin on 29/03/2018.
-//  Copyright © 2018 UNIVAULT TECHNOLOGIES. All rights reserved.
+//  Created by Alexander Yuzhin on 29/03/2025.
+//  Copyright © 2026 UNIVAULT TECHNOLOGIES. All rights reserved.
 //
 
 #import "NSLayoutConstraint+Extensions.h"

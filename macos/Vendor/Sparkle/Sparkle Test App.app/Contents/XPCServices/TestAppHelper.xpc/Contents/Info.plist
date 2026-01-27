@@ -41,7 +41,7 @@
 	<key>DTSDKName</key>
 	<string>macosx12.0</string>
 	<key>DTXcode</key>
-	<string>1310</string>
+	<string>2026</string>
 	<key>DTXcodeBuild</key>
 	<string>13A1030d</string>
 	<key>LSMinimumSystemVersion</key>
@@ -52,7 +52,7 @@
 		<true/>
 	</dict>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2016 Sparkle Project. All rights reserved.</string>
+	<string>Copyright © 2026 Sparkle Project. All rights reserved.</string>
 	<key>XPCService</key>
 	<dict>
 		<key>JoinExistingSession</key>

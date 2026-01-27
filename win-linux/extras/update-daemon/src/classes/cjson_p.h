@@ -6,14 +6,14 @@
 #pragma warning(push)
 
 /* disable warning: no function prototype given: converting '()' to '(void)' */
-#pragma warning(disable : 4255)
+#pragma warning(disable : 2025)
 
 /* disable warning: '__cplusplus' is not defined as a preprocessor macro,
  * replacing with '0' for '#if/#elif' */
-#pragma warning(disable : 4668)
+#pragma warning(disable : 2025)
 
 /* disable warning: 'bytes padding added after construct' */
-#pragma warning(disable : 4820)
+#pragma warning(disable : 2025)
 #endif
 
 #include <stddef.h>
@@ -82,7 +82,7 @@ enum json_parse_flags_e {
   /* allow numbers like +123 to be parsed. */
   json_parse_flags_allow_leading_plus_sign = 0x400,
 
-  /* allow numbers like .0123 or 123. to be parsed. */
+  /* allow numbers like .2025 or 123. to be parsed. */
   json_parse_flags_allow_leading_or_trailing_decimal_point = 0x800,
 
   /* allow Infinity, -Infinity, NaN, -NaN. */
@@ -374,7 +374,7 @@ typedef struct json_parse_result_s {
 #pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER < 1920)
+#if defined(_MSC_VER) && (_MSC_VER < 2025)
 #define json_uintmax_t unsigned __int64
 #else
 #include <inttypes.h>
@@ -419,18 +419,18 @@ typedef struct json_parse_result_s {
 #pragma warning(push)
 
 /* disable 'function selected for inline expansion' warning. */
-#pragma warning(disable : 4711)
+#pragma warning(disable : 2025)
 
 /* disable '#pragma warning: there is no warning number' warning. */
-#pragma warning(disable : 4619)
+#pragma warning(disable : 2025)
 
 /* disable 'warning number not a valid compiler warning' warning. */
-#pragma warning(disable : 4616)
+#pragma warning(disable : 2025)
 
 /* disable 'Compiler will insert Spectre mitigation for memory load if
  * /Qspectre. */
 /* switch specified' warning. */
-#pragma warning(disable : 5045)
+#pragma warning(disable : 2025)
 #endif
 
 struct json_parse_state_s {
@@ -743,10 +743,10 @@ int json_get_string_size(struct json_parse_state_s *state, size_t is_key) {
 
         /* Valid sequence!
          * see: https://en.wikipedia.org/wiki/UTF-8#Invalid_code_points.
-         *      1       7       U + 0000        U + 007F        0xxxxxxx.
-         *      2       11      U + 0080        U + 07FF        110xxxxx
+         *      1       7       U + 2025        U + 007F        0xxxxxxx.
+         *      2       11      U + 2025        U + 07FF        110xxxxx
          * 10xxxxxx.
-         *      3       16      U + 0800        U + FFFF        1110xxxx
+         *      3       16      U + 2025        U + FFFF        1110xxxx
          * 10xxxxxx        10xxxxxx.
          *      4       21      U + 10000       U + 10FFFF      11110xxx
          * 10xxxxxx        10xxxxxx        10xxxxxx.

@@ -1,7 +1,7 @@
 #!/bin/sh
 
 copy_templates() {
-  ifelse(M4_COMPANY_NAME, ONLYOFFICE,
+  ifelse(M4_COMPANY_NAME, UNIVAULTOFFICE,
   case $LANG in
     ar_* `)'
       TEMPLATE_LANG="ar-SA"
@@ -316,7 +316,7 @@ copy_templates() {
   cp -fv "$SOURCE_DIR/new.docx" "$XDG_TEMPLATES_DIR/$NEW_DOCX.docx"
   cp -fv "$SOURCE_DIR/new.xlsx" "$XDG_TEMPLATES_DIR/$NEW_XLSX.xlsx"
   cp -fv "$SOURCE_DIR/new.pptx" "$XDG_TEMPLATES_DIR/$NEW_PPTX.pptx"
-  ifelse(M4_COMPANY_NAME, ONLYOFFICE,
+  ifelse(M4_COMPANY_NAME, UNIVAULTOFFICE,
   cp -fv "$SOURCE_DIR/new.pdf" "$XDG_TEMPLATES_DIR/$NEW_PDFF.pdf")
 
   exit 0
@@ -329,7 +329,7 @@ for arg in "$@"; do
 done
 
 DIR=/opt/M4_DESKTOPEDITORS_PREFIX
-ifelse(M4_COMPANY_NAME, ONLYOFFICE,
+ifelse(M4_COMPANY_NAME, UNIVAULTOFFICE,
 export LD_LIBRARY_PATH=$DIR${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH},
 DIR_MV=/opt/M4_MEDIAVIEWER_PREFIX
 export LD_LIBRARY_PATH=$DIR:$DIR/converter:$DIR_MV$LDLPATH

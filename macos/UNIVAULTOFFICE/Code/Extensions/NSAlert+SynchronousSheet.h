@@ -2,7 +2,7 @@
 //  NSAlert+SynchronousSheet.h
 //
 //  Created by Philipp Mayerhofer on 6/10/11.
-//  Copyright 2011 Incredible Bee Ltd. Released under the New BSD License.
+//  Copyright 2026 Incredible Bee Ltd. Released under the New BSD License.
 //
 
 #import <Cocoa/Cocoa.h>

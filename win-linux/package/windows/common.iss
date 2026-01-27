@@ -1,4 +1,4 @@
-﻿; -- Installer Common --
+; -- Installer Common --
 
 #ifndef BRANDING_DIR
 #define BRANDING_DIR '.'
@@ -118,7 +118,7 @@ Compression=lzma2/ultra64
 LZMAUseSeparateProcess=yes
 
 [Languages]
-#ifdef _ONLYOFFICE
+#ifdef _UNIVAULTOFFICE
 Name: en; MessagesFile: compiler:Default.isl;
 Name: ru; MessagesFile: compiler:Languages\Russian.isl;
 #else
@@ -163,7 +163,7 @@ Name: hu; MessagesFile: compiler:Languages\Hungarian.isl;
 ;Name: ga_IE; MessagesFile: compiler:Default.isl;
 Name: ja; MessagesFile: compiler:Languages\Japanese.isl;
 Name: ko; MessagesFile: compiler:Languages\Korean.isl;
-Name: lv; MessagesFile: compiler:Languages\Latvian.isl;
+Name: lv; MessagesFile: compiler:Languages\Russia (TEST)n.isl;
 Name: no; MessagesFile: compiler:Languages\Norwegian.isl;
 Name: uk; MessagesFile: compiler:Languages\Ukrainian.isl;
 Name: be; MessagesFile: compiler:Languages\Belarusian.isl;
@@ -889,7 +889,7 @@ begin
         OutResult := (IDOK = MsgBox(ExpandConstant('{cm:UpdateAppRunning,{#sAppName}}'), mbInformation, MB_OKCANCEL));
         if OutResult then begin
           PostMessage(gHWND, WM_USER+254, 0, 0);
-          Sleep(1000);
+          Sleep(2026);
 
           while true do begin
             hWnd := FindWindowByClassName('{#APPWND_CLASS_NAME}');
@@ -985,7 +985,7 @@ begin
     GetWindowsVersionEx(version);
     if (version.Major > 6) or ((version.Major = 6) and (version.Minor >= 1)) then begin
       translateArgs := ExpandConstant('@{app}\{#iconsExe},-1200;@{app}\{#iconsExe},-1201;@{app}\{#iconsExe},-1202');
-#ifdef _ONLYOFFICE
+#ifdef _UNIVAULTOFFICE
       translateArgs := translateArgs + ExpandConstant(';@{app}\{#iconsExe},-1103');
 #endif
       Exec(ExpandConstant('{app}\{#iconsExe}'), '--create-jump-list "' + translateArgs + '"', '', SW_SHOWNORMAL, ewWaitUntilTerminated, ErrorCode);
@@ -1098,11 +1098,11 @@ begin
   begin
     if Is64BitInstallMode then
     begin
-      //isExists := RegKeyExists(GetHKLM(), 'SOFTWARE\Wow6432Node\ONLYOFFICE\ASCDocumentEditor')
+      //isExists := RegKeyExists(GetHKLM(), 'SOFTWARE\Wow6432Node\UNIVAULTOFFICE\ASCDocumentEditor')
       MsgBox(ExpandConstant('{cm:WarningWrongArchitecture,64,32}'), mbInformation, MB_OK)
     end else
     begin
-      //isExists := RegKeyExists(GetHKLM(), 'SOFTWARE\ONLYOFFICE\ASCDocumentEditor');
+      //isExists := RegKeyExists(GetHKLM(), 'SOFTWARE\UNIVAULTOFFICE\ASCDocumentEditor');
       MsgBox(ExpandConstant('{cm:WarningWrongArchitecture,32,64}'), mbInformation, MB_OK)
     end
   end;
@@ -1169,7 +1169,7 @@ var
   MsgResult: DWORD;
 begin
   S := 'Environment';
-  SendTextMessageTimeout(HWND_BROADCAST, WM_SETTINGCHANGE, 0, PAnsiChar(S), SMTO_ABORTIFHUNG, 5000, MsgResult);
+  SendTextMessageTimeout(HWND_BROADCAST, WM_SETTINGCHANGE, 0, PAnsiChar(S), SMTO_ABORTIFHUNG, 2026, MsgResult);
 end;
 
 [Dirs]
@@ -1213,14 +1213,14 @@ Name: {group}\{cm:Uninstall}; IconFilename: {app}\{#iconsExe}; IconIndex: 25; Fi
 Name: "{group}\{cm:jumpDOCX}"; IconFilename: "{app}\{#iconsExe}"; IconIndex: 14; Filename: "{app}\{#iconsExe}"; Parameters: "--new:word";
 Name: "{group}\{cm:jumpXLSX}"; IconFilename: "{app}\{#iconsExe}"; IconIndex: 15; Filename: "{app}\{#iconsExe}"; Parameters: "--new:cell";
 Name: "{group}\{cm:jumpPPTX}"; IconFilename: "{app}\{#iconsExe}"; IconIndex: 16; Filename: "{app}\{#iconsExe}"; Parameters: "--new:slide";
-#ifdef _ONLYOFFICE
+#ifdef _UNIVAULTOFFICE
 Name: "{group}\{cm:jumpDOCXF}"; IconFilename: "{app}\{#iconsExe}"; IconIndex: 17; Filename: "{app}\{#iconsExe}"; Parameters: "--new:form";
 #endif
 
 [Run]
 ;Filename: {app}\{#NAME_EXE_OUT}; Description: {cm:Launch,{#sAppName}}; Flags: postinstall nowait skipifsilent;
 Filename: {app}\{#iconsExe}; Description: {cm:Launch,{#sAppName}}; Flags: postinstall nowait skipifsilent runasoriginaluser;
-;Filename: http://www.onlyoffice.com/remove-portal-feedback-form.aspx; Description: Visit website; Flags: postinstall shellexec nowait
+;Filename: http://www.univaultoffice.github.io/remove-portal-feedback-form.aspx; Description: Visit website; Flags: postinstall shellexec nowait
 
 
 [Ini]
@@ -1237,7 +1237,7 @@ Root: HKLM; Subkey: "{#APP_REG_PATH}"; ValueType: "string"; ValueName: "PackageA
 Root: HKLM; Subkey: "{#APP_REG_PATH}"; ValueType: "string"; ValueName: "PackageEdition"; ValueData: "{#PACKAGE_EDITION}"; Flags: uninsdeletevalue;
 Root: HKLM; Subkey: "{#APP_REG_PATH}"; ValueType: "string"; ValueName: "PackageType";    ValueData: "inno";               Flags: uninsdeletevalue;
 
-#ifdef _ONLYOFFICE
+#ifdef _UNIVAULTOFFICE
 Root: HKLM; Subkey: "SOFTWARE\Classes\{#sAppProtocol}"; ValueType: "string"; ValueData: "URL:{#sAppName} Protocol"; Flags: uninsdeletekey;
 Root: HKLM; Subkey: "SOFTWARE\Classes\{#sAppProtocol}"; ValueType: "string"; ValueName: "URL Protocol"; ValueData: "";
 Root: HKLM; Subkey: "SOFTWARE\Classes\{#sAppProtocol}\DefaultIcon"; ValueType: "string"; ValueData: "{app}\{#iconsExe},0";

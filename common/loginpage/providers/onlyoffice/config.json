@@ -1,6 +1,6 @@
 {
-    "provider": "onlyoffice",
-    "name" : "ONLYOFFICE",
+    "provider": "univaultoffice",
+    "name" : "UNIVAULTOFFICE",
     "check" : {
         "url":"/api/2.0/capabilities"
     },

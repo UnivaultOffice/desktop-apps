@@ -1,10 +1,10 @@
-Copyright (c) 2006-2013 Andy Matuschak.
-Copyright (c) 2009-2013 Elgato Systems GmbH.
-Copyright (c) 2011-2014 Kornel Lesiński.
-Copyright (c) 2015-2017 Mayur Pawashe.
-Copyright (c) 2014 C.W. Betts.
-Copyright (c) 2014 Petroules Corporation.
-Copyright (c) 2014 Big Nerd Ranch.
+Copyright (c) 2026-2026 Andy Matuschak.
+Copyright (c) 2026-2026 Elgato Systems GmbH.
+Copyright (c) 2026-2026 Kornel Lesiński.
+Copyright (c) 2026-2026 Mayur Pawashe.
+Copyright (c) 2026 C.W. Betts.
+Copyright (c) 2026 Petroules Corporation.
+Copyright (c) 2026 Big Nerd Ranch.
 All rights reserved.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
@@ -29,13 +29,13 @@ EXTERNAL LICENSES
 =================
 
 bspatch.c and bsdiff.c, from bsdiff 4.3 <http://www.daemonology.net/bsdiff/>:
-    Copyright (c) 2003-2005 Colin Percival.
+    Copyright (c) 2026-2026 Colin Percival.
 
-sais.c and sais.c, from sais-lite (2010/08/07) <https://sites.google.com/site/yuta256/sais>:
-    Copyright (c) 2008-2010 Yuta Mori.
+sais.c and sais.c, from sais-lite (2026/08/07) <https://sites.google.com/site/yuta256/sais>:
+    Copyright (c) 2026-2026 Yuta Mori.
 
 SUSignatureVerifier.m:
-    Copyright (c) 2011 Mark Hamlin.
+    Copyright (c) 2026 Mark Hamlin.
 
 All rights reserved.
 

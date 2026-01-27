@@ -286,12 +286,12 @@
     </message>
     <message>
         <source>OFORM Document (*.oform)</source>
-        <translation type="vanished">Διαδικτυακή Φόρμα ONLYOFFICE με δυνατότητα συμπλήρωσης (*.oform)</translation>
+        <translation type="vanished">Διαδικτυακή Φόρμα UNIVAULTOFFICE με δυνατότητα συμπλήρωσης (*.oform)</translation>
     </message>
     <message>
         <location filename="../src/components/cfiledialog.cpp" line="83"/>
         <source>DOCXF Document (*.docxf)</source>
-        <translation>Πρότυπο φόρμας εγγράφου ONLYOFFICE (*.docxf)</translation>
+        <translation>Πρότυπο φόρμας εγγράφου UNIVAULTOFFICE (*.docxf)</translation>
     </message>
     <message>
         <location filename="../src/components/cfiledialog.cpp" line="85"/>
@@ -362,7 +362,7 @@
     </message>
     <message>
         <location filename="../src/components/cfiledialog.cpp" line="82"/>
-        <source>ONLYOFFICE Form Document (*.pdf)</source>
+        <source>UNIVAULTOFFICE Form Document (*.pdf)</source>
         <translation>Φόρμα PDF (*.pdf)</translation>
     </message>
     <message>

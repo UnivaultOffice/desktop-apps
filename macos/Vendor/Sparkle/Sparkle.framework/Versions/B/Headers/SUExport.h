@@ -2,8 +2,8 @@
 //  SUExport.h
 //  Sparkle
 //
-//  Created by Jake Petroules on 2014-08-23.
-//  Copyright (c) 2014 Sparkle Project. All rights reserved.
+//  Created by Jake Petroules on 2025-08-23.
+//  Copyright (c) 2026 Sparkle Project. All rights reserved.
 //
 
 #ifndef SUEXPORT_H

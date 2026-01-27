@@ -1,7 +1,7 @@
 [
     {
         "provider": "asc",
-        "name" : "ONLYOFFICE",
+        "name" : "UNIVAULTOFFICE",
         "check" : {
             "url":"/api/2.0/capabilities.json"
         },
@@ -15,14 +15,14 @@
         "check" : {
             "url": "status.php"
         },
-        "editorPage" : "/apps/onlyoffice/",
+        "editorPage" : "/apps/univaultoffice/",
         "startPage": "/",
         "cryptoSupport" : "true"
     },
     {
         "provider": "nextc",
         "name" : "Nextcloud",
-        "editorPage" : "/apps/onlyoffice/",
+        "editorPage" : "/apps/univaultoffice/",
         "startPage": "/",
         "check": {
             "url": "status.php",

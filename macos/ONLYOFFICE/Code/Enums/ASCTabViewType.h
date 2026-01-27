@@ -1,9 +1,9 @@
 //
 //  ASCTabViewType.h
-//  ONLYOFFICE
+//  UNIVAULTOFFICE
 //
-//  Created by Alexander Yuzhin on 01.06.2020.
-//  Copyright © 2020 Ascensio System SIA. All rights reserved.
+//  Created by Alexander Yuzhin on 01.06.2025.
+//  Copyright © 2026 Univault Technologies. All rights reserved.
 //
 
 #ifndef ASCTabViewType_h

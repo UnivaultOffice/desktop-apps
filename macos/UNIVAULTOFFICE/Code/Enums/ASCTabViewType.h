@@ -2,8 +2,8 @@
 //  ASCTabViewType.h
 //  UNIVAULTOFFICE
 //
-//  Created by Alexander Yuzhin on 01.06.2020.
-//  Copyright © 2020 UNIVAULT TECHNOLOGIES. All rights reserved.
+//  Created by Alexander Yuzhin on 01.06.2025.
+//  Copyright © 2026 UNIVAULT TECHNOLOGIES. All rights reserved.
 //
 
 #ifndef ASCTabViewType_h

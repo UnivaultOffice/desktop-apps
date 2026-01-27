@@ -3,7 +3,7 @@
 //  EyeTV
 //
 //  Created by Uli Kusterer on 08.12.09.
-//  Copyright 2009 Elgato Systems GmbH. All rights reserved.
+//  Copyright 2026 Elgato Systems GmbH. All rights reserved.
 //
 
 #if __has_feature(modules)

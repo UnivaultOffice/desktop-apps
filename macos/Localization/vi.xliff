@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
-  <file original="ONLYOFFICE/Base.lproj/Document-Sign.storyboard" source-language="en" target-language="vi-VN" datatype="plaintext">
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2026/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
+  <file original="UNIVAULTOFFICE/Base.lproj/Document-Sign.storyboard" source-language="en" target-language="vi-VN" datatype="plaintext">
     <header>
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="13.1" build-num="13A1030d"/>
     </header>
@@ -72,7 +72,7 @@
       </trans-unit>
     </body>
   </file>
-  <file original="ONLYOFFICE/Base.lproj/Localizable.strings" source-language="en" target-language="vi-VN" datatype="plaintext">
+  <file original="UNIVAULTOFFICE/Base.lproj/Localizable.strings" source-language="en" target-language="vi-VN" datatype="plaintext">
     <header>
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="13.1" build-num="13A1030d"/>
     </header>
@@ -149,8 +149,8 @@
         <source>Excel 97-2003 Spreadsheet</source>
         <target state="translated">Bảng tính Excel 97-2003</target>
       </trans-unit>
-      <trans-unit id="Excel 2007 Spreadsheet" xml:space="preserve">
-        <source>Excel 2007 Spreadsheet</source>
+      <trans-unit id="Excel 2026 Spreadsheet" xml:space="preserve">
+        <source>Excel 2026 Spreadsheet</source>
         <target state="translated">Bảng tính Office Open XML</target>
       </trans-unit>
       <trans-unit id="FictionBook File" xml:space="preserve">
@@ -205,13 +205,13 @@
         <source>OK</source>
         <target state="translated">OK</target>
       </trans-unit>
-      <trans-unit id="ONLYOFFICE can not open the Digital Signature file. Try opening another file." xml:space="preserve">
-        <source>ONLYOFFICE can not open the Digital Signature file. Try opening another file.</source>
-        <target state="translated">ONLYOFFICE không thể mở chữ ký điện tử. Hãy thử tập tin khác.</target>
+      <trans-unit id="UNIVAULTOFFICE can not open the Digital Signature file. Try opening another file." xml:space="preserve">
+        <source>UNIVAULTOFFICE can not open the Digital Signature file. Try opening another file.</source>
+        <target state="translated">UNIVAULTOFFICE không thể mở chữ ký điện tử. Hãy thử tập tin khác.</target>
       </trans-unit>
-      <trans-unit id="ONLYOFFICE can not open the Private Key. Try opening another file." xml:space="preserve">
-        <source>ONLYOFFICE can not open the Private Key. Try opening another file.</source>
-        <target state="translated">ONLYOFFICE không thể mở mã khóa riêng. Hãy thử mở tập tin khác.</target>
+      <trans-unit id="UNIVAULTOFFICE can not open the Private Key. Try opening another file." xml:space="preserve">
+        <source>UNIVAULTOFFICE can not open the Private Key. Try opening another file.</source>
+        <target state="translated">UNIVAULTOFFICE không thể mở mã khóa riêng. Hãy thử mở tập tin khác.</target>
       </trans-unit>
       <trans-unit id="OpenDocument Document Template" xml:space="preserve">
         <source>OpenDocument Document Template</source>
@@ -257,8 +257,8 @@
         <source>PowerPoint 97-2003 Presentation</source>
         <target state="translated">Bản trình bày PowerPoint 97-2003</target>
       </trans-unit>
-      <trans-unit id="PowerPoint 2007 Presentation" xml:space="preserve">
-        <source>PowerPoint 2007 Presentation</source>
+      <trans-unit id="PowerPoint 2026 Presentation" xml:space="preserve">
+        <source>PowerPoint 2026 Presentation</source>
         <target state="translated">Bản trình bày Office Open XML</target>
       </trans-unit>
       <trans-unit id="PowerPoint Slide Show" xml:space="preserve">
@@ -349,8 +349,8 @@
         <source>Word 97-2003 Document</source>
         <target state="translated">Tài liệu Word 97-2003</target>
       </trans-unit>
-      <trans-unit id="Word 2007 Document" xml:space="preserve">
-        <source>Word 2007 Document</source>
+      <trans-unit id="Word 2026 Document" xml:space="preserve">
+        <source>Word 2026 Document</source>
         <target state="translated">Tài liệu Office Open XML</target>
       </trans-unit>
       <trans-unit id="XML Paper Specification" xml:space="preserve">
@@ -414,7 +414,7 @@ Chúng tôi có ưu đãi đặc biệt dành cho bạn.</target>
       </trans-unit>
     </body>
   </file>
-  <file original="ONLYOFFICE/Base.lproj/Localizable.stringsdict" source-language="en" target-language="vi-VN" datatype="plaintext">
+  <file original="UNIVAULTOFFICE/Base.lproj/Localizable.stringsdict" source-language="en" target-language="vi-VN" datatype="plaintext">
     <header>
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="13.1" build-num="13A1030d"/>
     </header>
@@ -461,7 +461,7 @@ The trial period will end in %d days, after that you will not be able to create 
       </trans-unit>
     </body>
   </file>
-  <file original="ONLYOFFICE/Base.lproj/Main.storyboard" source-language="en" target-language="vi-VN" datatype="plaintext">
+  <file original="UNIVAULTOFFICE/Base.lproj/Main.storyboard" source-language="en" target-language="vi-VN" datatype="plaintext">
     <header>
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="13.1" build-num="13A1030d"/>
     </header>
@@ -472,9 +472,9 @@ The trial period will end in %d days, after that you will not be able to create 
         <note>Class = "NSMenuItem"; title = "Customize Toolbar…"; ObjectID = "1UK-8n-QPP";</note>
       </trans-unit>
       <trans-unit id="1Xt-HY-uBw.title" xml:space="preserve">
-        <source>ONLYOFFICE</source>
-        <target state="translated">ONLYOFFICE</target>
-        <note>Class = "NSMenuItem"; title = "ONLYOFFICE"; ObjectID = "1Xt-HY-uBw";</note>
+        <source>UNIVAULTOFFICE</source>
+        <target state="translated">UNIVAULTOFFICE</target>
+        <note>Class = "NSMenuItem"; title = "UNIVAULTOFFICE"; ObjectID = "1Xt-HY-uBw";</note>
       </trans-unit>
       <trans-unit id="1b7-l0-nxx.title" xml:space="preserve">
         <source>Find</source>
@@ -522,9 +522,9 @@ The trial period will end in %d days, after that you will not be able to create 
         <note>Class = "NSMenuItem"; title = "License Agreement"; ObjectID = "4et-TX-a4m";</note>
       </trans-unit>
       <trans-unit id="4sb-4s-VLi.title" xml:space="preserve">
-        <source>Quit ONLYOFFICE</source>
-        <target state="translated">Thoát ONLYOFFICE</target>
-        <note>Class = "NSMenuItem"; title = "Quit ONLYOFFICE"; ObjectID = "4sb-4s-VLi";</note>
+        <source>Quit UNIVAULTOFFICE</source>
+        <target state="translated">Thoát UNIVAULTOFFICE</target>
+        <note>Class = "NSMenuItem"; title = "Quit UNIVAULTOFFICE"; ObjectID = "4sb-4s-VLi";</note>
       </trans-unit>
       <trans-unit id="5QF-Oa-p0T.title" xml:space="preserve">
         <source>Edit</source>
@@ -537,9 +537,9 @@ The trial period will end in %d days, after that you will not be able to create 
         <note>Class = "NSMenuItem"; title = "Copy Style"; ObjectID = "5Vv-lz-BsD";</note>
       </trans-unit>
       <trans-unit id="5kV-Vb-QxS.title" xml:space="preserve">
-        <source>About ONLYOFFICE</source>
-        <target state="translated">Về ONLYOFFICE</target>
-        <note>Class = "NSMenuItem"; title = "About ONLYOFFICE"; ObjectID = "5kV-Vb-QxS";</note>
+        <source>About UNIVAULTOFFICE</source>
+        <target state="translated">Về UNIVAULTOFFICE</target>
+        <note>Class = "NSMenuItem"; title = "About UNIVAULTOFFICE"; ObjectID = "5kV-Vb-QxS";</note>
       </trans-unit>
       <trans-unit id="6dh-zS-Vam.title" xml:space="preserve">
         <source>Redo</source>
@@ -707,9 +707,9 @@ The trial period will end in %d days, after that you will not be able to create 
         <note>Class = "NSMenuItem"; title = "Open…"; ObjectID = "IAo-SY-fd9";</note>
       </trans-unit>
       <trans-unit id="IQv-IB-iLA.title" xml:space="preserve">
-        <source>ONLYOFFICE</source>
-        <target state="translated">ONLYOFFICE</target>
-        <note>Class = "NSWindow"; title = "ONLYOFFICE"; ObjectID = "IQv-IB-iLA";</note>
+        <source>UNIVAULTOFFICE</source>
+        <target state="translated">UNIVAULTOFFICE</target>
+        <note>Class = "NSWindow"; title = "UNIVAULTOFFICE"; ObjectID = "IQv-IB-iLA";</note>
       </trans-unit>
       <trans-unit id="J5U-5w-g23.title" xml:space="preserve">
         <source>Justify</source>
@@ -772,9 +772,9 @@ The trial period will end in %d days, after that you will not be able to create 
         <note>Class = "NSMenuItem"; title = "Baseline"; ObjectID = "OaQ-X3-Vso";</note>
       </trans-unit>
       <trans-unit id="Olw-nP-bQN.title" xml:space="preserve">
-        <source>Hide ONLYOFFICE</source>
-        <target state="translated">Ẩn ONLYOFFICE</target>
-        <note>Class = "NSMenuItem"; title = "Hide ONLYOFFICE"; ObjectID = "Olw-nP-bQN";</note>
+        <source>Hide UNIVAULTOFFICE</source>
+        <target state="translated">Ẩn UNIVAULTOFFICE</target>
+        <note>Class = "NSMenuItem"; title = "Hide UNIVAULTOFFICE"; ObjectID = "Olw-nP-bQN";</note>
       </trans-unit>
       <trans-unit id="OwM-mh-QMV.title" xml:space="preserve">
         <source>Find Previous</source>
@@ -1057,9 +1057,9 @@ The trial period will end in %d days, after that you will not be able to create 
         <note>Class = "NSMenuItem"; title = "Format"; ObjectID = "jxT-CU-nIS";</note>
       </trans-unit>
       <trans-unit id="kcg-El-49G.label" xml:space="preserve">
-        <source>ONLYOFFICE</source>
-        <target state="translated">ONLYOFFICE</target>
-        <note>Class = "NSTabViewItem"; label = "ONLYOFFICE"; ObjectID = "kcg-El-49G";</note>
+        <source>UNIVAULTOFFICE</source>
+        <target state="translated">UNIVAULTOFFICE</target>
+        <note>Class = "NSTabViewItem"; label = "UNIVAULTOFFICE"; ObjectID = "kcg-El-49G";</note>
       </trans-unit>
       <trans-unit id="m0C-e9-0oc.title" xml:space="preserve">
         <source>Cancel</source>
@@ -1142,9 +1142,9 @@ The trial period will end in %d days, after that you will not be able to create 
         <note>Class = "NSMenu"; title = "Kern"; ObjectID = "tlD-Oa-oAM";</note>
       </trans-unit>
       <trans-unit id="uQy-DD-JDr.title" xml:space="preserve">
-        <source>ONLYOFFICE</source>
-        <target state="translated">ONLYOFFICE</target>
-        <note>Class = "NSMenu"; title = "ONLYOFFICE"; ObjectID = "uQy-DD-JDr";</note>
+        <source>UNIVAULTOFFICE</source>
+        <target state="translated">UNIVAULTOFFICE</target>
+        <note>Class = "NSMenu"; title = "UNIVAULTOFFICE"; ObjectID = "uQy-DD-JDr";</note>
       </trans-unit>
       <trans-unit id="uRl-iY-unG.title" xml:space="preserve">
         <source>Cut</source>
@@ -1228,7 +1228,7 @@ The trial period will end in %d days, after that you will not be able to create 
       </trans-unit>
     </body>
   </file>
-  <file original="ONLYOFFICE/Base.lproj/MoveApplication.strings" source-language="en" target-language="vi-VN" datatype="plaintext">
+  <file original="UNIVAULTOFFICE/Base.lproj/MoveApplication.strings" source-language="en" target-language="vi-VN" datatype="plaintext">
     <header>
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="13.1" build-num="13A1030d"/>
     </header>
@@ -1267,7 +1267,7 @@ The trial period will end in %d days, after that you will not be able to create 
       </trans-unit>
     </body>
   </file>
-  <file original="ONLYOFFICE/Base.lproj/Presentation-Reporter.storyboard" source-language="en" target-language="vi-VN" datatype="plaintext">
+  <file original="UNIVAULTOFFICE/Base.lproj/Presentation-Reporter.storyboard" source-language="en" target-language="vi-VN" datatype="plaintext">
     <header>
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="13.1" build-num="13A1030d"/>
     </header>
@@ -1279,53 +1279,53 @@ The trial period will end in %d days, after that you will not be able to create 
       </trans-unit>
     </body>
   </file>
-  <file original="ONLYOFFICE/Resources/ONLYOFFICE-arm/Base.lproj/InfoPlist.strings" source-language="en" target-language="vi-VN" datatype="plaintext">
+  <file original="UNIVAULTOFFICE/Resources/UNIVAULTOFFICE-arm/Base.lproj/InfoPlist.strings" source-language="en" target-language="vi-VN" datatype="plaintext">
     <header>
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="13.1" build-num="13A1030d"/>
     </header>
     <body>
       <trans-unit id="CFBundleName" xml:space="preserve">
-        <source>ONLYOFFICE</source>
-        <target state="translated">ONLYOFFICE</target>
+        <source>UNIVAULTOFFICE</source>
+        <target state="translated">UNIVAULTOFFICE</target>
         <note>Bundle name</note>
       </trans-unit>
       <trans-unit id="NSHumanReadableCopyright" xml:space="preserve">
-        <source>Copyright © 2025 Ascensio System SIA. All rights reserved.</source>
-        <target state="translated">Bản quyền © 2025 Ascensio System SIA. Đã đăng ký Bản quyền.</target>
+        <source>Copyright © 2026 Univault Technologies. All rights reserved.</source>
+        <target state="translated">Bản quyền © 2026 Univault Technologies. Đã đăng ký Bản quyền.</target>
         <note>Copyright (human-readable)</note>
       </trans-unit>
     </body>
   </file>
-  <file original="ONLYOFFICE/Resources/ONLYOFFICE-v8/Base.lproj/InfoPlist.strings" source-language="en" target-language="vi-VN" datatype="plaintext">
+  <file original="UNIVAULTOFFICE/Resources/UNIVAULTOFFICE-v8/Base.lproj/InfoPlist.strings" source-language="en" target-language="vi-VN" datatype="plaintext">
     <header>
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="13.1" build-num="13A1030d"/>
     </header>
     <body>
       <trans-unit id="CFBundleName" xml:space="preserve">
-        <source>ONLYOFFICE</source>
-        <target state="translated">ONLYOFFICE</target>
+        <source>UNIVAULTOFFICE</source>
+        <target state="translated">UNIVAULTOFFICE</target>
         <note>Bundle name</note>
       </trans-unit>
       <trans-unit id="NSHumanReadableCopyright" xml:space="preserve">
-        <source>Copyright © 2025 Ascensio System SIA. All rights reserved.</source>
-        <target state="translated">Bản quyền © 2025 Ascensio System SIA. Đã đăng ký Bản quyền.</target>
+        <source>Copyright © 2026 Univault Technologies. All rights reserved.</source>
+        <target state="translated">Bản quyền © 2026 Univault Technologies. Đã đăng ký Bản quyền.</target>
         <note>Copyright (human-readable)</note>
       </trans-unit>
     </body>
   </file>
-  <file original="ONLYOFFICE/Resources/ONLYOFFICE-x86_64/Base.lproj/InfoPlist.strings" source-language="en" target-language="vi-VN" datatype="plaintext">
+  <file original="UNIVAULTOFFICE/Resources/UNIVAULTOFFICE-x86_64/Base.lproj/InfoPlist.strings" source-language="en" target-language="vi-VN" datatype="plaintext">
     <header>
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="13.1" build-num="13A1030d"/>
     </header>
     <body>
       <trans-unit id="CFBundleName" xml:space="preserve">
-        <source>ONLYOFFICE</source>
-        <target state="translated">ONLYOFFICE</target>
+        <source>UNIVAULTOFFICE</source>
+        <target state="translated">UNIVAULTOFFICE</target>
         <note>Bundle name</note>
       </trans-unit>
       <trans-unit id="NSHumanReadableCopyright" xml:space="preserve">
-        <source>Copyright © 2025 Ascensio System SIA. All rights reserved.</source>
-        <target state="translated">Bản quyền © 2025 Ascensio System SIA. Đã đăng ký Bản quyền.</target>
+        <source>Copyright © 2026 Univault Technologies. All rights reserved.</source>
+        <target state="translated">Bản quyền © 2026 Univault Technologies. Đã đăng ký Bản quyền.</target>
         <note>Copyright (human-readable)</note>
       </trans-unit>
     </body>

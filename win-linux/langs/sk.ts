@@ -286,12 +286,12 @@
     </message>
     <message>
         <source>OFORM Document (*.oform)</source>
-        <translation type="vanished">ONLYOFFICE vyplniteľný online formulár (*.oform)</translation>
+        <translation type="vanished">UNIVAULTOFFICE vyplniteľný online formulár (*.oform)</translation>
     </message>
     <message>
         <location filename="../src/components/cfiledialog.cpp" line="83"/>
         <source>DOCXF Document (*.docxf)</source>
-        <translation>Šablóna formulára ONLYOFFICE (*.docxf)</translation>
+        <translation>Šablóna formulára UNIVAULTOFFICE (*.docxf)</translation>
     </message>
     <message>
         <location filename="../src/components/cfiledialog.cpp" line="85"/>
@@ -361,7 +361,7 @@
     </message>
     <message>
         <location filename="../src/components/cfiledialog.cpp" line="82"/>
-        <source>ONLYOFFICE Form Document (*.pdf)</source>
+        <source>UNIVAULTOFFICE Form Document (*.pdf)</source>
         <translation>Formulár PDF (*.pdf)</translation>
     </message>
     <message>

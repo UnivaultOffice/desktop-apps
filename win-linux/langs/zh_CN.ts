@@ -302,12 +302,12 @@
     </message>
     <message>
         <source>OFORM Document (*.oform)</source>
-        <translation type="vanished">ONLYOFFICE可填写的在线表格(*.oform)</translation>
+        <translation type="vanished">UNIVAULTOFFICE可填写的在线表格(*.oform)</translation>
     </message>
     <message>
         <location filename="../src/components/cfiledialog.cpp" line="83"/>
         <source>DOCXF Document (*.docxf)</source>
-        <translation>ONLYOFFICE表单模板(*.docxf)</translation>
+        <translation>UNIVAULTOFFICE表单模板(*.docxf)</translation>
     </message>
     <message>
         <location filename="../src/components/cfiledialog.cpp" line="85"/>
@@ -381,7 +381,7 @@
     </message>
     <message>
         <location filename="../src/components/cfiledialog.cpp" line="82"/>
-        <source>ONLYOFFICE Form Document (*.pdf)</source>
+        <source>UNIVAULTOFFICE Form Document (*.pdf)</source>
         <translation>PDF 表单 (*.pdf)</translation>
     </message>
     <message>

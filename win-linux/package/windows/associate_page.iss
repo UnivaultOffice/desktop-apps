@@ -1,4 +1,4 @@
-﻿
+
 [Setup]
 ChangesAssociations=true
 
@@ -770,55 +770,55 @@ sq.extDOCX =Dokument Office Open XML
 ur.extDOCX =آفس اوپن XML دستاویز
 #endif
 
-en.extDOCXF =ONLYOFFICE Form Template
-en_GB.extDOCXF =ONLYOFFICE Form Template
-ar_SA.extDOCXF =قالب استبيان ONLYOFFICE
-bg.extDOCXF =ONLYOFFICE Шаблон на формуляр
-ca.extDOCXF =Plantilla de formulari ONLYOFFICE
-cs.extDOCXF =Šablona formuláře ONLYOFFICE
-el.extDOCXF =Πρότυπο φόρμας εγγράφου ONLYOFFICE
-;et.extDOCXF =ONLYOFFICE dokumendi vormi mall
-fi.extDOCXF =ONLYOFFICE-asiakirjalomakemalli
-;lt.extDOCXF =ONLYOFFICE Anketos Šablonas
-lo.extDOCXF =ຮູບແບບຂອງ ONLYOFFICE
-nl.extDOCXF =ONLYOFFICE Formulier Sjabloon
-ru.extDOCXF =Шаблон формы ONLYOFFICE
-de.extDOCXF =ONLYOFFICE-Formularvorlage
-fr.extDOCXF =Modèle de formulaire ONLYOFFICE
-es.extDOCXF =Plantilla de formulario ONLYOFFICE
-id.extDOCXF =Templat ONLYOFFICE Form
-it_IT.extDOCXF =Modello di modulo ONLYOFFICE
-pt_BR.extDOCXF =Modelo de formulário do ONLYOFFICE
-pt_PT.extDOCXF =Modelo de formulário ONLYOFFICE
-pl.extDOCXF =Szablon formularza ONLYOFFICE
-ro.extDOCXF =Șablon Formă ONLYOFFICE
-sk.extDOCXF =Šablóna formulára ONLYOFFICE
-sl.extDOCXF =ONLYOFFICE predloga obrazca
-sv.extDOCXF =ONLYOFFICE formulärmall
-tr.extDOCXF =ONLYOFFICE Belgesi Form Şablonu
-vi.extDOCXF =Mẫu biểu mẫu tài liệu ONLYOFFICE
-zh_CN.extDOCXF =ONLYOFFICE表单模板
-hy_AM.extDOCXF =ONLYOFFICE փաստաթղթի ձևանմուշ
-;hr.extDOCXF =ONLYOFFICE Predložak obrasca
-da.extDOCXF =ONLYOFFICE formularskabelon
+en.extDOCXF =UNIVAULTOFFICE Form Template
+en_GB.extDOCXF =UNIVAULTOFFICE Form Template
+ar_SA.extDOCXF =قالب استبيان UNIVAULTOFFICE
+bg.extDOCXF =UNIVAULTOFFICE Шаблон на формуляр
+ca.extDOCXF =Plantilla de formulari UNIVAULTOFFICE
+cs.extDOCXF =Šablona formuláře UNIVAULTOFFICE
+el.extDOCXF =Πρότυπο φόρμας εγγράφου UNIVAULTOFFICE
+;et.extDOCXF =UNIVAULTOFFICE dokumendi vormi mall
+fi.extDOCXF =UNIVAULTOFFICE-asiakirjalomakemalli
+;lt.extDOCXF =UNIVAULTOFFICE Anketos Šablonas
+lo.extDOCXF =ຮູບແບບຂອງ UNIVAULTOFFICE
+nl.extDOCXF =UNIVAULTOFFICE Formulier Sjabloon
+ru.extDOCXF =Шаблон формы UNIVAULTOFFICE
+de.extDOCXF =UNIVAULTOFFICE-Formularvorlage
+fr.extDOCXF =Modèle de formulaire UNIVAULTOFFICE
+es.extDOCXF =Plantilla de formulario UNIVAULTOFFICE
+id.extDOCXF =Templat UNIVAULTOFFICE Form
+it_IT.extDOCXF =Modello di modulo UNIVAULTOFFICE
+pt_BR.extDOCXF =Modelo de formulário do UNIVAULTOFFICE
+pt_PT.extDOCXF =Modelo de formulário UNIVAULTOFFICE
+pl.extDOCXF =Szablon formularza UNIVAULTOFFICE
+ro.extDOCXF =Șablon Formă UNIVAULTOFFICE
+sk.extDOCXF =Šablóna formulára UNIVAULTOFFICE
+sl.extDOCXF =UNIVAULTOFFICE predloga obrazca
+sv.extDOCXF =UNIVAULTOFFICE formulärmall
+tr.extDOCXF =UNIVAULTOFFICE Belgesi Form Şablonu
+vi.extDOCXF =Mẫu biểu mẫu tài liệu UNIVAULTOFFICE
+zh_CN.extDOCXF =UNIVAULTOFFICE表单模板
+hy_AM.extDOCXF =UNIVAULTOFFICE փաստաթղթի ձևանմուշ
+;hr.extDOCXF =UNIVAULTOFFICE Predložak obrasca
+da.extDOCXF =UNIVAULTOFFICE formularskabelon
 ;hi.extDOCXF =ओनलीऑफिस दस्तावेज़ फॉर्म टेम्पलेट
-hu.extDOCXF =ONLYOFFICE formátum-sablon
-;ga_IE.extDOCXF =Teimpléad Foirm ONLYOFFICE
-ja.extDOCXF =ONLYOFFICE フォーム テンプレート
-ko.extDOCXF =ONLYOFFICE 문서 양식 템플릿
-lv.extDOCXF =ONLYOFFICE veidlapas veidne
-no.extDOCXF =ONLYOFFICE-dokumentskjemamal
-uk.extDOCXF =Шаблон форми ONLYOFFICE
-be.extDOCXF =Шаблон формы ONLYOFFICE
-gl.extDOCXF =ONLYOFFICE Modelo de Formulario
+hu.extDOCXF =UNIVAULTOFFICE formátum-sablon
+;ga_IE.extDOCXF =Teimpléad Foirm UNIVAULTOFFICE
+ja.extDOCXF =UNIVAULTOFFICE フォーム テンプレート
+ko.extDOCXF =UNIVAULTOFFICE 문서 양식 템플릿
+lv.extDOCXF =UNIVAULTOFFICE veidlapas veidne
+no.extDOCXF =UNIVAULTOFFICE-dokumentskjemamal
+uk.extDOCXF =Шаблон форми UNIVAULTOFFICE
+be.extDOCXF =Шаблон формы UNIVAULTOFFICE
+gl.extDOCXF =UNIVAULTOFFICE Modelo de Formulario
 si.extDOCXF =ඔන්ලිඔෆිස් ආකෘතිපත්‍ර අච්චුව
-zh_TW.extDOCXF =ONLYOFFICE 文档表单模板
-sr_Cyrl_RS.extDOCXF =ONLYOFFICE формулар шаблон
-sr_Latn_RS.extDOCXF =ONLYOFFICE formular šablon
-he.extDOCXF =תבנית טופס ONLYOFFICE
-sq.extDOCXF =Modeli i shablloni ONLYOFFICE
+zh_TW.extDOCXF =UNIVAULTOFFICE 文档表单模板
+sr_Cyrl_RS.extDOCXF =UNIVAULTOFFICE формулар шаблон
+sr_Latn_RS.extDOCXF =UNIVAULTOFFICE formular šablon
+he.extDOCXF =תבנית טופס UNIVAULTOFFICE
+sq.extDOCXF =Modeli i shablloni UNIVAULTOFFICE
 #if Ver >= EncodeVer(6,1,1)
-ur.extDOCXF =ONLYOFFICE فارم ٹیمپلیٹ
+ur.extDOCXF =UNIVAULTOFFICE فارم ٹیمپلیٹ
 #endif
 
 en.extXLS =Excel 97-2003 Spreadsheet
@@ -2052,7 +2052,7 @@ procedure initExtensions;
 var
   prefix: string;
 begin
-#ifdef _ONLYOFFICE
+#ifdef _UNIVAULTOFFICE
   SetArrayLength(AudioExts, 28);
 #else
   SetArrayLength(AudioExts, 27);
@@ -2087,7 +2087,7 @@ begin
   AudioExts[24] := 'FODT';
   AudioExts[25] := 'VSDX';
   AudioExts[26] := 'XLSM';
-#ifdef _ONLYOFFICE
+#ifdef _UNIVAULTOFFICE
   AudioExts[27] := 'DOCXF';
 #endif
 
@@ -2123,7 +2123,7 @@ begin
   ExtensionRegistryInfo[24] := prefix + 'Fodt:'         + ExpandConstant('{cm:extFODT}')            + ':' + '35';
   ExtensionRegistryInfo[25] := prefix + 'Vsdx:'         + ExpandConstant('{cm:extVSDX}')            + ':' + '36';
   ExtensionRegistryInfo[26] := prefix + 'Xlsm:'         + ExpandConstant('{cm:extXLSM}')            + ':' + '37';
-#ifdef _ONLYOFFICE
+#ifdef _UNIVAULTOFFICE
   ExtensionRegistryInfo[27] := prefix + 'Docxf:'        + ExpandConstant('{cm:extDOCXF}')           + ':' + '13';
 #endif
 end;
@@ -2327,7 +2327,7 @@ begin
   args := ['new.docx:.docx:.Document.12:7:1000:1100',
            'new.pptx:.pptx:.Show.12:9:1002:1102',
            'new.xlsx:.xlsx:.Sheet.12:10:1001:1101'
-#ifdef _ONLYOFFICE
+#ifdef _UNIVAULTOFFICE
            ,'new.pdf:.pdf:.Pdf:5:1003:1103'
 #endif
            ];
@@ -2428,7 +2428,7 @@ begin
   AddToDefaultPrograms;
   AddContextMenuNewItems;
 
-#ifndef _ONLYOFFICE
+#ifndef _UNIVAULTOFFICE
   //TODO: for bug 55795. remove for ver 7.3
   SetArrayLength(cleanExts, 1);
   SetArrayLength(extensionInfo, 1);
@@ -2516,7 +2516,7 @@ begin
   RegDeleteKeyIncludingSubkeys(HKEY_LOCAL_MACHINE, ExpandConstant('Software\Classes\.docx\{#ASCC_REG_PREFIX}.Document.12'));
   RegDeleteKeyIncludingSubkeys(HKEY_LOCAL_MACHINE, ExpandConstant('Software\Classes\.pptx\{#ASCC_REG_PREFIX}.Show.12'));
   RegDeleteKeyIncludingSubkeys(HKEY_LOCAL_MACHINE, ExpandConstant('Software\Classes\.xlsx\{#ASCC_REG_PREFIX}.Sheet.12'));
-#ifdef _ONLYOFFICE
+#ifdef _UNIVAULTOFFICE
   RegDeleteKeyIncludingSubkeys(HKEY_LOCAL_MACHINE, ExpandConstant('Software\Classes\.pdf\{#ASCC_REG_PREFIX}.Pdf'));
 #endif
 end;

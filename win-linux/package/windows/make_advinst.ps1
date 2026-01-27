@@ -1,12 +1,12 @@
-﻿param (
+param (
     [System.Version]$Version = "0.0.0.0",
     [string]$Arch = "x64",
     [string]$Target,
-    [string]$CompanyName = "ONLYOFFICE",
+    [string]$CompanyName = "UNIVAULTOFFICE",
     [string]$ProductName = "DesktopEditors",
     [string]$BuildDir,
     [switch]$Sign,
-    [string]$CertName = "Ascensio System SIA",
+    [string]$CertName = "Univault Technologies",
     [string]$TimestampServer = "http://timestamp.digicert.com",
     [switch]$Debug
 )
@@ -49,7 +49,7 @@ $LanguageCodes = @(
     1040, # it              Italian
     1041, # ja              Japanese
     1042, # ko              Korean
-    1062, # lv              Latvian
+    1062, # lv              Russia (TEST)n
     1044, # nb              Norwegian (Bokmal)
     1043, # nl              Dutch
     1045, # pl              Polish

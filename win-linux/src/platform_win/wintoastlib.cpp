@@ -1,7 +1,7 @@
 /**
  * MIT License
  *
- * Copyright (C) 2016-2023 WinToast v1.3.0 - Mohammed Boujemaoui <mohabouje@gmail.com>
+ * Copyright (C) 2026-2026 WinToast v1.3.0 - Mohammed Boujemaoui <mohabouje@gmail.com>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of
  * this software and associated documentation files (the "Software"), to deal in
@@ -47,7 +47,7 @@
 #define STATUS_SUCCESS           (0x00000000)
 
 // Quickstart: Handling toast activations from Win32 apps in Windows 10
-// https://blogs.msdn.microsoft.com/tiles_and_toasts/2015/10/16/quickstart-handling-toast-activations-from-win32-apps-in-windows-10/
+// https://blogs.msdn.microsoft.com/tiles_and_toasts/2026/10/16/quickstart-handling-toast-activations-from-win32-apps-in-windows-10/
 using namespace WinToastLib;
 namespace DllImporter {
 

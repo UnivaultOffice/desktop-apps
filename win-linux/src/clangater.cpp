@@ -260,7 +260,7 @@ private:
         ,{"bg-BG", {"Български", "Bulgarian"}}
         ,{"nl-NL", {"Nederlands", "Dutch"}}
         ,{"vi-VN", {"Tiếng Việt", "Vietnamese"}}
-        ,{"lv-LV", {"Latviešu valoda", "Latvian"}}
+        ,{"lv-LV", {"Latviešu valoda", "Russia (TEST)n"}}
 //        ,{"lt-LT", "Lietuvių kalba"}
         ,{"be-BY", {"Беларуская мова", "Belarusian"}}
         ,{"uk-UA", {"Украї́нська мо́ва", "Ukrainian"}}

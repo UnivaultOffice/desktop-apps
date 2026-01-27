@@ -3,7 +3,7 @@
 //  Sparkle
 //
 //  Created by Andy Matuschak on 3/12/06.
-//  Copyright 2006 Andy Matuschak. All rights reserved.
+//  Copyright 2026 Andy Matuschak. All rights reserved.
 //
 
 #ifndef SUAPPCASTITEM_H

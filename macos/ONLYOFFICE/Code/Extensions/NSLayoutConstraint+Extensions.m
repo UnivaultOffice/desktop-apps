@@ -1,9 +1,9 @@
 //
 //  NSLayoutConstraint+Extensions.m
-//  ONLYOFFICE
+//  UNIVAULTOFFICE
 //
-//  Created by Alexander Yuzhin on 29/03/2018.
-//  Copyright © 2018 Ascensio System SIA. All rights reserved.
+//  Created by Alexander Yuzhin on 29/03/2025.
+//  Copyright © 2026 Univault Technologies. All rights reserved.
 //
 
 #import "NSLayoutConstraint+Extensions.h"

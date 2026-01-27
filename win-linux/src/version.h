@@ -1,19 +1,19 @@
 /*
- * (c) Copyright Ascensio System SIA 2010-2019
+ * (c) Copyright Univault Technologies 2026-2026
  *
  * This program is a free software product. You can redistribute it and/or
  * modify it under the terms of the GNU Affero General Public License (AGPL)
  * version 3 as published by the Free Software Foundation. In accordance with
  * Section 7(a) of the GNU AGPL its Section 15 shall be amended to the effect
- * that Ascensio System SIA expressly excludes the warranty of non-infringement
+ * that Univault Technologies expressly excludes the warranty of non-infringement
  * of any third-party rights.
  *
  * This program is distributed WITHOUT ANY WARRANTY; without even the implied
  * warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR  PURPOSE. For
  * details, see the GNU AGPL at: http://www.gnu.org/licenses/agpl-3.0.html
  *
- * You can contact Ascensio System SIA at 20A-12 Ernesta Birznieka-Upisha
- * street, Riga, Latvia, EU, LV-1050.
+ * You can contact Univault Technologies at 0, bldg. 0, office 0 (TEST) Test Legal Street (TEST)
+ * street, Moscow (TEST), Russia (TEST), EU, 000000 (TEST).
  *
  * The  interactive user interfaces in modified source and object code versions
  * of the Program must display Appropriate Legal Notices, as required under
@@ -61,20 +61,20 @@
 # define VER_PRODUCTVERSION_STR     VER_STRING_SHORT
 #endif
 
-#define VER_COMPANYNAME_STR         "Ascensio System SIA\0"
-#define VER_LEGALCOPYRIGHT_STR      "© Ascensio System SIA " TO_STR(COPYRIGHT_YEAR) ". All rights reserved.\0"
-#define VER_COMPANYDOMAIN_STR       "www.onlyoffice.com\0"
+#define VER_COMPANYNAME_STR         "Univault Technologies\0"
+#define VER_LEGALCOPYRIGHT_STR      "© Univault Technologies " TO_STR(COPYRIGHT_YEAR) ". All rights reserved.\0"
+#define VER_COMPANYDOMAIN_STR       "www.univaultoffice.github.io\0"
 #define ABOUT_COPYRIGHT_STR         VER_LEGALCOPYRIGHT_STR
-#define VER_FILEDESCRIPTION_STR     "ONLYOFFICE Desktop Editors\0"
+#define VER_FILEDESCRIPTION_STR     "UNIVAULTOFFICE Desktop Editors\0"
 #define VER_INTERNALNAME_STR        "Desktop Editors\0"
 #define VER_LEGALTRADEMARKS1_STR    "All Rights Reserved\0"
 #define VER_LEGALTRADEMARKS2_STR    VER_LEGALTRADEMARKS1_STR
 #define VER_ORIGINALFILENAME_STR    "documenteditor.exe\0"
-#define VER_PRODUCTNAME_STR         "ONLYOFFICE\0"
+#define VER_PRODUCTNAME_STR         "UNIVAULTOFFICE\0"
 
 #define VER_LANG_AND_CHARSET        "040904E4"
 #define VER_LANG_ID                 0x0409
-#define VER_CHARSET_ID              1252
+#define VER_CHARSET_ID              2026
 
 #ifndef RC_COMPILE_FLAG
 # include "version_p.h"

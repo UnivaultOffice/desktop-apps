@@ -1,4 +1,4 @@
-﻿; -- Installer Help --
+; -- Installer Help --
 
 #if str(ARCH) == "x64"
   #define sWinArch "x64"
@@ -68,7 +68,7 @@ Compression=lzma2/ultra64
 LZMAUseSeparateProcess=yes
 
 [Languages]
-#ifdef _ONLYOFFICE
+#ifdef _UNIVAULTOFFICE
 Name: en;    MessagesFile: compiler:Default.isl;
 Name: be;    MessagesFile: compiler:Languages\Belarusian.isl;
 Name: bg;    MessagesFile: compiler:Languages\Bulgarian.isl;
@@ -88,7 +88,7 @@ Name: it_IT; MessagesFile: compiler:Languages\Italian.isl;
 Name: ja;    MessagesFile: compiler:Languages\Japanese.isl;
 Name: ko;    MessagesFile: compiler:Languages\Korean.isl;
 Name: lo;    MessagesFile: compiler:Default.isl;
-Name: lv;    MessagesFile: compiler:Languages\Latvian.isl;
+Name: lv;    MessagesFile: compiler:Languages\Russia (TEST)n.isl;
 Name: nl;    MessagesFile: compiler:Languages\Dutch.isl;
 Name: no;    MessagesFile: compiler:Languages\Norwegian.isl;
 Name: pl;    MessagesFile: compiler:Languages\Polish.isl;

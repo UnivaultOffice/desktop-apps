@@ -274,12 +274,12 @@
     </message>
     <message>
         <source>OFORM Document (*.oform)</source>
-        <translation type="vanished">ONLYOFFICE Fillable Online Form (*.oform)</translation>
+        <translation type="vanished">UNIVAULTOFFICE Fillable Online Form (*.oform)</translation>
     </message>
     <message>
         <location filename="../src/components/cfiledialog.cpp" line="83"/>
         <source>DOCXF Document (*.docxf)</source>
-        <translation>Formë shablloni ONLYOFFICE  (*.docxf)</translation>
+        <translation>Formë shablloni UNIVAULTOFFICE  (*.docxf)</translation>
     </message>
     <message>
         <location filename="../src/components/cfiledialog.cpp" line="85"/>
@@ -345,7 +345,7 @@
     </message>
     <message>
         <location filename="../src/components/cfiledialog.cpp" line="82"/>
-        <source>ONLYOFFICE Form Document (*.pdf)</source>
+        <source>UNIVAULTOFFICE Form Document (*.pdf)</source>
         <translation>Formë PDF (*.pdf)</translation>
     </message>
     <message>

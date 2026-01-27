@@ -302,12 +302,12 @@
     </message>
     <message>
         <source>OFORM Document (*.oform)</source>
-        <translation type="vanished">Forma ONLYOFFICE spre completare online (*.oform)</translation>
+        <translation type="vanished">Forma UNIVAULTOFFICE spre completare online (*.oform)</translation>
     </message>
     <message>
         <location filename="../src/components/cfiledialog.cpp" line="83"/>
         <source>DOCXF Document (*.docxf)</source>
-        <translation>Șablon Formă ONLYOFFICE (*.docxf)</translation>
+        <translation>Șablon Formă UNIVAULTOFFICE (*.docxf)</translation>
     </message>
     <message>
         <location filename="../src/components/cfiledialog.cpp" line="85"/>
@@ -381,7 +381,7 @@
     </message>
     <message>
         <location filename="../src/components/cfiledialog.cpp" line="82"/>
-        <source>ONLYOFFICE Form Document (*.pdf)</source>
+        <source>UNIVAULTOFFICE Form Document (*.pdf)</source>
         <translation>Formular PDF (*.pdf)</translation>
     </message>
     <message>

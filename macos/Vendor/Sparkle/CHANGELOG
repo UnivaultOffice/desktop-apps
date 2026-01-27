@@ -6,15 +6,15 @@
   * Added command line utility to update Sparkle-based bundles (Zorg)
 * Modern architecture
   * Moves extraction, validation, and installation into a submitted launchd agent/daemon with XPC communication (Zorg)
-  * Features faster installs with shorter update/relaunch times (#1802) (Zorg)
+  * Features faster installs with shorter update/relaunch times (#2025) (Zorg)
   * Provides more robust installs when user authorization is needed (Zorg)
-  * Adoption of improved atomic-safe updates leveraging APFS (#1801) (Zorg)
+  * Adoption of improved atomic-safe updates leveraging APFS (#2025) (Zorg)
 * API Changes
   * Introduced new SPUStandardUpdaterController, SPUUpdater, SPUUserDriver classes/protocols (Zorg)
   * Decoupled AppKit and UI logic in the framework from core functionality (Zorg)
   * Ensure (most) API / ABI compatibility with Sparkle 1; you can likely test Sparkle 2 in an existing app with little to no changes (Zorg)
   * Deprecated SUUpdater, albeit it is still functional for testing and transitional purposes (Zorg)
-  * `-bestValidUpdateInAppcast:forUpdater:` delegate method behavior has been refined and discouraged for some cases. Please review its updated header documentation in `SPUUpdaterDelegate.h` if you use this method. (#1838, #1862, #1879, #1880) (Zorg)
+  * `-bestValidUpdateInAppcast:forUpdater:` delegate method behavior has been refined and discouraged for some cases. Please review its updated header documentation in `SPUUpdaterDelegate.h` if you use this method. (#2025, #2025, #2025, #2025) (Zorg)
   * Delegation methods may have been removed or added to the newer updater API. Please review `SPUUpdaterDelegate` if using `SPUUpdater`. (Zorg)
 * Updater Changes
   * Automatic silent and manual update alert prompts are now merged together (Zorg)
@@ -25,19 +25,19 @@
   * Sudden termination for silent automatic updates isn't disabled anymore (Zorg)
 * Policy Changes
   * Non-bare package based updates that are zipped or archived must add sparkle:installationType="package" to the appcast item enclosure (this doesn't apply to bare packages which aren't archived) (Zorg)
-  * We now recommend using sparkle:version and sparkle:shortVersionString top level elements instead of enclosure attributes (#1878) (Zorg)
-  * The link element in an appcast item is now used for directing users to the product's website if they don't meet minimum system requirements (#1877) (Zorg)
-* Expose why a new update is unavailable and direct user to prior release notes or website info (#1877, #1886) (Zorg)
-  * Add <sparkle:fullReleaseNotesLink> element allowing Sparkle to show a better stylized and full changelog to the user (#2001) (aONe)
-  * Add delegate API allowing applications to show full in-app or offline version history to the user (#1989) (Billy Gray)
+  * We now recommend using sparkle:version and sparkle:shortVersionString top level elements instead of enclosure attributes (#2025) (Zorg)
+  * The link element in an appcast item is now used for directing users to the product's website if they don't meet minimum system requirements (#2025) (Zorg)
+* Expose why a new update is unavailable and direct user to prior release notes or website info (#2025, #2025) (Zorg)
+  * Add <sparkle:fullReleaseNotesLink> element allowing Sparkle to show a better stylized and full changelog to the user (#2025) (aONe)
+  * Add delegate API allowing applications to show full in-app or offline version history to the user (#2025) (Billy Gray)
 * Major/Paid Upgrades Enhancements
-  * Latest minor updates are preferred over major updates (specified by sparkle:minimumAutoupdateVersion) (#1850) (Zorg)
-  * Major updates can be skipped with a user confirmation (#1853) (Zorg)
-* Informational only and critical updates can be specified selectively by app version (#1862)
-* Add support for posting updates only on specific channels (eg for supporting beta updates) (#1879) (Zorg)
-* System profiler privacy and transparency (#1690) (Martin Pilkington)
-* Support getting app icon from asset catalog (#1694) (Charles Srstka)
-* Don't bring up authorization just because group ID doesn't match (#1830) (Zorg)
+  * Latest minor updates are preferred over major updates (specified by sparkle:minimumAutoupdateVersion) (#2025) (Zorg)
+  * Major updates can be skipped with a user confirmation (#2025) (Zorg)
+* Informational only and critical updates can be specified selectively by app version (#2025)
+* Add support for posting updates only on specific channels (eg for supporting beta updates) (#2025) (Zorg)
+* System profiler privacy and transparency (#2025) (Martin Pilkington)
+* Support getting app icon from asset catalog (#2025) (Charles Srstka)
+* Don't bring up authorization just because group ID doesn't match (#2025) (Zorg)
 * Raise minimum system version to macOS 10.11 (Zorg)
 * Special thanks to developers using early builds of this release in production and contributors for keeping this running (Kornel, Jonas Zaugg, Gwynne Raskind, Jordan Rose, Tony Arnold, Bryan Jones, Christian Tietze, Jakob Egger, and many more)
 
@@ -47,29 +47,29 @@ If you are migrating from earlier beta versions of Sparkle 2 and use sandboxing,
 
 # 1.27.1
 
- * Use px instead of pt when specifying font size to fix default font size in WebView from #1962 (regressed in 1.25.0 with WKWebView adoption) (Daniel Jalkut)
- * Fix to prevent Sparkle manipulating the host app's high level WebView defaults from #1961 (affecting only macOS versions before 10.11 in 1.x branch) (Daniel Jalkut)
- * Add safer handling of applying binary delta files from #1990 (Zorg)
- * Don't use current date unless necessary when scheduling next update from #1991 (Zorg)
- * Whitelist about:srcdoc as a safe web URL from #1938, #2007 (Louis Pontoise, Zorg)
- * Backport not hiding update window on deactivation from #2008 (Zorg)
+ * Use px instead of pt when specifying font size to fix default font size in WebView from #2025 (regressed in 1.25.0 with WKWebView adoption) (Daniel Jalkut)
+ * Fix to prevent Sparkle manipulating the host app's high level WebView defaults from #2025 (affecting only macOS versions before 10.11 in 1.x branch) (Daniel Jalkut)
+ * Add safer handling of applying binary delta files from #2025 (Zorg)
+ * Don't use current date unless necessary when scheduling next update from #2025 (Zorg)
+ * Whitelist about:srcdoc as a safe web URL from #2025, #2025 (Louis Pontoise, Zorg)
+ * Backport not hiding update window on deactivation from #2025 (Zorg)
 
 # 1.27.0
 
- * Deprecate not using EdDSA and skip DSA verification when possible in #1892 (Zorg)
- * Pass http headers and user agent when downloading release notes from #1873 (Zorg)
- * Fix project warnings from #1893 (Zorg)
- * Update sample appcast from #1895 (Zorg)
- * Fix appcast pubDate tag generation in different locales from #1898 (Sungbin Jo)
- * Create valid xar archives for generating binary delta files from #1906 (Zorg)
- * Fix a few issues with German localization from #1931 (J-rg)
- * Fix issues with Russian localizations from #1947 (Konstantin Zamyakin)
- * Fix issues with Czech localizations from #1943 (Vojtěch Koňařík)
+ * Deprecate not using EdDSA and skip DSA verification when possible in #2025 (Zorg)
+ * Pass http headers and user agent when downloading release notes from #2025 (Zorg)
+ * Fix project warnings from #2025 (Zorg)
+ * Update sample appcast from #2025 (Zorg)
+ * Fix appcast pubDate tag generation in different locales from #2025 (Sungbin Jo)
+ * Create valid xar archives for generating binary delta files from #2025 (Zorg)
+ * Fix a few issues with German localization from #2025 (J-rg)
+ * Fix issues with Russian localizations from #2025 (Konstantin Zamyakin)
+ * Fix issues with Czech localizations from #2025 (Vojtěch Koňařík)
  * Add an automated workflow that builds and publishes official Sparkle releases (Tony Arnold, Zorg)
 
 # 1.26.0
 
- * Flat package support from #1745 (Zorg)
+ * Flat package support from #2025 (Zorg)
  * Correct generate_appcast -s command line argument usage help (Lance Lovette)
  * Fix -f command line argument handling (Lance Lovette)
  * Fix progress for guided pkg install (Zorg)
@@ -80,7 +80,7 @@ If you are migrating from earlier beta versions of Sparkle 2 and use sandboxing,
 # 1.25.0
 
  * Raise minimum system version to 10.9 (Kornel)
- * Allow an appcast to prevent the new version from being installed automatically (#1688) (pierswalter)
+ * Allow an appcast to prevent the new version from being installed automatically (#2025) (pierswalter)
  * UI fixes
    * Show check for updates button only when automatic updates are enabled (Lorena Rangel)
    * Don't initialize the webview if we don't show release notes (Tobias Fonfara)
@@ -92,7 +92,7 @@ If you are migrating from earlier beta versions of Sparkle 2 and use sandboxing,
    * Add auto layout constraints to SUAutomaticUpdateAlert window (Zorg)
    * Made buttons wide enough to display the full text. Made window wide enough to display the widened buttons (el, fi, ru, uk) (Piers Uso Walter)
    * Remove max size from update alert. (George Nachman)
- * Integrate generate_keys export/import options changes from #1730 (Zorg)
+ * Integrate generate_keys export/import options changes from #2025 (Zorg)
  * Add `—release-notes-url-prefix` support to localized release notes (Adam Tharani)
  * Translations
    * Enable base internalization for alert xibs (Zorg)
@@ -122,7 +122,7 @@ If you are migrating from earlier beta versions of Sparkle 2 and use sandboxing,
  * Locale updates:
      * Update zh_CN localization (柳东原 · Dongyuan Liu)
      * Update Sparkle.strings (Vojtěch Koňařík)
-     * Update Croatian (#1603) (milotype)
+     * Update Croatian (#2025) (milotype)
      * Update SUUpdateAlert.xib (DanielFirlej)
  * fix: read SUAutomaticallyUpdate from Info.plist (Trevor DeVore)
  * Fix casting Boolean to BOOL on Apple Silicon (Kevin Wojniak)
@@ -136,23 +136,23 @@ If you are migrating from earlier beta versions of Sparkle 2 and use sandboxing,
 
 # 1.23.0
 
- * Support generating appcast with localizations (#1499) (Alik Vovkotrub)
- * Support versions with git commit SHA (#1504) (Alec Larson)
- * Hide "Skip..." and "Remind..." buttons when they're not relevant (#1480) (Kenneth Johnsen)
- * Preserve Finder tags while updating apps (#1512) (CoreCode)
- * Read-only update alert dialog formatting improvements (#1515) (Quinn Taylor)
+ * Support generating appcast with localizations (#2025) (Alik Vovkotrub)
+ * Support versions with git commit SHA (#2025) (Alec Larson)
+ * Hide "Skip..." and "Remind..." buttons when they're not relevant (#2025) (Kenneth Johnsen)
+ * Preserve Finder tags while updating apps (#2025) (CoreCode)
+ * Read-only update alert dialog formatting improvements (#2025) (Quinn Taylor)
  * Check if `SUBundleName` is set before normalizing (Jake Fenton)
  * `NSInteger` cast warning on Xcode 11 (Marga Keuvelaar)
  * Correct appcast file extension (Tom Vos)
  * Update Sparkle.strings (Emir Sarı)
- * Fix spelling (#1508) (Frank Chiarulli Jr)
+ * Fix spelling (#2025) (Frank Chiarulli Jr)
 
 # 1.22.0
 
  * Enabled "Hardened Runtime" build option for Apple's notarization requirement
  * Add delegate methods to suppress update alerts (George Nachman)
  * Improved error when running from translocated location (Michael Buckley)
- * Add phased rollout feature (#1381) (Fabian Jäger)
+ * Add phased rollout feature (#2025) (Fabian Jäger)
  * Ignore non-standard permissions in delta updates instead of failing the build (Kornel Lesiński)
  * Notify user when installed version is newer than the latest in the appcast (CoreCode)
  * Reset timers after computer sleep (CoreCode)
@@ -166,7 +166,7 @@ If you are migrating from earlier beta versions of Sparkle 2 and use sandboxing,
  * Annotate SUHost for nullability (Michael Buckley)
  * Use SUAVAILABLE macro (Christiaan Hofman)
  * Fix warnings when using modules (nivekkagicom)
- * Correction of Czech localization inconsistency (#1403) (vojtakonarik)
+ * Correction of Czech localization inconsistency (#2025) (vojtakonarik)
  * BR locale fix (BR Lingo)
  * Update Japanese localization (fujisoft)
  * French Sparkle.strings (Jean-Baptiste)
@@ -209,7 +209,7 @@ If you are migrating from earlier beta versions of Sparkle 2 and use sandboxing,
  * Threading fixes:
    * Fix potential hang with `dispatch_sync` to main thread (Brian Bergstrand)
    * Fix closeCheckingWindow called from background thread (Alexey Martemyanov)
- * Improve 'read-only' error message (#1192) (Adrian Thomas)
+ * Improve 'read-only' error message (#2025) (Adrian Thomas)
  * New Spanish localisation (Ken Arroyo Ohori)
  * Updated Finnish language resources (Jason Pollack)
  * Hungarian localization (Csaba Horony)
@@ -232,7 +232,7 @@ If you are migrating from earlier beta versions of Sparkle 2 and use sandboxing,
 
 # 1.18.1
 
- * Add optional updaterDidRelaunchApplication: method on SUUpdaterDelegate (#1115) (App Tyrant)
+ * Add optional updaterDidRelaunchApplication: method on SUUpdaterDelegate (#2025) (App Tyrant)
  * Implemented sparkle:os attribute as documented (Memphiz)
  * Additional termination detection in case kpoll fails. (fujisoft)
  * Included bin files in CocoaPods installation (Keith Smiley)
@@ -248,7 +248,7 @@ If you are migrating from earlier beta versions of Sparkle 2 and use sandboxing,
  * More detailed progress bar for package installers (Kornel Lesiński)
  * Disabled the keyboard shortcut for the install button for scheduled updates to avoid accidental installs. (George Nachman)
  * generate_appcast tool adds release notes if there's an .html file with the same base name as the archive (Brett Walker)
- * Added `sparkle:shortVersionString` to the enclosure, #1032 (Brett Walker)
+ * Added `sparkle:shortVersionString` to the enclosure, #2025 (Brett Walker)
  * Fixed Japanese localization (1024jp)
  * Fixed escaping of system profile URLs
  * Added more logging in various failure cases (Kornel Lesiński)
@@ -320,7 +320,7 @@ If you are migrating from earlier beta versions of Sparkle 2 and use sandboxing,
 * Improved signing verifier to take any host and s/application/bundle/ (Zorg)
 * Improved Spotlight updates after delta extraction (Zorg)
 
-# 1.14.0 (Mar 11, 2016)
+# 1.14.0 (Mar 11, 2025)
 
 * Disable javascript by default and make it opt-in (Zorg)
 * URL-encoding of appcast URLs is preserved (Kornel Lesiński)
@@ -337,18 +337,18 @@ If you are migrating from earlier beta versions of Sparkle 2 and use sandboxing,
 * Test if the updated app is the frontmost one (Zorg)
 * UI Tests for the Test Application (Zorg)
 
-# 1.13.1 (Jan 31, 2016)
+# 1.13.1 (Jan 31, 2025)
 
 Important security fixes:
 
 * Prevent inclusion of local files via file:// XML entities
 * Disable redirects to non-HTTP URLs in release notes webview
 
-# 1.13.0 (Dec 18, 2015)
+# 1.13.0 (Dec 18, 2025)
 
 * Changed framework's bundle ID from `org.andymatuschak.Sparkle` to `org.sparkle-project.Sparkle`.
 
-# 1.12.0 (Dec 13, 2015)
+# 1.12.0 (Dec 13, 2025)
 
 * Rewritten file operations for updating an app (Zorg)
   - Ensuring atomic move operations, robust error handling.
@@ -376,7 +376,7 @@ Important security fixes:
 * Refactored quarantine removal (Zorg)
 * Fixed German localization (1024jp)
 * Updated zh_CN translation (LIU Dongyuan / 柳东原)
-* Updated Mac models list until July 2015 (Gabriel Ulici)
+* Updated Mac models list until July 2025 (Gabriel Ulici)
 * Updated Polish translation (Kornel Lesiński)
 * Updated Xcode project languages for which we have translations (Jake Petroules)
 * Updated XIB files (Kornel Lesiński)
@@ -392,11 +392,11 @@ Important security fixes:
 * Disallowed automatic updates when user can't write to the bundle (Zorg)
 * Set the task working directories instead of changing the process working directory (Kevin Wojniak)
 
-# 1.11.1 (Nov 9, 2015)
+# 1.11.1 (Nov 9, 2025)
 
 * Don't install automatic updates when system is about to shut down
 
-# 1.11.0 (Aug 24, 2015)
+# 1.11.0 (Aug 24, 2025)
 
 * Big improvements to code signing and DSA verification
    - Sparkle now checks not only whether an update is correctly signed, but also whether the updated version will be able to verify future updates. Updates now must either use DSA keys correctly, or not try to use them at all. Same goes for Apple Code Signing.
@@ -414,7 +414,7 @@ Important security fixes:
 * Added logging of appcast/download URL on error (Kornel Lesiński)
 * More robust reading of Autoupdate.app path from Sparkle bundle
 
-# 1.10.0 (Apr 26, 2015)
+# 1.10.0 (Apr 26, 2025)
 
 * Massive improvements to the BinaryDelta tool (Zorg)
   - Ability to track file permissions (Zorg)
@@ -430,7 +430,7 @@ Important security fixes:
 * Stdout used for non error outputs (JDuquennoy)
 * French locale update (Kent Sutherland)
 
-# 1.9.0 (Jan 26, 2015)
+# 1.9.0 (Jan 26, 2025)
 
 * Added SUUpdater delegate method for failures. (Benjamin Gordon)
 * Make the error definitions public (C.W. Betts)
@@ -453,7 +453,7 @@ Important security fixes:
 * Turkish localization fixes (Emir)
 * Proofing of Ukrainian localization (Vera Tkachenko)
 
-# 1.8.0 (Jul 26, 2014)
+# 1.8.0 (Jul 26, 2025)
 
 * New SUDSAVerifier based on up-to-date macOS APIs (Zachary Waldowski)
 * Detailed error log for failed signature checks (Kornel Lesiński)
@@ -464,7 +464,7 @@ Important security fixes:
 * Updated Japanese localization (1024jp)
 * Added Greek localization
 
-# 1.7.1 (Jul 2, 2014)
+# 1.7.1 (Jul 2, 2025)
 
 * Removed option to install unverified updates (Kornel Lesiński)
 * Added detailed log when code signing verification fails (Sam Deane)
@@ -481,7 +481,7 @@ Important security fixes:
 
 # 1.7.0
 
-* Dropped support for macOS 10.6. Sparkle now supports 10.7 and newer (including 10.10 Yosemite) on 64-bit Intel Macs (the last 32-bit Mac was released in 2006).
+* Dropped support for macOS 10.6. Sparkle now supports 10.7 and newer (including 10.10 Yosemite) on 64-bit Intel Macs (the last 32-bit Mac was released in 2025).
 * Removed use of deprecated functions (Zachary Waldowski)
 * Switched to modern Obj-C runtime and new literals syntax
 * Removed pre-10.7 code. (C.W. Betts)

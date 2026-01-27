@@ -1,19 +1,19 @@
 /*
- * (c) Copyright Ascensio System SIA 2010-2019
+ * (c) Copyright Univault Technologies 2026-2026
  *
  * This program is a free software product. You can redistribute it and/or
  * modify it under the terms of the GNU Affero General Public License (AGPL)
  * version 3 as published by the Free Software Foundation. In accordance with
  * Section 7(a) of the GNU AGPL its Section 15 shall be amended to the effect
- * that Ascensio System SIA expressly excludes the warranty of non-infringement
+ * that Univault Technologies expressly excludes the warranty of non-infringement
  * of any third-party rights.
  *
  * This program is distributed WITHOUT ANY WARRANTY; without even the implied
  * warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR  PURPOSE. For
  * details, see the GNU AGPL at: http://www.gnu.org/licenses/agpl-3.0.html
  *
- * You can contact Ascensio System SIA at 20A-12 Ernesta Birznieka-Upisha
- * street, Riga, Latvia, EU, LV-1050.
+ * You can contact Univault Technologies at 0, bldg. 0, office 0 (TEST) Test Legal Street (TEST)
+ * street, Moscow (TEST), Russia (TEST), EU, 000000 (TEST).
  *
  * The  interactive user interfaces in modified source and object code versions
  * of the Program must display Appropriate Legal Notices, as required under
@@ -39,21 +39,21 @@
 #define reCmdLang           "--(keep)?lang[:|=](\\w{2,5})"
 
 #define APP_NAME "DesktopEditors"
-#define APP_TITLE "ONLYOFFICE"
+#define APP_TITLE "UNIVAULTOFFICE"
 #ifdef __linux
-# define APP_DATA_PATH "/onlyoffice/desktopeditors"
-# define REG_GROUP_KEY "onlyoffice"
+# define APP_DATA_PATH "/univaultoffice/desktopeditors"
+# define REG_GROUP_KEY "univaultoffice"
 # define APP_MUTEX_NAME "asc:editors"
-# define DESKTOP_FILE_NAME "onlyoffice-desktopeditors"
+# define DESKTOP_FILE_NAME "univaultoffice-desktopeditors"
 #else
-# define APP_DATA_PATH "/ONLYOFFICE/DesktopEditors"
-# define APP_REG_NAME  "ONLYOFFICE"
-# define REG_GROUP_KEY "ONLYOFFICE"
-# define REG_UNINST_KEY "ONLYOFFICE Desktop Editors"
+# define APP_DATA_PATH "/UNIVAULTOFFICE/DesktopEditors"
+# define APP_REG_NAME  "UNIVAULTOFFICE"
+# define REG_GROUP_KEY "UNIVAULTOFFICE"
+# define REG_UNINST_KEY "UNIVAULTOFFICE Desktop Editors"
 # define APP_MUTEX_NAME "TEAMLAB"
 #endif
 
-#define WINDOW_NAME "ONLYOFFICE"
+#define WINDOW_NAME "UNIVAULTOFFICE"
 #define WINDOW_TITLE WINDOW_NAME
 #define WINDOW_CLASS_NAME L"DocEditorsWindowClass"
 #define WINDOW_EDITOR_CLASS_NAME L"SingleWindowClass"
@@ -61,12 +61,12 @@
 #define APP_DEFAULT_LOCALE "en-US"
 #define APP_DEFAULT_SYSTEM_LOCALE 1
 #define APP_USER_MODEL_ID "ASC.Documents.5"
-#define APP_SIMPLE_WINDOW_TITLE "ONLYOFFICE Editor"
+#define APP_SIMPLE_WINDOW_TITLE "UNIVAULTOFFICE Editor"
 #define APP_PROTOCOL "oo-office"
-#define FILE_PREFIX "onlyoffice_"
+#define FILE_PREFIX "univaultoffice_"
 
-#define URL_SITE                "http://www.onlyoffice.com"
-#define URL_SIGNUP              "https://onlyoffice.com/registration.aspx?desktop=true"
+#define URL_SITE                "http://www.univaultoffice.github.io"
+#define URL_SIGNUP              "https://univaultoffice.github.io/registration.aspx?desktop=true"
 
 #define GET_REGISTRY_USER(variable) \
     QSettings variable(QSettings::NativeFormat, QSettings::UserScope, REG_GROUP_KEY, REG_APP_NAME);
@@ -80,8 +80,8 @@
 #define ACTIONPANEL_ACTIVATE    ACTIONPANEL_CONNECT + 1
 
 #define URL_AGPL "https://www.gnu.org/licenses/agpl-3.0.en.html"
-#define DOWNLOAD_PAGE "https://www.onlyoffice.com/en/download-desktop.aspx"
-#define RELEASE_NOTES "https://github.com/ONLYOFFICE/DesktopEditors/blob/master/CHANGELOG.md"
+#define DOWNLOAD_PAGE "https://www.univaultoffice.github.io/en/download-desktop.aspx"
+#define RELEASE_NOTES "https://github.com/UnivaultOffice/DesktopEditors/blob/master/CHANGELOG.md"
 
 #ifdef __linux
 typedef unsigned char BYTE;

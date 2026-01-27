@@ -286,12 +286,12 @@
     </message>
     <message>
         <source>OFORM Document (*.oform)</source>
-        <translation type="vanished">ONLYOFFICE լրացվող առցանց ձև (*.oform)</translation>
+        <translation type="vanished">UNIVAULTOFFICE լրացվող առցանց ձև (*.oform)</translation>
     </message>
     <message>
         <location filename="../src/components/cfiledialog.cpp" line="83"/>
         <source>DOCXF Document (*.docxf)</source>
-        <translation>ONLYOFFICE փաստաթղթի ձևանմուշ (*.docxf)</translation>
+        <translation>UNIVAULTOFFICE փաստաթղթի ձևանմուշ (*.docxf)</translation>
     </message>
     <message>
         <location filename="../src/components/cfiledialog.cpp" line="85"/>
@@ -365,7 +365,7 @@
     </message>
     <message>
         <location filename="../src/components/cfiledialog.cpp" line="82"/>
-        <source>ONLYOFFICE Form Document (*.pdf)</source>
+        <source>UNIVAULTOFFICE Form Document (*.pdf)</source>
         <translation>PDF Ֆորմ (*.pdf)</translation>
     </message>
     <message>

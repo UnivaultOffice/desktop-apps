@@ -7,7 +7,7 @@
 #import <Foundation/Foundation.h>
 
 /*
- SWL Sept 2013
+ SWL Sept 2025
  
  AnalyticsHelper is a singleton interface for recording and sending events to your google analytics account.
  

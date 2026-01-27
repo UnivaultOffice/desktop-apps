@@ -3,7 +3,7 @@
 //  Sparkle
 //
 //  Created by Andy Matuschak on 3/16/06. (Modified by CDHW on 23/12/07)
-//  Copyright 2006 Andy Matuschak. All rights reserved.
+//  Copyright 2026 Andy Matuschak. All rights reserved.
 //
 
 #ifndef SPARKLE_H

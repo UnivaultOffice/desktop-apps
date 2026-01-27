@@ -286,12 +286,12 @@
     </message>
     <message>
         <source>OFORM Document (*.oform)</source>
-        <translation type="vanished">Biểu mẫu trực tuyến có thể điền ONLYOFFICE (*.oform)</translation>
+        <translation type="vanished">Biểu mẫu trực tuyến có thể điền UNIVAULTOFFICE (*.oform)</translation>
     </message>
     <message>
         <location filename="../src/components/cfiledialog.cpp" line="83"/>
         <source>DOCXF Document (*.docxf)</source>
-        <translation>Mẫu biểu mẫu tài liệu ONLYOFFICE (*.docxf)</translation>
+        <translation>Mẫu biểu mẫu tài liệu UNIVAULTOFFICE (*.docxf)</translation>
     </message>
     <message>
         <location filename="../src/components/cfiledialog.cpp" line="85"/>
@@ -361,7 +361,7 @@
     </message>
     <message>
         <location filename="../src/components/cfiledialog.cpp" line="82"/>
-        <source>ONLYOFFICE Form Document (*.pdf)</source>
+        <source>UNIVAULTOFFICE Form Document (*.pdf)</source>
         <translation>Mẫu PDF (*.pdf)</translation>
     </message>
     <message>

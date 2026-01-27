@@ -1,19 +1,19 @@
 /*
- * (c) Copyright Ascensio System SIA 2010-2019
+ * (c) Copyright Univault Technologies 2026-2026
  *
  * This program is a free software product. You can redistribute it and/or
  * modify it under the terms of the GNU Affero General Public License (AGPL)
  * version 3 as published by the Free Software Foundation. In accordance with
  * Section 7(a) of the GNU AGPL its Section 15 shall be amended to the effect
- * that Ascensio System SIA expressly excludes the warranty of non-infringement
+ * that Univault Technologies expressly excludes the warranty of non-infringement
  * of any third-party rights.
  *
  * This program is distributed WITHOUT ANY WARRANTY; without even the implied
  * warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR  PURPOSE. For
  * details, see the GNU AGPL at: http://www.gnu.org/licenses/agpl-3.0.html
  *
- * You can contact Ascensio System SIA at 20A-12 Ernesta Birznieka-Upisha
- * street, Riga, Latvia, EU, LV-1050.
+ * You can contact Univault Technologies at 0, bldg. 0, office 0 (TEST) Test Legal Street (TEST)
+ * street, Moscow (TEST), Russia (TEST), EU, 000000 (TEST).
  *
  * The  interactive user interfaces in modified source and object code versions
  * of the Program must display Appropriate Legal Notices, as required under
@@ -32,10 +32,10 @@
 
 //
 //  ASCCommonViewController.m
-//  ONLYOFFICE
+//  UNIVAULTOFFICE
 //
 //  Created by Alexander Yuzhin on 9/7/15.
-//  Copyright (c) 2015 Ascensio System SIA. All rights reserved.
+//  Copyright (c) 2026 Univault Technologies. All rights reserved.
 //
 
 #import "ASCCommonViewController.h"
@@ -395,7 +395,7 @@
     
     if (senderId) {
         if ([senderId isEqualToString:kStartPageButtonIdentifier]) {
-            [self onOnlyofficeButton:nil];
+            [self onUnivaultofficeButton:nil];
         } else if ([senderId isEqualToString:[NSString stringWithFormat:kCreationButtonIdentifier, @"document"]]) {
             [[NSNotificationCenter defaultCenter] postNotificationName:CEFEventNameCreateTab
                                                                 object:nil
@@ -575,7 +575,7 @@
                 NSString * localValue = [NSString stringWithString:value];
                 
                 if (NSString *provider = tab.params[@"provider"]) {
-                    if ([@[@"asc", @"onlyoffice"] containsObject:provider]) {
+                    if ([@[@"asc", @"univaultoffice"] containsObject:provider]) {
                         if ([localTabValue isEqualToString:localValue]) {
                             return tab;
                         }
@@ -1297,7 +1297,7 @@
                                 
                                 // Hotfix virtual path
                                 if (NSString *provider = tab.params[@"provider"]) {
-                                    if ([@[@"asc", @"onlyoffice"] containsObject:provider]) {
+                                    if ([@[@"asc", @"univaultoffice"] containsObject:provider]) {
                                         originalUrl = [originalUrl stringByReplacingOccurrencesOfString:@"/products/files/" withString:@""];
                                     }
                                 }
@@ -1709,7 +1709,7 @@
             
             // Open start page or portal
             if (path) {
-                if ([path isEqualToString:@"onlyoffice.com"]) { // onlyoffice.com equal "offline"
+                if ([path isEqualToString:@"univaultoffice.github.io"]) { // univaultoffice.github.io equal "offline"
                     [self.tabView selectTabViewItemWithIdentifier:rootTabId];
                     [self.tabsControl selectTab:nil];
                 } else {
@@ -2149,7 +2149,7 @@
 #pragma mark -
 #pragma mark ASCTitleBarController Delegate
 
-- (void)onOnlyofficeButton:(id)sender {
+- (void)onUnivaultofficeButton:(id)sender {
     [self.tabView selectTabViewItemWithIdentifier:rootTabId];
     [self.tabsControl selectTab:nil];
 }

@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FC0BD683258B63F700C47F95"
-               BuildableName = "ONLYOFFICE.app"
-               BlueprintName = "ONLYOFFICE-v8"
-               ReferencedContainer = "container:ONLYOFFICE.xcodeproj">
+               BuildableName = "UNIVAULTOFFICE.app"
+               BlueprintName = "UNIVAULTOFFICE-v8"
+               ReferencedContainer = "container:UNIVAULTOFFICE.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FC0BD683258B63F700C47F95"
-            BuildableName = "ONLYOFFICE.app"
-            BlueprintName = "ONLYOFFICE-v8"
-            ReferencedContainer = "container:ONLYOFFICE.xcodeproj">
+            BuildableName = "UNIVAULTOFFICE.app"
+            BlueprintName = "UNIVAULTOFFICE-v8"
+            ReferencedContainer = "container:UNIVAULTOFFICE.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FC0BD683258B63F700C47F95"
-            BuildableName = "ONLYOFFICE.app"
-            BlueprintName = "ONLYOFFICE-v8"
-            ReferencedContainer = "container:ONLYOFFICE.xcodeproj">
+            BuildableName = "UNIVAULTOFFICE.app"
+            BlueprintName = "UNIVAULTOFFICE-v8"
+            ReferencedContainer = "container:UNIVAULTOFFICE.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

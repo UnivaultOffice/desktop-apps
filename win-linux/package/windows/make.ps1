@@ -1,13 +1,13 @@
-﻿param (
+param (
     [System.Version]$Version = "0.0.0.0",
     [string]$Arch = "x64",
     [string]$Target,
-    [string]$CompanyName = "ONLYOFFICE",
+    [string]$CompanyName = "UNIVAULTOFFICE",
     [string]$ProductName = "DesktopEditors",
     [string]$SourceDir,
     [string]$BuildDir,
     [switch]$Sign,
-    [string]$CertName = "Ascensio System SIA",
+    [string]$CertName = "Univault Technologies",
     [string]$TimestampServer = "http://timestamp.digicert.com"
 )
 

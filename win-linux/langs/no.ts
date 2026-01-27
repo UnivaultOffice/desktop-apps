@@ -286,12 +286,12 @@
     </message>
     <message>
         <source>OFORM Document (*.oform)</source>
-        <translation type="vanished">ONLYOFFICE utfyllbart elektronisk skjema (*.oform)</translation>
+        <translation type="vanished">UNIVAULTOFFICE utfyllbart elektronisk skjema (*.oform)</translation>
     </message>
     <message>
         <location filename="../src/components/cfiledialog.cpp" line="83"/>
         <source>DOCXF Document (*.docxf)</source>
-        <translation>ONLYOFFICE-dokumentskjemamal (*.docxf)</translation>
+        <translation>UNIVAULTOFFICE-dokumentskjemamal (*.docxf)</translation>
     </message>
     <message>
         <location filename="../src/components/cfiledialog.cpp" line="85"/>
@@ -361,7 +361,7 @@
     </message>
     <message>
         <location filename="../src/components/cfiledialog.cpp" line="82"/>
-        <source>ONLYOFFICE Form Document (*.pdf)</source>
+        <source>UNIVAULTOFFICE Form Document (*.pdf)</source>
         <translation>PDF-skjema (*.pdf)</translation>
     </message>
     <message>

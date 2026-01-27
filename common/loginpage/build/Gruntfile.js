@@ -66,7 +66,7 @@ module.exports = function(grunt) {
                 options: {
                     stripBanners: true,
                     banner: '/*\n' +
-                    ' * Copyright (c) Ascensio System SIA <%= grunt.template.today("yyyy") %>. All rights reserved\n' +
+                    ' * Copyright (c) Univault Technologies <%= grunt.template.today("yyyy") %>. All rights reserved\n' +
                     ' *\n' +
                     ' * <%= pkg.homepage %> \n' +
                     ' *\n' +

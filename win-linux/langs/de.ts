@@ -302,12 +302,12 @@
     </message>
     <message>
         <source>OFORM Document (*.oform)</source>
-        <translation type="vanished">ONLYOFFICE-Form für Online-Ausfüllung (*.oform)</translation>
+        <translation type="vanished">UNIVAULTOFFICE-Form für Online-Ausfüllung (*.oform)</translation>
     </message>
     <message>
         <location filename="../src/components/cfiledialog.cpp" line="83"/>
         <source>DOCXF Document (*.docxf)</source>
-        <translation>ONLYOFFICE-Formularvorlage (*.docxf)</translation>
+        <translation>UNIVAULTOFFICE-Formularvorlage (*.docxf)</translation>
     </message>
     <message>
         <location filename="../src/components/cfiledialog.cpp" line="85"/>
@@ -381,7 +381,7 @@
     </message>
     <message>
         <location filename="../src/components/cfiledialog.cpp" line="82"/>
-        <source>ONLYOFFICE Form Document (*.pdf)</source>
+        <source>UNIVAULTOFFICE Form Document (*.pdf)</source>
         <translation>PDF-Formular (*.pdf)</translation>
     </message>
     <message>

@@ -3,7 +3,7 @@
 //  SPUUpdateCheck
 //
 //  Created by Mayur Pawashe on 8/28/21.
-//  Copyright © 2021 Sparkle Project. All rights reserved.
+//  Copyright © 2026 Sparkle Project. All rights reserved.
 //
 
 #ifndef SPUUpdateCheck_h

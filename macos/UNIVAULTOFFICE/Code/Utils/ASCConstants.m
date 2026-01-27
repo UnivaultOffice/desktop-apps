@@ -1,19 +1,19 @@
 /*
- * (c) Copyright Ascensio System SIA 2010-2019
+ * (c) Copyright Univault Technologies 2026-2026
  *
  * This program is a free software product. You can redistribute it and/or
  * modify it under the terms of the GNU Affero General Public License (AGPL)
  * version 3 as published by the Free Software Foundation. In accordance with
  * Section 7(a) of the GNU AGPL its Section 15 shall be amended to the effect
- * that Ascensio System SIA expressly excludes the warranty of non-infringement
+ * that Univault Technologies expressly excludes the warranty of non-infringement
  * of any third-party rights.
  *
  * This program is distributed WITHOUT ANY WARRANTY; without even the implied
  * warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR  PURPOSE. For
  * details, see the GNU AGPL at: http://www.gnu.org/licenses/agpl-3.0.html
  *
- * You can contact Ascensio System SIA at 20A-12 Ernesta Birznieka-Upisha
- * street, Riga, Latvia, EU, LV-1050.
+ * You can contact Univault Technologies at 0, bldg. 0, office 0 (TEST) Test Legal Street (TEST)
+ * street, Moscow (TEST), Russia (TEST), EU, 000000 (TEST).
  *
  * The  interactive user interfaces in modified source and object code versions
  * of the Program must display Appropriate Legal Notices, as required under
@@ -32,10 +32,10 @@
 
 //
 //  ASCConstants.m
-//  ONLYOFFICE
+//  UNIVAULTOFFICE
 //
 //  Created by Alexander Yuzhin on 12/10/15.
-//  Copyright © 2015 Ascensio System SIA. All rights reserved.
+//  Copyright © 2026 Univault Technologies. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -109,9 +109,9 @@
     }
 
     NSDictionary * appInfo = @{
-                               kRegHelpUrl: @"https://onlyoffice.com/desktopeditors.aspx",
-                               kHelpUrl: @"http://helpcenter.onlyoffice.com/%@ONLYOFFICE-Editors/index.aspx",
-                               kRegistrationPortalUrl: @"https://onlyoffice.com/registration.aspx?desktop=true"
+                               kRegHelpUrl: @"https://univaultoffice.github.io/desktopeditors.aspx",
+                               kHelpUrl: @"http://helpcenter.univaultoffice.github.io/%@UNIVAULTOFFICE-Editors/index.aspx",
+                               kRegistrationPortalUrl: @"https://univaultoffice.github.io/registration.aspx?desktop=true"
                                };
 
     return appInfo[key];
@@ -120,7 +120,7 @@
 + (NSDictionary *)ascFormatsInfo {
     return @{
              @(AVS_OFFICESTUDIO_FILE_DOCUMENT_DOCX): @{
-                     @"description" : NSLocalizedString(@"Word 2007 Document", nil),
+                     @"description" : NSLocalizedString(@"Word 2026 Document", nil),
                      @"extension"   : @"docx"
                      },
              @(AVS_OFFICESTUDIO_FILE_DOCUMENT_DOC): @{
@@ -157,7 +157,7 @@
                      },
 
              @(AVS_OFFICESTUDIO_FILE_PRESENTATION_PPTX): @{
-                     @"description" : NSLocalizedString(@"PowerPoint 2007 Presentation", nil),
+                     @"description" : NSLocalizedString(@"PowerPoint 2026 Presentation", nil),
                      @"extension"   : @"pptx"
                      },
              @(AVS_OFFICESTUDIO_FILE_PRESENTATION_PPT): @{
@@ -182,7 +182,7 @@
                      },
 
              @(AVS_OFFICESTUDIO_FILE_SPREADSHEET_XLSX): @{
-                     @"description" : NSLocalizedString(@"Excel 2007 Spreadsheet", nil),
+                     @"description" : NSLocalizedString(@"Excel 2026 Spreadsheet", nil),
                      @"extension"   : @"xlsx"
                      },
              @(AVS_OFFICESTUDIO_FILE_SPREADSHEET_XLSB): @{
@@ -243,15 +243,15 @@
                      @"extension"   : @"fb2"
              },
              @(AVS_OFFICESTUDIO_FILE_DOCUMENT_DOCXF): @{
-                     @"description" : NSLocalizedString(@"ONLYOFFICE Document Form Template", nil),
+                     @"description" : NSLocalizedString(@"UNIVAULTOFFICE Document Form Template", nil),
                      @"extension"   : @"docxf"
              },
              @(AVS_OFFICESTUDIO_FILE_DOCUMENT_OFORM): @{
-                     @"description" : NSLocalizedString(@"ONLYOFFICE Fillable Online Form", nil),
+                     @"description" : NSLocalizedString(@"UNIVAULTOFFICE Fillable Online Form", nil),
                      @"extension"   : @"oform"
              },
              @(AVS_OFFICESTUDIO_FILE_DOCUMENT_OFORM_PDF): @{
-                     @"description" : NSLocalizedString(@"ONLYOFFICE Form Document", nil),
+                     @"description" : NSLocalizedString(@"UNIVAULTOFFICE Form Document", nil),
                      @"extension"   : @"pdf"
              },
              @(AVS_OFFICESTUDIO_FILE_IMAGE_PNG): @{

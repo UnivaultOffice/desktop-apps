@@ -3,7 +3,7 @@
 //  SUInstallerLauncher+Private
 //
 //  Created by Mayur Pawashe on 8/21/21.
-//  Copyright © 2021 Sparkle Project. All rights reserved.
+//  Copyright © 2026 Sparkle Project. All rights reserved.
 //
 
 #ifndef SUInstallerLauncher_Private_h

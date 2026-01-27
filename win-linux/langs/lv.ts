@@ -286,12 +286,12 @@
     </message>
     <message>
         <source>OFORM Document (*.oform)</source>
-        <translation type="vanished">ONLYOFFICE aizpildāmā tiešsaistes veidlapa (*.oform)</translation>
+        <translation type="vanished">UNIVAULTOFFICE aizpildāmā tiešsaistes veidlapa (*.oform)</translation>
     </message>
     <message>
         <location filename="../src/components/cfiledialog.cpp" line="83"/>
         <source>DOCXF Document (*.docxf)</source>
-        <translation>ONLYOFFICE veidlapas veidne (*.docxf)</translation>
+        <translation>UNIVAULTOFFICE veidlapas veidne (*.docxf)</translation>
     </message>
     <message>
         <location filename="../src/components/cfiledialog.cpp" line="85"/>
@@ -361,7 +361,7 @@
     </message>
     <message>
         <location filename="../src/components/cfiledialog.cpp" line="82"/>
-        <source>ONLYOFFICE Form Document (*.pdf)</source>
+        <source>UNIVAULTOFFICE Form Document (*.pdf)</source>
         <translation>PDF veidlapa (*.pdf)</translation>
     </message>
     <message>

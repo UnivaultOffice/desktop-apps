@@ -1,13 +1,13 @@
-﻿param (
+param (
     [System.Version]$Version = "0.0.0.0",
     [string]$Arch = "x64",
     [string]$Target,
-    [string]$CompanyName = "ONLYOFFICE",
+    [string]$CompanyName = "UNIVAULTOFFICE",
     [string]$ProductName = "DesktopEditors",
     [string]$BuildDir,
     [string]$BrandingDir,
     [switch]$Sign,
-    [string]$CertName = "Ascensio System SIA",
+    [string]$CertName = "Univault Technologies",
     [string]$TimestampServer = "http://timestamp.digicert.com",
     [switch]$Debug
 )
@@ -105,8 +105,8 @@ $InnoArgs = "/DVERSION=$Version",
 if ($BrandingDir) {
     $InnoArgs += "/DBRANDING_DIR=$BrandingDir"
 }
-if ($CompanyName -eq "onlyoffice") {
-    $InnoArgs += "/D_ONLYOFFICE"
+if ($CompanyName -eq "univaultoffice") {
+    $InnoArgs += "/D_UNIVAULTOFFICE"
 }
 switch ($Target) {
     "commercial" {

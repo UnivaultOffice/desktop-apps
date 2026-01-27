@@ -1,5 +1,5 @@
 changequote(',')dnl
-define('DESKTOPEDITORS_NAME', 'ONLYOFFICE')dnl
+define('DESKTOPEDITORS_NAME', 'UNIVAULTOFFICE')dnl
 define('DESKTOPEDITORS[GenericName[en]]', 'Document Editor')dnl
 define('DESKTOPEDITORS[GenericName[ru]]', 'Редактор документов')dnl
 define('DESKTOPEDITORS[Comment[en]]', 'Edit office documents')dnl
@@ -11,7 +11,7 @@ define('NEWDOCUMENT[Name[fr]]', 'Nouveau document')dnl
 define('NEWDOCUMENT[Name[es]]', 'Nuevo documento')dnl
 define('NEWDOCUMENT[Name[ru]]', 'Новый документ')dnl
 dnl
-define('DESKTOPEDITORS_WM_CLASS', 'ONLYOFFICE')dnl
+define('DESKTOPEDITORS_WM_CLASS', 'UNIVAULTOFFICE')dnl
 dnl
 define('NEWSPREADSHEET[Name[en]]', 'New spreadsheet')dnl
 define('NEWSPREADSHEET[Name[de]]', 'Neue Tabelle')dnl
@@ -25,15 +25,15 @@ define('NEWPRESENTATION[Name[fr]]', 'Nouvelle présentation')dnl
 define('NEWPRESENTATION[Name[es]]', 'Nueva presentación')dnl
 define('NEWPRESENTATION[Name[ru]]', 'Новая презентация')dnl
 dnl
-define('IMAGEVIEWER[Name[en]]', 'ONLYOFFICE Image Viewer')dnl
-define('IMAGEVIEWER[Name[ru]]', 'Просмотр изображений ONLYOFFICE')dnl
+define('IMAGEVIEWER[Name[en]]', 'UNIVAULTOFFICE Image Viewer')dnl
+define('IMAGEVIEWER[Name[ru]]', 'Просмотр изображений UNIVAULTOFFICE')dnl
 define('IMAGEVIEWER[GenericName[en]]', 'Image Viewer')dnl
 define('IMAGEVIEWER[GenericName[ru]]', 'Просмотр изображений')dnl
 define('IMAGEVIEWER[Comment[en]]', 'View image file')dnl
 define('IMAGEVIEWER[Comment[ru]]', 'Смотреть файл изображений')dnl
 dnl
-define('VIDEOPLAYER[Name[en]]', 'ONLYOFFICE Video Player')dnl
-define('VIDEOPLAYER[Name[ru]]', 'Видео проигрыватель ONLYOFFICE')dnl
+define('VIDEOPLAYER[Name[en]]', 'UNIVAULTOFFICE Video Player')dnl
+define('VIDEOPLAYER[Name[ru]]', 'Видео проигрыватель UNIVAULTOFFICE')dnl
 define('VIDEOPLAYER[GenericName[en]]', 'Video Player')dnl
 define('VIDEOPLAYER[GenericName[ru]]', 'Видео проигрыватель')dnl
 define('VIDEOPLAYER[Comment[en]]', 'Play video file')dnl

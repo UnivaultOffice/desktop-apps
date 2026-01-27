@@ -7,7 +7,7 @@ if "%PACKAGE%"=="" (
     set PACKAGE=DesktopEditors
 )
 
-set ORG=onlyoffice
+set ORG=univaultoffice
 set OUTPATH=%~dp0..\..\..\..\build_tools\out\%PLATFORM%\%ORG%\%PACKAGE%
 set FILES=msvcp140.dll vcruntime140.dll
 if "%PLATFORM%"=="win_32" (

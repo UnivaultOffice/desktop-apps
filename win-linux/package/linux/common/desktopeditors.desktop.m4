@@ -80,7 +80,7 @@ text/markdown;dnl
 text/plain;dnl
 text/tab-separated-values;dnl
 x-scheme-handler/M4_SCHEME_HANDLER;
-Actions=NewDocument;NewSpreadsheet;NewPresentation;ifelse(M4_COMPANY_NAME, ONLYOFFICE, NewForm;)
+Actions=NewDocument;NewSpreadsheet;NewPresentation;ifelse(M4_COMPANY_NAME, UNIVAULTOFFICE, NewForm;)
 StartupWMClass=DESKTOPEDITORS_WM_CLASS
 
 [Desktop Action NewDocument]
@@ -107,7 +107,7 @@ ifdef('NEWPRESENTATION[Name[es]]',Name[es]=defn('NEWPRESENTATION[Name[es]]'),'dn
 ifdef('NEWPRESENTATION[Name[ru]]',Name[ru]=defn('NEWPRESENTATION[Name[ru]]'),'dnl')
 Exec=/usr/bin/M4_DESKTOPEDITORS_EXEC --new:slide
 
-ifelse(M4_COMPANY_NAME, ONLYOFFICE,
+ifelse(M4_COMPANY_NAME, UNIVAULTOFFICE,
 [Desktop Action NewForm]
 Name=defn('NEWFORM[Name[en]]')
 ifdef('NEWFORM[Name[de]]',Name[de]=defn('NEWFORM[Name[de]]'),'dnl')

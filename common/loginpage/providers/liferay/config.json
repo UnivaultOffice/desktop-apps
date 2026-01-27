@@ -2,9 +2,9 @@
     "provider": "liferay",
     "name": "Liferay",
     "check": {
-        "url": "/o/onlyoffice/status",
+        "url": "/o/univaultoffice/status",
     },
-    "editorPage" : "regex:[?&]p_p_id=com_onlyoffice_liferay_docs_portlet_editorportlet.*",
+    "editorPage" : "regex:[?&]p_p_id=com_univaultoffice_liferay_docs_portlet_editorportlet.*",
     "cryptoSupport" : "true",
     "icons": {
         "themeLight":{
@@ -16,5 +16,5 @@
             "buttonLogo": "./assets/buttonlogo_dark.svg"
         }
     },
-    "startPage": "/o/onlyoffice/desktop/login"
+    "startPage": "/o/univaultoffice/desktop/login"
 }

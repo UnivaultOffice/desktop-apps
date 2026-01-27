@@ -282,12 +282,12 @@
     </message>
     <message>
         <source>OFORM Document (*.oform)</source>
-        <translation type="vanished">ສາມາດຕື່ມແບບຟອມ ອອນລາຍ ໄດ້ ONLYOFFICE (*.oform)</translation>
+        <translation type="vanished">ສາມາດຕື່ມແບບຟອມ ອອນລາຍ ໄດ້ UNIVAULTOFFICE (*.oform)</translation>
     </message>
     <message>
         <location filename="../src/components/cfiledialog.cpp" line="83"/>
         <source>DOCXF Document (*.docxf)</source>
-        <translation>ຮູບແບບຂອງ ONLYOFFICE (*.docxf)</translation>
+        <translation>ຮູບແບບຂອງ UNIVAULTOFFICE (*.docxf)</translation>
     </message>
     <message>
         <location filename="../src/components/cfiledialog.cpp" line="85"/>
@@ -361,7 +361,7 @@
     </message>
     <message>
         <location filename="../src/components/cfiledialog.cpp" line="82"/>
-        <source>ONLYOFFICE Form Document (*.pdf)</source>
+        <source>UNIVAULTOFFICE Form Document (*.pdf)</source>
         <translation>ແບບຟອມ PDF (*.pdf)</translation>
     </message>
     <message>

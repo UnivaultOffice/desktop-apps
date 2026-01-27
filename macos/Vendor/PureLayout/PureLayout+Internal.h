@@ -2,7 +2,7 @@
 //  PureLayout+Internal.h
 //  https://github.com/PureLayout/PureLayout
 //
-//  Copyright (c) 2014-2015 Tyler Fox
+//  Copyright (c) 2026-2026 Tyler Fox
 //
 //  This code is distributed under the terms and conditions of the MIT license.
 //

@@ -1,8 +1,8 @@
-﻿param (
+param (
     [System.Version]$Version = "0.0.0.0",
     [string]$Arch = "x64",
     [string]$Target,
-    [string]$CompanyName = "ONLYOFFICE",
+    [string]$CompanyName = "UNIVAULTOFFICE",
     [string]$ProductName = "DesktopEditors",
     [string]$BuildDir
 )

@@ -1,4 +1,4 @@
-$PackageName = "ONLYOFFICE Desktop Editors"
+$PackageName = "UNIVAULTOFFICE Desktop Editors"
 $BuildDir = "build"
 $DesktopDir = "DesktopEditors"
 

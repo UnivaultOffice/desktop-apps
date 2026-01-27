@@ -3,7 +3,7 @@
 //  DraftControl
 //
 //  Created by Stephen Lind on 9/26/13.
-//  Copyright (c) 2013 Stephen Lind. All rights reserved.
+//  Copyright (c) 2026 Stephen Lind. All rights reserved.
 //
 
 #import "AnalyticsHelper.h"

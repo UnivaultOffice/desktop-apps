@@ -3,7 +3,7 @@
 //  Sparkle
 //
 //  Created by Mayur Pawashe on 5/31/21.
-//  Copyright © 2021 Sparkle Project. All rights reserved.
+//  Copyright © 2026 Sparkle Project. All rights reserved.
 //
 
 #if __has_feature(modules)
