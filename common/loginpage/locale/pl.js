@@ -73,7 +73,7 @@ l10n.pl = {
     emptySlide2Title: 'Wyświetl lub przywróć poprzednie wersje',
     emptySlide2Text: 'Przywracaj lub tylko wyświetlaj poprzednie wersje swojego dokumentu, śledź zmiany i ich autorów',
     emptySlide3Title: 'Przechowuj w chmurze',
-    emptySlide3Text: 'Przechowuj swoje dokumenty w chmurze ONLY OFFICE i miej do nich dostęp gdziekolwiek jesteś, kiedykolwiek zechcesz.',
+    emptySlide3Text: 'Przechowuj swoje dokumenty w chmurze UNIVAULT OFFICE i miej do nich dostęp gdziekolwiek jesteś, kiedykolwiek zechcesz.',
     settUserName: 'Nazwa Użytkownika',
     settResetUserName: 'Przywróć ustawienia domyślne',
     settOpenMode: 'Otwórz dokument w trybie podglądu',

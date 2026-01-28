@@ -6,7 +6,7 @@ on:
     branches:
       - '**'
     paths:
-      - 'macos/ONLYOFFICE/update/updates/ONLYOFFICE/changes/**'
+      - 'macos/UnivaultOffice/update/updates/UnivaultOffice/changes/**'
       - '.aspell.*.pws'
 
 jobs:
@@ -21,7 +21,7 @@ jobs:
       - name: Run spellchecker for english changelogs
         if: always()
         run: |
-          for d in macos/ONLYOFFICE/update/updates/ONLYOFFICE/changes/*/ ; do
+          for d in macos/UnivaultOffice/update/updates/UnivaultOffice/changes/*/ ; do
             if [ -f ${d}changes.html ]; then
               echo "Checking ${d}changes.html"
               SPELLCHECK_OUT=$(cat ${d}changes.html \
@@ -36,7 +36,7 @@ jobs:
       - name: Run spellchecker for russian changelogs
         if: always()
         run: |
-          for d in macos/ONLYOFFICE/update/updates/ONLYOFFICE/changes/*/ ; do
+          for d in macos/UnivaultOffice/update/updates/UnivaultOffice/changes/*/ ; do
             if [ -f ${d}changes.ru.html ]; then
               echo "Checking ${d}changes.ru.html"
               SPELLCHECK_OUT=$(cat ${d}changes.ru.html \
