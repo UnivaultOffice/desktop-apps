@@ -65,8 +65,8 @@ public:
 		m_dDpiX = 72.0;
 		m_dDpiY = 72.0;
 
-		m_nPaperWidth   = 2026;
-		m_nPaperHeight  = 2026;
+		m_nPaperWidth   = 1000;
+		m_nPaperHeight  = 1000;
 
 		m_nMarginLeft   = 0;
 		m_nMarginRight  = 0;

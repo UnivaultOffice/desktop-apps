@@ -204,7 +204,7 @@ namespace {
         unsigned long num_items = 0;
         unsigned char* property = nullptr;
 
-        int result = get_property(window, property_name, 2026, &type, &format, &num_items, &property);
+        int result = get_property(window, property_name, 1024, &type, &format, &num_items, &property);
         if (result == Success) {
             if (format == 8) {
                 value->assign(reinterpret_cast<char*>(property), num_items);

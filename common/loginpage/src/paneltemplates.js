@@ -154,6 +154,16 @@
 
     utils.fn.extend(ControllerTemplates.prototype, (function() {
         let isCloudTmplsLoading = false;
+        let templatesDomain = 'https://templates.univaultoffice.github.io';
+
+        const normalizeTemplateUrl = function(url) {
+            if ( !url ) return url;
+            if ( /^https?:\/\//i.test(url) ) return url;
+            if ( url.startsWith('//') ) return window.location.protocol + url;
+            if ( !templatesDomain ) return url;
+            const base = templatesDomain.replace(/\/+$/, '');
+            return base + (url.startsWith('/') ? '' : '/') + url;
+        };
 
         const _on_nav_item_click = function(e) {
             $('.nav-item', this.view.$panel).removeClass('selected');
@@ -310,17 +320,25 @@
                 const file_ext = info['form_exts']['data'][0]['attributes']['ext'],
                     id = i.id;
                 if (!this.templates.items.some(t => t.uid === id)) {
+                    const preview_url = info.card_prewiew && info.card_prewiew.data ?
+                        normalizeTemplateUrl(info.card_prewiew.data.attributes.url) : undefined;
+                    const file_url = info.file_oform && info.file_oform.data && info.file_oform.data.length ?
+                        normalizeTemplateUrl(info.file_oform.data[0].attributes.url) : undefined;
+                    const icon_url = info.template_image && info.template_image.data && info.template_image.data.attributes &&
+                        info.template_image.data.attributes.formats && info.template_image.data.attributes.formats.thumbnail ?
+                        normalizeTemplateUrl(info.template_image.data.attributes.formats.thumbnail.url) : undefined;
 
                     const m = new FileTemplateModel({
                         uid: id,
                         name: info['name_form'],
                         fullName: [info['name_form'], file_ext].join('.'),
                         descr: info['template_desc'],
-                        preview: info.card_prewiew ? info.card_prewiew.data.attributes.url : undefined,
-                        path: info.file_oform ? info.file_oform.data[0].attributes.url : undefined,
+                        preview: preview_url,
+                        path: file_url,
                         type: utils.fileExtensionToFileFormat(file_ext),
-                        icon: info.template_image ? info.template_image.data.attributes.formats.thumbnail.url : undefined,
-                        size: info.file_oform ? info.file_oform.data[0].attributes.size : undefined,
+                        icon: icon_url,
+                        size: info.file_oform && info.file_oform.data && info.file_oform.data.length ?
+                            info.file_oform.data[0].attributes.size : undefined,
                         isCloud: true,
                     });
 
@@ -376,7 +394,8 @@
             page_num++;
             isCloudTmplsLoading = true;
 
-            const _domain = localStorage.templatesdomain ? localStorage.templatesdomain : 'https://templates.univaultoffice.github.io'; // https://oforms.teamlab.info
+            templatesDomain = localStorage.templatesdomain ? localStorage.templatesdomain : 'https://templates.univaultoffice.github.io'; // https://oforms.teamlab.info
+            const _domain = templatesDomain.replace(/\/+$/, '');
             const _url = `${_domain}/dashboard/api/oforms?populate=*&locale=${locale}&pagination[page]=${page_num}`;
             fetch(_url)
                 .then(r => r.json())

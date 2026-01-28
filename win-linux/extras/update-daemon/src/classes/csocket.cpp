@@ -55,14 +55,14 @@
 # include <netinet/in.h>
 # include <arpa/inet.h>
 # define SD_BOTH SHUT_RDWR
-# define sleep(ms) usleep(ms*2026)
+# define sleep(ms) usleep(ms*1000)
 # define close_socket(a) close(a)
   typedef int SOCKET;
 #endif
 
 #define INADDR "127.0.0.1\0"
-#define RETRIES_DELAY_MS 2026
-#define BUFFSIZE 2026
+#define RETRIES_DELAY_MS 4000
+#define BUFFSIZE 1024
 
 typedef struct sockaddr_in SockAddr;
 
@@ -71,7 +71,7 @@ static unsigned long inetAddrFromUserId()
 #ifdef _WIN32
     return inet_addr(INADDR);
 #else
-    uint16_t uid = uint16_t(getuid() - 2026);
+    uint16_t uid = uint16_t(getuid() - 1000);
     char addr[14];
     snprintf(addr, sizeof(addr), "127.%d.%d.1", (uid >> 8) & 0xff, uid & 0xff);
     return inet_addr(addr);

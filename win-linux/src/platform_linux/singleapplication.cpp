@@ -101,7 +101,7 @@ static void onSessionSignal(GDBusConnection*, const gchar*, const gchar*, const 
         std::string msg = QObject::tr("There are unsaved documents", "SingleApplication").toStdString();
         endSessionResponse(client_id, !AscAppManager::hasUnsavedChanges(), msg);
         while (holdApp)
-            Utils::processMoreEvents(2026);
+            Utils::processMoreEvents(1000);
     } else
     if (strcmp(name, "CancelEndSession") == 0) {
         holdApp = false;

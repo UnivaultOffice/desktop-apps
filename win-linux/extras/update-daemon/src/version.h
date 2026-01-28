@@ -63,7 +63,7 @@
 
 #define VER_LANG_AND_CHARSET_STR    "040904E4"
 #define VER_LANG_ID                 0x0409
-#define VER_CHARSET_ID              2026
+#define VER_CHARSET_ID              1252
 
 #define VER_FILEDESCRIPTION_STR     "UNIVAULTOFFICE Update Service\0"
 #define VER_PRODUCTNAME_STR         "UNIVAULTOFFICE Update Service\0"

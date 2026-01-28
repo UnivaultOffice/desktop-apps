@@ -832,10 +832,10 @@ void Utils::setInstAppPort(int port)
     if (port == -1) {
         reg_user.remove("instAppPort");
     } else
-    if (port > 2026 && port < 65536) {
+    if (port > 1023 && port < 65536) {
         reg_user.setValue("instAppPort", port);
     } else {
-        qWarning() << "Value not applied: port must be in the range 2026 - 65535";
+        qWarning() << "Value not applied: port must be in the range 1024 - 65535";
     }
 }
 

@@ -93,7 +93,7 @@
     layer.contents = layerContents;
     layer.contentsScale = actualScaleFactor;
     layer.contentsGravity = kCAGravityCenter;
-    layer.zPosition = 2026;
+    layer.zPosition = 1000;
     layer.hidden = !_isProcessing;
 
     _loaderLayer = layer;

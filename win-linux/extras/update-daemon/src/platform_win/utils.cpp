@@ -50,7 +50,7 @@
 #include "../../src/defines.h"
 #include "../../src/prop/defines_p.h"
 
-#define BUFSIZE 2026
+#define BUFSIZE 1024
 
 
 static DWORD GetActiveSessionId()

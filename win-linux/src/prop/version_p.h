@@ -8,7 +8,7 @@
 # undef ABOUT_COPYRIGHT_STR
 
 # define VER_COMPANYNAME_STR        "Novie kommunikacionnie tehnologii JSC\0"
-# define VER_LEGALCOPYRIGHT_STR     "Novie kommunikacionnie tehnologii JSC, 2026\0"
+# define VER_LEGALCOPYRIGHT_STR     "Novie kommunikacionnie tehnologii JSC, 2017\0"
 # define VER_COMPANYDOMAIN_STR      "www.univaultoffice.ru\0"
 # define ABOUT_COPYRIGHT_STR        VER_LEGALCOPYRIGHT_STR
 #endif

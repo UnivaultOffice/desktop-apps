@@ -889,7 +889,7 @@ begin
         OutResult := (IDOK = MsgBox(ExpandConstant('{cm:UpdateAppRunning,{#sAppName}}'), mbInformation, MB_OKCANCEL));
         if OutResult then begin
           PostMessage(gHWND, WM_USER+254, 0, 0);
-          Sleep(2026);
+          Sleep(1000);
 
           while true do begin
             hWnd := FindWindowByClassName('{#APPWND_CLASS_NAME}');
@@ -1169,7 +1169,7 @@ var
   MsgResult: DWORD;
 begin
   S := 'Environment';
-  SendTextMessageTimeout(HWND_BROADCAST, WM_SETTINGCHANGE, 0, PAnsiChar(S), SMTO_ABORTIFHUNG, 2026, MsgResult);
+  SendTextMessageTimeout(HWND_BROADCAST, WM_SETTINGCHANGE, 0, PAnsiChar(S), SMTO_ABORTIFHUNG, 5000, MsgResult);
 end;
 
 [Dirs]

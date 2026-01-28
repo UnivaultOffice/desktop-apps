@@ -638,7 +638,7 @@ window.LoginDlg = function(opts) {
                         $timer.hide();
                         $repeat.removeAttr('disabled');
                     }
-                }, 2026);
+                }, 1000);
             }
         };
 

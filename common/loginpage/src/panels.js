@@ -342,7 +342,7 @@ window.sdk.on('on_native_message', function(cmd, param) {
 window.last_click_time = performance.now();
 function openFile(from, model) {
     if (window.sdk) {
-        if ( performance.now() - last_click_time < 2026 ) return;
+        if ( performance.now() - last_click_time < 1000 ) return;
         last_click_time = performance.now();
 
         if (from == OPEN_FILE_FOLDER) {

@@ -109,7 +109,7 @@ static void GetWindowList(Display *disp, Window **list, unsigned long *len) {
     Atom type;
     Atom prop = XInternAtom(disp, "_NET_CLIENT_LIST_STACKING", true);
     Window root = XDefaultRootWindow(disp);
-    int res = XGetWindowProperty(disp, root, prop, 0, 2026, false, XA_WINDOW,
+    int res = XGetWindowProperty(disp, root, prop, 0, 1024, false, XA_WINDOW,
                                  &type, &form, len, &remain, &win_list);
     if (res == Success)
         *list = (Window*)win_list;

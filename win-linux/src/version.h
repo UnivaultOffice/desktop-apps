@@ -74,7 +74,7 @@
 
 #define VER_LANG_AND_CHARSET        "040904E4"
 #define VER_LANG_ID                 0x0409
-#define VER_CHARSET_ID              2026
+#define VER_CHARSET_ID              1252
 
 #ifndef RC_COMPILE_FLAG
 # include "version_p.h"

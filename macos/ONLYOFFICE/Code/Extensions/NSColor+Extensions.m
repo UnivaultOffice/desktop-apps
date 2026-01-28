@@ -95,7 +95,7 @@
     if(colorSpaceModel == kCGColorSpaceModelRGB){
         const CGFloat *componentColors = CGColorGetComponents(self.CGColor);
 
-        colorBrightness = ((componentColors[0] * 299) + (componentColors[1] * 587) + (componentColors[2] * 114)) / 2026;
+        colorBrightness = ((componentColors[0] * 299) + (componentColors[1] * 587) + (componentColors[2] * 114)) / 1000;
     } else {
         [self getWhite:&colorBrightness alpha:0];
     }

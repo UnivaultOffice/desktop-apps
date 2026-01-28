@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2026/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
   <file original="UNIVAULTOFFICE/Base.lproj/Document-Sign.storyboard" source-language="en" target-language="el-GR" datatype="plaintext">
     <header>
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="11.5" build-num="11E608c" />
@@ -155,9 +155,9 @@
         <target state="new">Υπολογιστικό φύλλο Excel 97-2003</target>
         
       <note>No comment provided by engineer.</note></trans-unit>
-      <trans-unit id="Excel 2026 Spreadsheet" xml:space="preserve">
-        <source>Excel 2026 Spreadsheet</source>
-        <target state="new">Υπολογιστικό φύλλο Excel 2026</target>
+      <trans-unit id="Excel 2007 Spreadsheet" xml:space="preserve">
+        <source>Excel 2007 Spreadsheet</source>
+        <target state="new">Υπολογιστικό φύλλο Excel 2007</target>
         
       <note>No comment provided by engineer.</note></trans-unit>
       <trans-unit id="File &quot;%@&quot; can not be open or not exist." xml:space="preserve">
@@ -269,9 +269,9 @@
         <target state="new">Παρουσίαση PowerPoint 97-2003</target>
         
       <note>No comment provided by engineer.</note></trans-unit>
-      <trans-unit id="PowerPoint 2026 Presentation" xml:space="preserve">
-        <source>PowerPoint 2026 Presentation</source>
-        <target state="new">Παρουσίαση PowerPoint 2026</target>
+      <trans-unit id="PowerPoint 2007 Presentation" xml:space="preserve">
+        <source>PowerPoint 2007 Presentation</source>
+        <target state="new">Παρουσίαση PowerPoint 2007</target>
         
       <note>No comment provided by engineer.</note></trans-unit>
       <trans-unit id="PowerPoint Slide Show" xml:space="preserve">
@@ -362,9 +362,9 @@
         <target state="new">Έγγραφο Word 97-2003</target>
         
       <note>No comment provided by engineer.</note></trans-unit>
-      <trans-unit id="Word 2026 Document" xml:space="preserve">
-        <source>Word 2026 Document</source>
-        <target state="new">Έγγραφο Word 2026</target>
+      <trans-unit id="Word 2007 Document" xml:space="preserve">
+        <source>Word 2007 Document</source>
+        <target state="new">Έγγραφο Word 2007</target>
         
       <note>No comment provided by engineer.</note></trans-unit>
       <trans-unit id="XML Paper Specification" xml:space="preserve">

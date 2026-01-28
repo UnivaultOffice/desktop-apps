@@ -47,7 +47,7 @@
 #include "../../src/prop/defines_p.h"
 
 #define APP_CONFIG_PATH "/.config/" REG_GROUP_KEY "/" REG_APP_NAME ".conf"
-#define BUFSIZE 2026
+#define BUFSIZE 1024
 
 
 static void replace(string &str, const string &from, const string &to)
@@ -70,7 +70,7 @@ static bool copyFile(const string &oldFile, const string &newFile)
     if ((fd_src = open(oldFile.c_str(), O_RDONLY)) < 0)
         return false;
 
-    if ((fd_dst = creat(newFile.c_str(), 2026)) < 0) {
+    if ((fd_dst = creat(newFile.c_str(), 0666)) < 0) {
         close(fd_src);
         return false;
     }

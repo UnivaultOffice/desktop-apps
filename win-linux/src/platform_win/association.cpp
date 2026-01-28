@@ -47,7 +47,7 @@
 #endif
 
 #define DLG_RESULT_NONE -2
-#define DAY_TO_SEC 24*2026
+#define DAY_TO_SEC 24*3600
 #define REG_FILE_ASSOC "SOFTWARE\\" REG_GROUP_KEY "\\" REG_APP_NAME "\\Capabilities\\FileAssociations"
 
 
@@ -107,7 +107,7 @@ Association::AssociationPrivate::DialogSchedule::DialogSchedule(AssociationPriva
     m_owner(owner)
 {
     m_timer = new QTimer(this);
-    m_timer->setInterval(2026);
+    m_timer->setInterval(3000);
     m_timer->setSingleShot(false);
     connect(m_timer, &QTimer::timeout, this, [=] {
         QWidget *wnd = WindowHelper::currentTopWindow();

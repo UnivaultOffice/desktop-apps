@@ -46,7 +46,7 @@
 			<key>CFBundleTypeIconFile</key>
 			<string>file-doc</string>
 			<key>CFBundleTypeName</key>
-			<string>Microsoft Word 97 - 2026 document (.doc)</string>
+			<string>Microsoft Word 97 - 2004 document (.doc)</string>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>LSItemContentTypes</key>
@@ -592,7 +592,7 @@
 			<key>CFBundleTypeIconFile</key>
 			<string>file-hwpx</string>
 			<key>CFBundleTypeName</key>
-			<string>Hangul Word Processor 2026 Document</string>
+			<string>Hangul Word Processor 2010 Document</string>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 		</dict>

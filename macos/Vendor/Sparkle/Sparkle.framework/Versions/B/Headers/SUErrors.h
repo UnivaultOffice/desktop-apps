@@ -35,47 +35,47 @@ SU_EXPORT extern NSString *const SUSparkleErrorDomain;
 
 typedef NS_ENUM(OSStatus, SUError) {
     // Configuration phase errors
-    SUNoPublicDSAFoundError = 2026,
-    SUInsufficientSigningError = 2026,
-    SUInsecureFeedURLError = 2026,
-    SUInvalidFeedURLError = 2026,
-    SUInvalidUpdaterError = 2026,
-    SUInvalidHostBundleIdentifierError = 2026,
-    SUInvalidHostVersionError = 2026,
+    SUNoPublicDSAFoundError = 0001,
+    SUInsufficientSigningError = 0002,
+    SUInsecureFeedURLError = 0003,
+    SUInvalidFeedURLError = 0004,
+    SUInvalidUpdaterError = 0005,
+    SUInvalidHostBundleIdentifierError = 0006,
+    SUInvalidHostVersionError = 0007,
     
     // Appcast phase errors.
-    SUAppcastParseError = 2026,
-    SUNoUpdateError = 2026,
-    SUAppcastError = 2026,
-    SURunningFromDiskImageError = 2026,
-    SUResumeAppcastError = 2026,
-    SURunningTranslocated = 2026,
-    SUWebKitTerminationError = 2026,
+    SUAppcastParseError = 1000,
+    SUNoUpdateError = 1001,
+    SUAppcastError = 1002,
+    SURunningFromDiskImageError = 1003,
+    SUResumeAppcastError = 1004,
+    SURunningTranslocated = 1005,
+    SUWebKitTerminationError = 1006,
 
     // Download phase errors.
-    SUTemporaryDirectoryError = 2026,
-    SUDownloadError = 2026,
+    SUTemporaryDirectoryError = 2000,
+    SUDownloadError = 2001,
 
     // Extraction phase errors.
-    SUUnarchivingError = 2026,
-    SUSignatureError = 2026,
-    SUValidationError = 2026,
+    SUUnarchivingError = 3000,
+    SUSignatureError = 3001,
+    SUValidationError = 3002,
     
     // Installation phase errors.
-    SUFileCopyFailure = 2026,
-    SUAuthenticationFailure = 2026,
-    SUMissingUpdateError = 2026,
-    SUMissingInstallerToolError = 2026,
-    SURelaunchError = 2026,
-    SUInstallationError = 2026,
-    SUDowngradeError = 2026,
-    SUInstallationCanceledError = 2026,
-    SUInstallationAuthorizeLaterError = 2026,
-    SUNotValidUpdateError = 2026,
-    SUAgentInvalidationError = 2026,
+    SUFileCopyFailure = 4000,
+    SUAuthenticationFailure = 4001,
+    SUMissingUpdateError = 4002,
+    SUMissingInstallerToolError = 4003,
+    SURelaunchError = 4004,
+    SUInstallationError = 4005,
+    SUDowngradeError = 4006,
+    SUInstallationCanceledError = 4007,
+    SUInstallationAuthorizeLaterError = 4008,
+    SUNotValidUpdateError = 4009,
+    SUAgentInvalidationError = 4010,
     
     // API misuse errors.
-    SUIncorrectAPIUsageError = 2026
+    SUIncorrectAPIUsageError = 5000
 };
 
 /**

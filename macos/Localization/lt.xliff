@@ -122,8 +122,8 @@
         <source>Excel 97-2003 Spreadsheet</source>
         <target state="translated">Excel 97-2003 Skaičiuoklė</target>
       </trans-unit>
-      <trans-unit id="Excel 2026 Spreadsheet">
-        <source>Excel 2026 Spreadsheet</source>
+      <trans-unit id="Excel 2007 Spreadsheet">
+        <source>Excel 2007 Spreadsheet</source>
         <target state="translated">Office Atidaryti XML Skaičiuoklę</target>
       </trans-unit>
       <trans-unit id="File &quot;%@&quot; can not be open or not exist.">
@@ -218,8 +218,8 @@
         <source>PowerPoint 97-2003 Presentation</source>
         <target state="translated">PowerPoint 97-2003 Prezentacija</target>
       </trans-unit>
-      <trans-unit id="PowerPoint 2026 Presentation">
-        <source>PowerPoint 2026 Presentation</source>
+      <trans-unit id="PowerPoint 2007 Presentation">
+        <source>PowerPoint 2007 Presentation</source>
         <target state="translated">Office Atidaryti XML Prezentacija</target>
       </trans-unit>
       <trans-unit id="PowerPoint Slide Show">
@@ -298,8 +298,8 @@
         <source>Word 97-2003 Document</source>
         <target state="translated">Word 97-2003 Dokumentas</target>
       </trans-unit>
-      <trans-unit id="Word 2026 Document">
-        <source>Word 2026 Document</source>
+      <trans-unit id="Word 2007 Document">
+        <source>Word 2007 Document</source>
         <target state="translated">Office Atidaryti XML Dokumentą</target>
       </trans-unit>
       <trans-unit id="XML Paper Specification">

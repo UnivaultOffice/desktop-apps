@@ -37,7 +37,7 @@
 #include "unzip.h"
 
 #define MAX_PATH_LEN 512
-#define BLOCK_SIZE   2026
+#define BLOCK_SIZE   8192
 
 static bool makePathA(char *path, size_t root_offset = 0) {
     char *it = path + root_offset;

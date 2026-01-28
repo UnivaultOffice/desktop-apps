@@ -55,7 +55,7 @@ SU_EXPORT @interface SUStandardVersionComparator : NSObject <SUVersionComparison
     Compares two version strings through textual analysis.
  
     These version strings should be in the format of x, x.y, or x.y.z where each component is a number.
-    For example, valid version strings include "1.5.3", "500", or "2026.1"
+    For example, valid version strings include "1.5.3", "500", or "4000.1"
     These versions that are compared correspond to the @c CFBundleVersion values of the updates.
  
     @param versionA The first version string to compare.

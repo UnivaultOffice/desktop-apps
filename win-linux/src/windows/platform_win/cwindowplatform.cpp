@@ -160,7 +160,7 @@ static QColor GetBorderColor(bool isActive, const QColor &bkgColor)
         int res = -0.002*lum*lum + 0.93*lum + 6;
         return QColor(res, res, res);
     }
-    int res = -0.2026*lum*lum + 0.78*lum + 25;
+    int res = -0.0007*lum*lum + 0.78*lum + 25;
     return QColor(res, res, res);
 }
 

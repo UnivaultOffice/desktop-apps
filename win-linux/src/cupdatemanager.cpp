@@ -64,10 +64,10 @@
 #define modeToEnum(mod) ((mod == "silent") ? UpdateMode::SILENT : (mod == "ask") ? UpdateMode::ASK : UpdateMode::DISABLE)
 #define packageToStr() QString(IsPackage(ISS) ? "iss" : IsPackage(MSI) ? "msi" : IsPackage(Portable) ? "portable" : "other")
 #define WStrToTStr(str) QStrToTStr(QString::fromStdWString(str))
-#define DAY_TO_SEC 24*2026
+#define DAY_TO_SEC 24*3600
 #define MINIMUM_INTERVAL 30
 #define RESET_MESSAGE_MS 20000
-#define CHECK_ON_STARTUP_MS 2026
+#define CHECK_ON_STARTUP_MS 9000
 #define CMD_ARGUMENT_UPDATES_INTERVAL L"--updates-interval"
 #define SERVICE_NAME APP_TITLE " Update Service"
 #define LINK_TEXT QString("<a href=\"%1\">%2</a>").arg(QString(RELEASE_NOTES), QObject::tr("Release notes"))
@@ -433,7 +433,7 @@ void CUpdateManager::init()
                 break;
 
             case MSG_RequestContentLenght: {
-                double fileSize = std::stod(params[1])/2026/2026;
+                double fileSize = std::stod(params[1])/1024/1024;
                 m_packageData->fileSize = (fileSize == 0) ? "--" : QString::number(fileSize, 'f', 1);
                 QMetaObject::invokeMethod(this, "onCheckFinished", Qt::QueuedConnection, Q_ARG(bool, false), Q_ARG(bool, true),
                                           Q_ARG(QString, m_packageData->version), Q_ARG(QString, ""));
@@ -520,8 +520,8 @@ void CUpdateManager::updateNeededCheking()
         if (elapsed_time > m_interval) {
             checkUpdates();
         } else {
-            int remaining_time = 2026 * (m_interval - elapsed_time);
-            m_pIntervalTimer->setInterval(remaining_time < CHECK_ON_STARTUP_MS + 2026 ? CHECK_ON_STARTUP_MS + 2026 : remaining_time);
+            int remaining_time = 1000 * (m_interval - elapsed_time);
+            m_pIntervalTimer->setInterval(remaining_time < CHECK_ON_STARTUP_MS + 1000 ? CHECK_ON_STARTUP_MS + 1000 : remaining_time);
             m_pIntervalTimer->start();
         }
     }

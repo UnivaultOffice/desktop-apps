@@ -42,7 +42,7 @@
 # include <QX11Info>
 #endif
 
-#define FADE_TIMEOUT_MS 2026
+#define FADE_TIMEOUT_MS 5000
 #define ANIMATION_DURATION_MS 150
 
 

@@ -712,8 +712,8 @@
                     <window key="window" title="UNIVAULTOFFICE" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA" customClass="ASCTitleWindow">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
-                        <rect key="contentRect" x="0.0" y="0.0" width="2026" height="540"/>
-                        <rect key="screenRect" x="0.0" y="0.0" width="2026" height="2026"/>
+                        <rect key="contentRect" x="0.0" y="0.0" width="1024" height="540"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
                         <value key="minSize" type="size" width="518" height="440"/>
                         <toolbar key="toolbar" implicitIdentifier="5B77B499-B428-4B61-B444-4B21C8952CC3" autosavesConfiguration="NO" allowsUserCustomization="NO" showsBaselineSeparator="NO" displayMode="labelOnly" sizeMode="regular" id="K5R-RO-aDh">
                             <allowedToolbarItems/>
@@ -966,7 +966,7 @@
                 </viewController>
                 <customObject id="DCa-oa-czr" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2026" y="-9"/>
+            <point key="canvasLocation" x="1285" y="-9"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="hrS-eL-GWB">
@@ -976,7 +976,7 @@
                         <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="294" y="313" width="370" height="340"/>
-                        <rect key="screenRect" x="0.0" y="0.0" width="2026" height="2026"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
                         <connections>
                             <outlet property="delegate" destination="UqY-SG-axH" id="ldS-3e-M6c"/>
                         </connections>
@@ -987,7 +987,7 @@
                 </windowController>
                 <customObject id="CPW-CX-lgB" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2026" y="2026"/>
+            <point key="canvasLocation" x="1052" y="1756"/>
         </scene>
         <!--About Controller-->
         <scene sceneID="D2C-Q5-vEd">
@@ -1054,10 +1054,10 @@
                                     <constraint firstAttribute="width" constant="350" id="b9k-Wi-KPK"/>
                                 </constraints>
                                 <visibilityPriorities>
-                                    <integer value="2026"/>
-                                    <integer value="2026"/>
-                                    <integer value="2026"/>
-                                    <integer value="2026"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
                                 </visibilityPriorities>
                                 <customSpacing>
                                     <real value="3.4028234663852886e+38"/>
@@ -1102,7 +1102,7 @@
                 </viewController>
                 <customObject id="CfX-BC-Onh" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2026" y="2026"/>
+            <point key="canvasLocation" x="1674" y="1756"/>
         </scene>
         <!--About Controller-->
         <scene sceneID="cTW-F0-aao">
@@ -1151,23 +1151,23 @@ DQ
                 </viewController>
                 <customObject id="4Gz-l5-4i0" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2026" y="2026.5"/>
+            <point key="canvasLocation" x="2693" y="1069.5"/>
         </scene>
         <!--Common View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ASCCommonViewController" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="2026" height="790"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="790"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <tabView drawsBackground="NO" allowsTruncatedLabels="NO" type="noTabsNoBorder" translatesAutoresizingMaskIntoConstraints="NO" id="N1H-DH-xhd">
-                                <rect key="frame" x="0.0" y="0.0" width="2026" height="790"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="790"/>
                                 <font key="font" metaFont="system"/>
                                 <tabViewItems>
                                     <tabViewItem label="UNIVAULTOFFICE" identifier="1CEF624D-9FF3-432B-9967-61361B5BFE8B" id="kcg-El-49G">
                                         <view key="view" id="PUE-XO-znT">
-                                            <rect key="frame" x="0.0" y="0.0" width="2026" height="790"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="790"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </view>
                                     </tabViewItem>
@@ -1263,11 +1263,11 @@ DQ
                                 <constraint firstItem="YxS-uX-oBx" firstAttribute="centerY" secondItem="94T-bf-E2o" secondAttribute="centerY" id="nRs-Xf-WRo"/>
                             </constraints>
                             <visibilityPriorities>
-                                <integer value="2026"/>
-                                <integer value="2026"/>
-                                <integer value="2026"/>
-                                <integer value="2026"/>
-                                <integer value="2026"/>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
                             </visibilityPriorities>
                             <customSpacing>
                                 <real value="3.4028234663852886e+38"/>
@@ -1337,10 +1337,10 @@ DQ
                                 <constraint firstItem="vIl-ME-C3A" firstAttribute="centerY" secondItem="GHi-xV-AUw" secondAttribute="centerY" id="mzs-BT-i6T"/>
                             </constraints>
                             <visibilityPriorities>
-                                <integer value="2026"/>
-                                <integer value="2026"/>
-                                <integer value="2026"/>
-                                <integer value="2026"/>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
                             </visibilityPriorities>
                             <customSpacing>
                                 <real value="3.4028234663852886e+38"/>
@@ -1370,7 +1370,7 @@ DQ
                                 <constraint firstAttribute="height" constant="26" id="ykb-dC-qUW"/>
                             </constraints>
                             <visibilityPriorities>
-                                <integer value="2026"/>
+                                <integer value="1000"/>
                             </visibilityPriorities>
                             <customSpacing>
                                 <real value="3.4028234663852886e+38"/>
@@ -1392,14 +1392,14 @@ DQ
                     </userDefinedRuntimeAttributes>
                 </customView>
             </objects>
-            <point key="canvasLocation" x="131" y="2026"/>
+            <point key="canvasLocation" x="131" y="1646"/>
         </scene>
         <!--Title Bar Controller-->
         <scene sceneID="dZG-dh-jaa">
             <objects>
                 <viewController storyboardIdentifier="titleBarControllerID" id="9zi-Wa-ufJ" customClass="ASCTitleBarController" sceneMemberID="viewController">
                     <visualEffectView key="view" blendingMode="behindWindow" material="underWindowBackground" state="followsWindowActiveState" id="Imu-er-1JF">
-                        <rect key="frame" x="0.0" y="0.0" width="2026" height="38"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1100" height="38"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <subviews>
                             <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4nh-tb-OhZ">
@@ -1407,7 +1407,7 @@ DQ
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </customView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="sAN-AD-cQX">
-                                <rect key="frame" x="2026" y="0.0" width="5" height="38"/>
+                                <rect key="frame" x="1095" y="0.0" width="5" height="38"/>
                                 <subviews>
                                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bYd-yR-16f">
                                         <rect key="frame" x="9" y="6" width="30" height="27"/>
@@ -1427,7 +1427,7 @@ DQ
                                 </constraints>
                             </customView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="M3X-hR-EHh">
-                                <rect key="frame" x="2026" y="0.0" width="30" height="38"/>
+                                <rect key="frame" x="1065" y="0.0" width="30" height="38"/>
                                 <subviews>
                                     <imageView wantsLayer="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rvn-zR-QDB">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="38"/>

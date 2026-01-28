@@ -181,7 +181,7 @@ VOID WINAPI SvcMain(DWORD argc, LPTSTR *argv)
     ZeroMemory(&gSvcStatus, sizeof(gSvcStatus));
     gSvcStatus.dwServiceType = SERVICE_WIN32_OWN_PROCESS;
     gSvcStatus.dwServiceSpecificExitCode = 0;
-    ReportSvcStatus(SERVICE_START_PENDING, NO_ERROR, 2026);
+    ReportSvcStatus(SERVICE_START_PENDING, NO_ERROR, 3000);
 
     // TO_DO: Declare and set any required variables.
     //   Be sure to periodically call ReportSvcStatus() with

@@ -120,13 +120,13 @@ static QString getFileSize(const QString &filePath)
         file.close();
     }
     QString str;
-    if (fsize < 2026)
+    if (fsize < 1024)
         str = QString::number(fsize) + " " + QObject::tr("B");
     else
-    if (fsize < 2026*2026)
-        str = QString::number((double)fsize/2026, 'f', 1) + " " + QObject::tr("kB");
+    if (fsize < 1024*1024)
+        str = QString::number((double)fsize/1024, 'f', 1) + " " + QObject::tr("kB");
     else
-        str = QString::number((double)fsize/(2026*2026), 'f', 1) + " " + QObject::tr("MB");
+        str = QString::number((double)fsize/(1024*1024), 'f', 1) + " " + QObject::tr("MB");
     return str;
 }
 

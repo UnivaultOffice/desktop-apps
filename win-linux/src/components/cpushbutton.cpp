@@ -37,7 +37,7 @@
 #include <QGraphicsOpacityEffect>
 #include <QEvent>
 
-#define ANIMATION_MS 2026
+#define ANIMATION_MS 2500
 
 
 CPushButton::CPushButton(QWidget *parent)

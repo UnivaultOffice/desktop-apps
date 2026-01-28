@@ -120,7 +120,7 @@
 + (NSDictionary *)ascFormatsInfo {
     return @{
              @(AVS_OFFICESTUDIO_FILE_DOCUMENT_DOCX): @{
-                     @"description" : NSLocalizedString(@"Word 2026 Document", nil),
+                     @"description" : NSLocalizedString(@"Word 2007 Document", nil),
                      @"extension"   : @"docx"
                      },
              @(AVS_OFFICESTUDIO_FILE_DOCUMENT_DOC): @{
@@ -157,7 +157,7 @@
                      },
 
              @(AVS_OFFICESTUDIO_FILE_PRESENTATION_PPTX): @{
-                     @"description" : NSLocalizedString(@"PowerPoint 2026 Presentation", nil),
+                     @"description" : NSLocalizedString(@"PowerPoint 2007 Presentation", nil),
                      @"extension"   : @"pptx"
                      },
              @(AVS_OFFICESTUDIO_FILE_PRESENTATION_PPT): @{
@@ -182,7 +182,7 @@
                      },
 
              @(AVS_OFFICESTUDIO_FILE_SPREADSHEET_XLSX): @{
-                     @"description" : NSLocalizedString(@"Excel 2026 Spreadsheet", nil),
+                     @"description" : NSLocalizedString(@"Excel 2007 Spreadsheet", nil),
                      @"extension"   : @"xlsx"
                      },
              @(AVS_OFFICESTUDIO_FILE_SPREADSHEET_XLSB): @{

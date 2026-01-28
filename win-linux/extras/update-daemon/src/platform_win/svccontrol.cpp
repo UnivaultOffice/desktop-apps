@@ -223,8 +223,8 @@ namespace SvcControl
             // and not more than 10 seconds.
 
             dwWaitTime = ssStatus.dwWaitHint / 10;
-            if( dwWaitTime < 2026 )
-                dwWaitTime = 2026;
+            if( dwWaitTime < 1000 )
+                dwWaitTime = 1000;
             else
             if ( dwWaitTime > 10000 )
                 dwWaitTime = 10000;
@@ -278,8 +278,8 @@ namespace SvcControl
             // more than 10 seconds.
 
             dwWaitTime = ssStatus.dwWaitHint / 10;
-            if( dwWaitTime < 2026 )
-                dwWaitTime = 2026;
+            if( dwWaitTime < 1000 )
+                dwWaitTime = 1000;
             else
             if ( dwWaitTime > 10000 )
                 dwWaitTime = 10000;
@@ -449,8 +449,8 @@ namespace SvcControl
 
             dwWaitTime = ssp.dwWaitHint / 10;
 
-            if (dwWaitTime < 2026)
-                dwWaitTime = 2026;
+            if (dwWaitTime < 1000)
+                dwWaitTime = 1000;
             else
             if (dwWaitTime > 10000)
                 dwWaitTime = 10000;

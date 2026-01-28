@@ -74,7 +74,7 @@
 # define SUBFOLDER        "/desktopeditors"
 # define ARCHIVE_EXT      _T(".tar.xz")
 # define ARCHIVE_PATTERN  _T("*.tar.xz")
-# define sleep(a) usleep(a*2026)
+# define sleep(a) usleep(a*1000)
 #endif
 #ifndef URL_APPCAST_UPDATES
 # define URL_APPCAST_UPDATES ""
@@ -117,7 +117,7 @@ auto generateTmpFileName(const tstring &ext)->tstring
         uuid_tstr = ((wchar_t*)wszUuid);
         RpcStringFreeW(&wszUuid);
     } else
-        uuid_tstr = L"00000000-2025-2026-0000-000000000000";
+        uuid_tstr = L"00000000-0000-0000-0000-000000000000";
 #else
     uuid_t uuid;
     char uuid_str[37];

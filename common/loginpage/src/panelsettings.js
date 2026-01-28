@@ -831,6 +831,12 @@
                 'theme-gray': {
                     text: utils.Lang.settOptThemeGray,
                 },
+                'theme-white': {
+                    text: utils.Lang.settOptThemeWhite,
+                },
+                'theme-night': {
+                    text: utils.Lang.settOptThemeNight,
+                },
             }
 
             for (const [key, value] of Object.entries(l10n)) {
@@ -842,13 +848,25 @@
                 }
             }
 
-            // for ( let k of Object.keys(themes_map) ) {
-            //     const t = themes_map[k]
-            //     if ( t.l10n ) {
-            //         const _new_title = t.l10n[nl] || t.l10n[nl.substring(0,2)] || t.name;
-            //         $(`option[value=${k}]`, $optsUITheme).text(_new_title);
-            //     }
-            // }
+            if ( $optsUITheme ) {
+                const short_lang = nl ? nl.substring(0,2) : '';
+                for ( const [key, value] of Object.entries(themes_map) ) {
+                    let _new_title = value.text || value.name;
+                    if ( value.l10n ) {
+                        _new_title = value.l10n[nl] || value.l10n[short_lang] || value.text || value.name;
+                    }
+                    if ( _new_title ) {
+                        $(`option[value=${key}]`, $optsUITheme).text(_new_title);
+                    }
+                }
+
+                const $add_local = $(`option[value=add]`, $optsUITheme);
+                if ( $add_local.length ) {
+                    $add_local.text(utils.Lang.settOptThemeAddLocal);
+                }
+
+                $optsUITheme.selectpicker('refresh');
+            }
         };
 
         return {
