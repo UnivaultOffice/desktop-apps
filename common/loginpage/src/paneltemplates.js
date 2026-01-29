@@ -154,6 +154,7 @@
 
     utils.fn.extend(ControllerTemplates.prototype, (function() {
         let isCloudTmplsLoading = false;
+        const ENABLE_CLOUD_TEMPLATES = false;
         let templatesDomain = 'https://templates.univaultoffice.github.io';
 
         const normalizeTemplateUrl = function(url) {
@@ -305,8 +306,6 @@
             //         _func_();
 
             //         delete this.tmpls;
-if ( !info['form_exts']['data'].length ) return;
-
                 _func_();
             // }
         };
@@ -489,12 +488,16 @@ if ( !info['form_exts']['data'].length ) return;
                     if (ol === nl) return;
                     _resetPagination.call(this);  
                     _reload_templates(nl);
-                    _loadTemplates.call(this, nl);
+                    if (ENABLE_CLOUD_TEMPLATES) {
+                        _loadTemplates.call(this, nl);
+                    }
                     $('#template-search', this.view.$panel).attr('placeholder', utils.Lang.tplSearch);
                 });
 
                 _reload_templates(utils.Lang.id);
-                _loadTemplates.call(this, utils.Lang.id);
+                if (ENABLE_CLOUD_TEMPLATES) {
+                    _loadTemplates.call(this, utils.Lang.id);
+                }
 
                 return this;
             }
