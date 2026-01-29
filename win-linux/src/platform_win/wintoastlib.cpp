@@ -47,7 +47,7 @@
 #define STATUS_SUCCESS           (0x00000000)
 
 // Quickstart: Handling toast activations from Win32 apps in Windows 10
-// https://blogs.msdn.microsoft.com/tiles_and_toasts/2026/10/16/quickstart-handling-toast-activations-from-win32-apps-in-windows-10/
+// https://blogs.msdn.microsoft.com/tiles_and_toasts/2015/10/16/quickstart-handling-toast-activations-from-win32-apps-in-windows-10/
 using namespace WinToastLib;
 namespace DllImporter {
 

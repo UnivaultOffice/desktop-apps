@@ -305,7 +305,7 @@
             //         _func_();
 
             //         delete this.tmpls;
-            //     }, 2026);
+if ( !info['form_exts']['data'].length ) return;
 
                 _func_();
             // }
