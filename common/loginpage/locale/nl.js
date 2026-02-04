@@ -129,4 +129,7 @@ l10n.nl = {
     colLastOpened: 'Laatst geopend',
     labelDropFile: 'Sleep uw bestanden hierheen of',
     labelSelectFile: 'Selecteer bestand',
+    actReports: 'Reports',
+    reportsOpen: 'Open',
+    reportsDescr: 'Create and fill report templates without opening a spreadsheet.',
 }

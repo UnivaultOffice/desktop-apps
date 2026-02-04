@@ -96,4 +96,7 @@ l10n.lo = {
     settOptLaunchInTab: 'ໃນຊ່ອງ',
     settOptLaunchInWindow: 'ໃນປ່ອງ',
     settOptDisabled: 'ປິດ',
+    actReports: 'Reports',
+    reportsOpen: 'Open',
+    reportsDescr: 'Create and fill report templates without opening a spreadsheet.',
 }

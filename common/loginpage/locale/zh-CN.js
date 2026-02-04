@@ -133,4 +133,7 @@ l10n.zh_CN = {
     colLastOpened: '最近文档',
     labelDropFile: '将文件拖拽到此处，或',
     labelSelectFile: '选择文件',
+    actReports: 'Reports',
+    reportsOpen: 'Open',
+    reportsDescr: 'Create and fill report templates without opening a spreadsheet.',
 }

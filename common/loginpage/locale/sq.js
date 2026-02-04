@@ -119,4 +119,7 @@ l10n.sq = {
     settGpuUseMode: "Përdorni përshpejtimin grafik kur është i disponueshëm",
     tplPanelLocal: "Lokal",
     tplPanelCloud: "Re",
+    actReports: 'Reports',
+    reportsOpen: 'Open',
+    reportsDescr: 'Create and fill report templates without opening a spreadsheet.',
 }

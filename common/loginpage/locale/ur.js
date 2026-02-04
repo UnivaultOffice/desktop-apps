@@ -119,4 +119,7 @@ l10n.ur = {
     settGpuUseMode: "جب دستیاب ہو تو گرافکس ایکسلریشن استعمال کریں",
     tplPanelLocal: "مقامی",
     tplPanelCloud: "بادل",
+    actReports: 'Reports',
+    reportsOpen: 'Open',
+    reportsDescr: 'Create and fill report templates without opening a spreadsheet.',
 }

@@ -119,4 +119,7 @@ l10n.da = {
     settGpuUseMode: "Benyt grafikacceleration når det er muligt",
     tplPanelLocal: "Lokale",
     tplPanelCloud: "Cloud",
+    actReports: 'Reports',
+    reportsOpen: 'Open',
+    reportsDescr: 'Create and fill report templates without opening a spreadsheet.',
 }

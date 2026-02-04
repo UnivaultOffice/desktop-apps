@@ -129,4 +129,7 @@ l10n.sk = {
     colLastOpened: 'Naposledy otvorené',
     labelDropFile: 'Presuňte sem svoje súbory alebo',
     labelSelectFile: 'Vybrať súbor',
+    actReports: 'Reports',
+    reportsOpen: 'Open',
+    reportsDescr: 'Create and fill report templates without opening a spreadsheet.',
 }

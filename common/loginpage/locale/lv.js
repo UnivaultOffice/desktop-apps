@@ -129,4 +129,7 @@ l10n.lv = {
     colLastOpened: 'Pēdējo reizi atvērts',
     labelDropFile: 'Velciet failus šeit vai',
     labelSelectFile: 'Izvēlieties failu',
+    actReports: 'Reports',
+    reportsOpen: 'Open',
+    reportsDescr: 'Create and fill report templates without opening a spreadsheet.',
 }

@@ -129,4 +129,7 @@ l10n.vi = {
     colLastOpened: 'Lần mở cuối',
     labelDropFile: 'Kéo tập tin của bạn vào đây hoặc',
     labelSelectFile: 'Chọn tập tin',
+    actReports: 'Reports',
+    reportsOpen: 'Open',
+    reportsDescr: 'Create and fill report templates without opening a spreadsheet.',
 }

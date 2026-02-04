@@ -129,4 +129,7 @@ l10n.tr = {
     colLastOpened: 'Son açılış tarihi',
     labelDropFile: 'Dosyalarınızı buraya sürükleyin veya',
     labelSelectFile: 'Dosya seç',
+    actReports: 'Reports',
+    reportsOpen: 'Open',
+    reportsDescr: 'Create and fill report templates without opening a spreadsheet.',
 }

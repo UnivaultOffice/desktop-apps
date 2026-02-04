@@ -129,4 +129,7 @@ l10n.bg = {
     colLastOpened: 'Последно отворен',
     labelDropFile: 'Завлечете файловете си тук или',
     labelSelectFile: 'Изберете файл',
+    actReports: 'Reports',
+    reportsOpen: 'Open',
+    reportsDescr: 'Create and fill report templates without opening a spreadsheet.',
 }

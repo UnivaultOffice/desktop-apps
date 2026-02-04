@@ -118,4 +118,7 @@ l10n.he = {
     settGpuUseMode: "השתמש בהאצת גרפיקה כאשר היא זמינה",
     tplPanelLocal: "מקומי",
     tplPanelCloud: "ענן",
+    actReports: 'Reports',
+    reportsOpen: 'Open',
+    reportsDescr: 'Create and fill report templates without opening a spreadsheet.',
 }

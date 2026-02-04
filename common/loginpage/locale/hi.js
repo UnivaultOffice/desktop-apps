@@ -116,4 +116,7 @@ l10n.hi = {
     settOptDescAUpdateAsk: "आपको सभी अपडेट चरणों के बारे में सूचित किया जाएगा",
     settRtlMode: "आरटीएल इंटरफेस",
     settGpuUseMode: "उपलब्ध होने पर ग्राफिक्स एक्सेलेरेशन का उपयोग करें",
+    actReports: 'Reports',
+    reportsOpen: 'Open',
+    reportsDescr: 'Create and fill report templates without opening a spreadsheet.',
 }

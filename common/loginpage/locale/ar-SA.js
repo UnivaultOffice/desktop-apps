@@ -127,4 +127,7 @@ l10n.ar_SA = {
     colFileName: "اسم الملف",
     colLocation: 'الموقع',
     colLastOpened: 'مفتوحة مؤخرا',
+    actReports: 'Reports',
+    reportsOpen: 'Open',
+    reportsDescr: 'Create and fill report templates without opening a spreadsheet.',
 }

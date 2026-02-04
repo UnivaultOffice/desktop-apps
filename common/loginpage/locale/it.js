@@ -133,4 +133,7 @@ l10n.it_IT = {
     colLastOpened: 'Ultima apertura',
     labelDropFile: 'Trascina i tuoi file qui oppure',
     labelSelectFile: 'Seleziona file',
+    actReports: 'Reports',
+    reportsOpen: 'Open',
+    reportsDescr: 'Create and fill report templates without opening a spreadsheet.',
 }

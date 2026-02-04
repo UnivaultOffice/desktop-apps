@@ -131,4 +131,7 @@ l10n.el = {
     colLastOpened: 'Τελευταίο άνοιγμα',
     labelDropFile: 'Σύρετε τα αρχεία σας εδώ ή',
     labelSelectFile: 'Επιλέξτε αρχείο',
+    actReports: 'Reports',
+    reportsOpen: 'Open',
+    reportsDescr: 'Create and fill report templates without opening a spreadsheet.',
 }

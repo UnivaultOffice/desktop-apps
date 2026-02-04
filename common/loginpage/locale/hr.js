@@ -119,4 +119,7 @@ l10n.hr = {
     settGpuUseMode: "Koristite grafičko ubrzanje ako je dostupno",
     tplPanelLocal: "Lokalni",
     tplPanelCloud: "Oblačni",
+    actReports: 'Reports',
+    reportsOpen: 'Open',
+    reportsDescr: 'Create and fill report templates without opening a spreadsheet.',
 }

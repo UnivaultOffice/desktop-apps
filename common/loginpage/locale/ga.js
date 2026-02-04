@@ -116,4 +116,7 @@ l10n.ga = {
     settOptDescAUpdateAsk: "Cuirfear ar an eolas thú faoi gach céim nuashonruithe",
     tplPanelLocal: "Áitiúla",
     tplPanelCloud: "Cloud",
+    actReports: 'Reports',
+    reportsOpen: 'Open',
+    reportsDescr: 'Create and fill report templates without opening a spreadsheet.',
 }

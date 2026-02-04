@@ -129,4 +129,7 @@ l10n.cs = {
     colLastOpened: 'Naposledy otevřené',
     labelDropFile: 'Přetáhněte sem soubory nebo',
     labelSelectFile: 'Vybrat soubor',
+    actReports: 'Reports',
+    reportsOpen: 'Open',
+    reportsDescr: 'Create and fill report templates without opening a spreadsheet.',
 }

@@ -119,4 +119,7 @@ l10n.lt = {
     settGpuUseMode: "Kai įmanoma, naudokite grafinį pagreitį",
     tplPanelLocal: "Vietiniai",
     tplPanelCloud: "Debesų",
+    actReports: 'Reports',
+    reportsOpen: 'Open',
+    reportsDescr: 'Create and fill report templates without opening a spreadsheet.',
 }

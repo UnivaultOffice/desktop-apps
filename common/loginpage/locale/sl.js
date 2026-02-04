@@ -129,4 +129,7 @@ l10n.sl = {
     colLastOpened: 'Nazadnje odprto',
     labelDropFile: 'Povleci datoteke sem ali',
     labelSelectFile: 'Izberi datoteko',
+    actReports: 'Reports',
+    reportsOpen: 'Open',
+    reportsDescr: 'Create and fill report templates without opening a spreadsheet.',
 }

@@ -118,4 +118,7 @@ l10n.id = {
     settGpuUseMode: "Gunakan akselerasi grafik jika tersedia",
     tplPanelLocal: "Lokal",
     tplPanelCloud: "Cloud",
+    actReports: 'Reports',
+    reportsOpen: 'Open',
+    reportsDescr: 'Create and fill report templates without opening a spreadsheet.',
 }

@@ -139,4 +139,7 @@ l10n.en_GB = {
     colLastOpened: 'Last opened',
     labelDropFile: 'Drag your files here or',
     labelSelectFile: 'Select file',
+    actReports: 'Reports',
+    reportsOpen: 'Open',
+    reportsDescr: 'Create and fill report templates without opening a spreadsheet.',
 }

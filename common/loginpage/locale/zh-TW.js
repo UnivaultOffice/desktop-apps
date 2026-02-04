@@ -119,4 +119,7 @@ l10n.zh_TW = {
     settGpuUseMode: "當可用時使用圖形加速",
     tplPanelLocal: "本地",
     tplPanelCloud: "雲",
+    actReports: 'Reports',
+    reportsOpen: 'Open',
+    reportsDescr: 'Create and fill report templates without opening a spreadsheet.',
 }

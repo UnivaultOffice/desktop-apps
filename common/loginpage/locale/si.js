@@ -116,4 +116,7 @@ l10n.si = {
     settOptDescAUpdateAsk: "යළුම යාවත්කාල පියවර ගැන ඔබට දැනුම් දෙනු ඇත",
     settRtlMode: "RTL අතුරුමුහුණත",
     settGpuUseMode: "චිත්‍රණ ත්වරණය තිබෙන විට භාවිතා කරන්න",
+    actReports: 'Reports',
+    reportsOpen: 'Open',
+    reportsDescr: 'Create and fill report templates without opening a spreadsheet.',
 }

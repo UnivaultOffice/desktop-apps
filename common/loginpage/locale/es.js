@@ -133,4 +133,7 @@ l10n.es = {
     colLastOpened: 'Última apertura',
     labelDropFile: 'Arrastre los archivos aquí o',
     labelSelectFile: 'Seleccione el archivo',
+    actReports: 'Reports',
+    reportsOpen: 'Open',
+    reportsDescr: 'Create and fill report templates without opening a spreadsheet.',
 }

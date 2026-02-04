@@ -129,4 +129,7 @@ l10n.pl = {
     colLastOpened: 'Ostatnio otworzony',
     labelDropFile: 'Przeciągnij pliki tutaj lub',
     labelSelectFile: 'Wybierz plik',
+    actReports: 'Reports',
+    reportsOpen: 'Open',
+    reportsDescr: 'Create and fill report templates without opening a spreadsheet.',
 }

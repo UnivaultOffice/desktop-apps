@@ -133,4 +133,7 @@ l10n.hu = {
     colLastOpened: 'Utolsó megnyitás',
     labelDropFile: 'Húzd ide a fájljaidat, vagy',
     labelSelectFile: 'Válassza ki a fájlt',
+    actReports: 'Reports',
+    reportsOpen: 'Open',
+    reportsDescr: 'Create and fill report templates without opening a spreadsheet.',
 }

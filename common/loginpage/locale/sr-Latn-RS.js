@@ -133,4 +133,7 @@ l10n.sr_Latn_RS = {
     colLastOpened: 'Poslednje otvoreno',
     labelDropFile: 'Prevucite fajlove ovde ili',
     labelSelectFile: 'Izaberite fajl',
+    actReports: 'Reports',
+    reportsOpen: 'Open',
+    reportsDescr: 'Create and fill report templates without opening a spreadsheet.',
 }

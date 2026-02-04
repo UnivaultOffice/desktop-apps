@@ -67,8 +67,8 @@ $(document).ready(function() {
               <li class="menu-item">
                 <a l10n action="reports">
                     <div class="icon-box">
-                        <svg class="icon" data-iconname="plugin" data-precls="tool-icon">
-                            <use href="#plugin"></use>
+                        <svg class="icon" data-iconname="reports" data-precls="tool-icon">
+                            <use href="#reports"></use>
                         </svg>
                     </div>
                     <span class="text" l10n>${utils.Lang.actReports}</span>

@@ -133,4 +133,7 @@ l10n.sr_Cyrl_RS = {
     colLastOpened: 'Последње отворено',
     labelDropFile: 'Преувлачите фајлове овде или',
     labelSelectFile: 'Изаберите фајл',
+    actReports: 'Reports',
+    reportsOpen: 'Open',
+    reportsDescr: 'Create and fill report templates without opening a spreadsheet.',
 }

@@ -119,4 +119,7 @@ l10n.be = {
     settGpuUseMode: "Выкарыстоўвайце графічнае паскарэнне, калі яно даступна",
     tplPanelLocal: "Лакальныя",
     tplPanelCloud: "Хмарныя",
+    actReports: 'Reports',
+    reportsOpen: 'Open',
+    reportsDescr: 'Create and fill report templates without opening a spreadsheet.',
 }

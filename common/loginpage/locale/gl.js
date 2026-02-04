@@ -119,4 +119,7 @@ l10n.gl = {
     settGpuUseMode: "Utilizar a aceleración de gráficos cando estea dispoñible",
     tplPanelLocal: "Locais",
     tplPanelCloud: "De nube",
+    actReports: 'Reports',
+    reportsOpen: 'Open',
+    reportsDescr: 'Create and fill report templates without opening a spreadsheet.',
 }

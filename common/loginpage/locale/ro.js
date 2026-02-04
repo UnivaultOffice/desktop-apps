@@ -133,4 +133,7 @@ l10n.ro = {
     colLastOpened: 'Deschis recent',
     labelDropFile: 'Glisați fișierele aici sau',
     labelSelectFile: 'Selectare fișier',
+    actReports: 'Reports',
+    reportsOpen: 'Open',
+    reportsDescr: 'Create and fill report templates without opening a spreadsheet.',
 }

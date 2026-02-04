@@ -129,4 +129,7 @@ l10n.ko = {
     colLastOpened: '마지막으로 연 날짜',
     labelDropFile: '파일을 여기로 드래그하거나',
     labelSelectFile: '파일을 선택하세요',
+    actReports: 'Reports',
+    reportsOpen: 'Open',
+    reportsDescr: 'Create and fill report templates without opening a spreadsheet.',
 }

@@ -128,4 +128,7 @@ l10n.uk = {
     colLastOpened: 'Останнє відкриття',
     labelDropFile: 'Перетягніть файли сюди або',
     labelSelectFile: 'Виберіть файл',
+    actReports: 'Reports',
+    reportsOpen: 'Open',
+    reportsDescr: 'Create and fill report templates without opening a spreadsheet.',
 }

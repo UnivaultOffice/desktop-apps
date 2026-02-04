@@ -133,4 +133,7 @@ l10n.ja = {
     colLastOpened: '最終閲覧',
     labelDropFile: 'ファイルをここにドラッグするか',
     labelSelectFile: 'ファイルを選択',
+    actReports: 'Reports',
+    reportsOpen: 'Open',
+    reportsDescr: 'Create and fill report templates without opening a spreadsheet.',
 }

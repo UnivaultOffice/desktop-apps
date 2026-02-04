@@ -133,4 +133,7 @@ l10n.de = {
     colLastOpened: 'Zuletzt geöffnet',
     labelDropFile: 'Dateien hierher ziehen oder',
     labelSelectFile: 'Datei auswählen',
+    actReports: 'Reports',
+    reportsOpen: 'Open',
+    reportsDescr: 'Create and fill report templates without opening a spreadsheet.',
 }

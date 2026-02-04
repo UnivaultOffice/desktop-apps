@@ -119,4 +119,7 @@ l10n.no = {
     settGpuUseMode: "Bruk grafikkakselerasjon når tilgjengelig",
     tplPanelLocal: "Lokale",
     tplPanelCloud: "Cloud",
+    actReports: 'Reports',
+    reportsOpen: 'Open',
+    reportsDescr: 'Create and fill report templates without opening a spreadsheet.',
 }

@@ -127,4 +127,7 @@ l10n.hy = {
     colFileName: "Նիշքի անուն",
     colLocation: 'Տեղ',
     colLastOpened: 'Վերջին բացվածը',
+    actReports: 'Reports',
+    reportsOpen: 'Open',
+    reportsDescr: 'Create and fill report templates without opening a spreadsheet.',
 }

@@ -119,4 +119,7 @@ l10n.ca = {
     settGpuUseMode: "Utilitza gràfics d’acceleració quan estiguin disponibles",
     tplPanelLocal: "Locals",
     tplPanelCloud: "De núvol",
+    actReports: 'Reports',
+    reportsOpen: 'Open',
+    reportsDescr: 'Create and fill report templates without opening a spreadsheet.',
 }

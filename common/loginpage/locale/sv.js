@@ -119,4 +119,7 @@ l10n.sv = {
     settGpuUseMode: "Använd grafikacceleration om tillgängligt",
     tplPanelLocal: "Lokala",
     tplPanelCloud: "Moln",
+    actReports: 'Reports',
+    reportsOpen: 'Open',
+    reportsDescr: 'Create and fill report templates without opening a spreadsheet.',
 }

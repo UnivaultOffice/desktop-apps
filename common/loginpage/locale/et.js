@@ -119,4 +119,7 @@ l10n.et = {
     settGpuUseMode: "Kasutage võimalusel graafikakiirendust",
     tplPanelLocal: "Kohalikud",
     tplPanelCloud: "Pilve",
+    actReports: 'Reports',
+    reportsOpen: 'Open',
+    reportsDescr: 'Create and fill report templates without opening a spreadsheet.',
 }

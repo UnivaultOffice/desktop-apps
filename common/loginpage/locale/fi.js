@@ -129,4 +129,7 @@ l10n.fi = {
     colLastOpened: 'Viimeksi avattu',
     labelDropFile: 'Vedä tiedostosi tähän tai',
     labelSelectFile: 'Valitse tiedosto',
+    actReports: 'Reports',
+    reportsOpen: 'Open',
+    reportsDescr: 'Create and fill report templates without opening a spreadsheet.',
 }
