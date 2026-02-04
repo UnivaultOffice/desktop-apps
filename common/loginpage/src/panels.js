@@ -415,8 +415,8 @@ window.sdk.on('on_native_message', function(cmd, param) {
                 const keys = reportsGateMap[root];
                 const keyVal = fobjs[keys.keyKey];
                 const uiVal = fobjs[keys.uiKey];
-                const keyOk = keyVal ? JSON.parse(keyVal) === true : false;
-                const uiOk = uiVal ? JSON.parse(uiVal) === true : false;
+                const keyOk = keyVal ? !!JSON.parse(keyVal) : false;
+                const uiOk = uiVal ? !!JSON.parse(uiVal) : false;
                 if (keyOk && uiOk) {
                     enabledRoot = root;
                     break;
