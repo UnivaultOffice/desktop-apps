@@ -137,4 +137,12 @@ l10n.ru = {
     labelSelectFile: 'Выберите файл',
     reportsOpen: 'Открыть',
     reportsDescr: 'Создавайте и заполняйте шаблоны отчетов без открытия таблицы.',
+    reportsCreate: 'Создать',
+    reportsSettings: 'Настройки',
+    reportsSearch: 'Поиск шаблонов отчетов',
+    reportsEmptyTitle: 'Шаблонов пока нет',
+    reportsEmptyText: 'Добавьте шаблон в настройках, чтобы начать создавать отчеты.',
+    reportsFill: 'Заполнить',
+    reportsSelectTemplate: 'Выберите шаблон для создания отчета.',
+    reportsUnnamed: 'Без названия',
 }

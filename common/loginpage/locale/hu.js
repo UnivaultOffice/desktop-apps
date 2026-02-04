@@ -136,4 +136,12 @@ l10n.hu = {
     actReports: 'Reports',
     reportsOpen: 'Open',
     reportsDescr: 'Create and fill report templates without opening a spreadsheet.',
+    reportsCreate: 'Create',
+    reportsSettings: 'Settings',
+    reportsSearch: 'Search reports',
+    reportsEmptyTitle: 'No templates yet',
+    reportsEmptyText: 'Add a template in settings to start generating reports.',
+    reportsFill: 'Fill',
+    reportsSelectTemplate: 'Select a template to create a report.',
+    reportsUnnamed: 'Untitled template',
 }

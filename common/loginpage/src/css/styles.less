@@ -44,10 +44,72 @@
     }
   }
 
+  .reports-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+
+    .search-container {
+      min-width: 240px;
+    }
+  }
+
   .reports-body {
-    max-width: 860px;
     line-height: 1.45;
   }
+
+  .reports-empty {
+    margin: 24px 0;
+  }
+
+  .reports-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+    padding-top: 12px;
+  }
+
+  .reports-card {
+    background: var(--background-action-panel);
+    border: 1px solid var(--border-divider);
+    border-radius: 8px;
+    padding: 14px;
+    cursor: pointer;
+    transition: border-color 120ms ease, box-shadow 120ms ease;
+
+    &.selected {
+      border-color: var(--border-control-focus);
+      box-shadow: var(--shadow-sidebar-item-pressed);
+    }
+  }
+
+  .reports-card-title {
+    font-weight: 600;
+    color: var(--text-normal);
+  }
+
+  .reports-card-body {
+    margin: 8px 0;
+    color: var(--text-secondary);
+  }
+
+  .reports-card-meta {
+    color: var(--text-tertiary);
+    margin-bottom: 10px;
+  }
+
+  .reports-card-actions {
+    display: flex;
+    gap: 8px;
+  }
+}
+
+.btn--small {
+  height: 28px;
+  padding: 0 10px;
+  font-size: 12px;
+  line-height: 28px;
 }
 
 body {
