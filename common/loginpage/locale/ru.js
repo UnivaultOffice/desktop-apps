@@ -59,6 +59,7 @@ l10n.ru = {
     actAbout: 'О программе',
     actSettings: 'Настройки',
     actTemplates: 'Шаблоны',
+    actReports: 'Отчеты',
     actClouds: 'Облака',
     actHome: 'Главная',
     licKeyHolder: 'введите ключ активации',
@@ -134,4 +135,6 @@ l10n.ru = {
     lastOpened: "Последнее открытие",
     labelDropFile: 'Перетащите файлы сюда или',
     labelSelectFile: 'Выберите файл',
+    reportsOpen: 'Открыть',
+    reportsDescr: 'Создавайте и заполняйте шаблоны отчетов без открытия таблицы.',
 }

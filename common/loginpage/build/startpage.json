@@ -77,6 +77,7 @@
                     ,"../src/dialogbase.js"
                     ,"../deploy/noconnect.js"
                     ,"../src/paneltemplates.js"
+                    ,"../src/panelreports.js"
                     ,"../src/panelrecent.js"
                     ,"../src/panelfolders.js"
                     ,"../src/panelconnect.js"

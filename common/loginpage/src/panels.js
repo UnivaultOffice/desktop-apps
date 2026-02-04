@@ -64,6 +64,16 @@ $(document).ready(function() {
                     <span class="text" l10n>${utils.Lang.actTemplates}</span>
                 </a>
               </li>
+              <li class="menu-item">
+                <a l10n action="reports">
+                    <div class="icon-box">
+                        <svg class="icon" data-iconname="plugin" data-precls="tool-icon">
+                            <use href="#plugin"></use>
+                        </svg>
+                    </div>
+                    <span class="text" l10n>${utils.Lang.actReports}</span>
+                </a>
+              </li>
               <li class="menu-item separator"></li>
               <section id="idx-sidebar-portals" class="connect">
               </section>
@@ -113,6 +123,8 @@ $(document).ready(function() {
 
     if ( !!window.ControllerTemplates )
         window.app.controller.templates = (new ControllerTemplates).init();
+    if ( !!window.ControllerReports )
+        window.app.controller.reports = (new ControllerReports).init();
     window.app.controller.recent = (new ControllerRecent).init();
     window.app.controller.folders = (new ControllerFolders).init();
     window.app.controller.about = (new ControllerAbout).init();

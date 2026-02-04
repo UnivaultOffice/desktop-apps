@@ -92,6 +92,7 @@ l10n.en = {
     actAbout: 'About',
     actSettings: 'Settings',
     actTemplates: 'Templates',
+    actReports: 'Reports',
     actPreviewTemplates: 'Template',
     actClouds: 'Clouds',
     actHome: 'Home',
@@ -172,6 +173,8 @@ l10n.en = {
     colLastOpened: 'Last opened',
     labelDropFile: 'Drag your files here or',
     labelSelectFile: 'Select file',
+    reportsOpen: 'Open',
+    reportsDescr: 'Create and fill report templates without opening a spreadsheet.',
 }
 
 
