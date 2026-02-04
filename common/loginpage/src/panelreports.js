@@ -84,6 +84,21 @@
                     return encodeURI(p);
                 };
 
+                const postToIframe = (message) => {
+                    try {
+                        const iframe = $iframe[0];
+                        if (iframe && iframe.contentWindow) {
+                            iframe.contentWindow.postMessage(JSON.stringify(message), '*');
+                        }
+                    } catch (e) {
+                        // ignore
+                    }
+                };
+
+                const getLangId = () => {
+                    return (utils.Lang && utils.Lang.id) ? utils.Lang.id : 'en';
+                };
+
                 const setRoot = (root) => {
                     if (!root) {
                         $missing.removeClass('hidden');
@@ -91,12 +106,24 @@
                         return;
                     }
                     $missing.addClass('hidden');
-                    const src = fileUrlFromPath(`${root}/reports-ui/index.html`);
+                    const lang = encodeURIComponent(getLangId());
+                    const src = fileUrlFromPath(`${root}/reports-ui/index.html`) + `?lang=${lang}`;
                     $iframe.attr('src', src);
                 };
 
                 setRoot(window.reportsUiRoot || null);
                 CommonEvents.on('reports:root', (root) => setRoot(root));
+                CommonEvents.on('lang:changed', (prev, next) => {
+                    postToIframe({event:'uiLangChanged', data: {new: next, old: prev}});
+                });
+                CommonEvents.on('theme:changed', (name, type) => {
+                    postToIframe({event:'uiThemeChanged', data: {name: name, type: type}});
+                });
+
+                $iframe.on('load', () => {
+                    postToIframe({event:'uiLangChanged', data: {new: getLangId()}});
+                    postToIframe({event:'uiThemeChanged', data: {name: null}});
+                });
 
                 return this;
             }
