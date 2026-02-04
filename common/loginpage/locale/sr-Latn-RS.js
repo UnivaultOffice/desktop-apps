@@ -145,5 +145,5 @@ l10n.sr_Latn_RS = {
     reportsSelectTemplate: 'Select a template to create a report.',
     reportsUnnamed: 'Untitled template',
     reportsMissingTitle: 'Reports module is not installed',
-    reportsMissingText: 'Place reports-ui next to reports.key in the installation folder and restart the app.',
+    reportsMissingText: 'Place reports-ui with reports.key inside in the installation folder and restart the app.',
 }

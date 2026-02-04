@@ -205,7 +205,7 @@ $(document).ready(function() {
     replaceIcons(!mql.matches);
 });
 
-const REPORTS_GATE_FILE = 'reports.key';
+const REPORTS_GATE_FILE = 'reports-ui/reports.key';
 const REPORTS_UI_INDEX = 'reports-ui/index.html';
 const REPORTS_GATE_PREFIX = 'reports_gate_';
 let reportsGatePending = null;
