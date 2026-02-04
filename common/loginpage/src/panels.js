@@ -137,9 +137,11 @@ $(document).ready(function() {
 
     !!window.ControllerExternalPanel && (window.app.controller.externalpanel = (new ControllerExternalPanel({})).init());
 
+    initReportsGate();
+
     // if (!localStorage.welcome) {
-    //     app.controller.welcome = (new ControllerWelcome).init();
-    //     selectAction('welcome');
+//     app.controller.welcome = (new ControllerWelcome).init();
+//     selectAction('welcome');
 
     //     localStorage.setItem('welcome', 'have been');
     // } else
@@ -202,6 +204,57 @@ $(document).ready(function() {
 
     replaceIcons(!mql.matches);
 });
+
+const REPORTS_GATE_FILE = 'reports.key';
+const REPORTS_GATE_PREFIX = 'reports_gate_';
+let reportsGatePending = null;
+
+function initReportsGate() {
+    hideAction('reports', true);
+
+    if (!window.sdk || typeof window.sdk.execCommand !== 'function') {
+        return;
+    }
+
+    const paths = getReportsGatePaths();
+    if (!paths.length) return;
+
+    reportsGatePending = {};
+    paths.forEach((p, i) => {
+        reportsGatePending[REPORTS_GATE_PREFIX + i] = p;
+    });
+
+    try {
+        window.sdk.execCommand('files:check', JSON.stringify(reportsGatePending));
+    } catch (e) {
+        // ignore gate failures; keep hidden
+    }
+}
+
+function getReportsGatePaths() {
+    let pathname = decodeURIComponent(window.location.pathname || '');
+    if (pathname.startsWith('/') && pathname[2] === ':') {
+        pathname = pathname.slice(1);
+    }
+    pathname = pathname.replace(/\\/g, '/');
+    const dir = pathname.replace(/\/[^\/]*$/, '');
+    const roots = new Set();
+
+    if (dir) roots.add(dir);
+    if (dir.includes('/editors/')) {
+        roots.add(dir.split('/editors/')[0]);
+    }
+    if (dir.includes('/loginpage/')) {
+        roots.add(dir.split('/loginpage/')[0]);
+    }
+    if (dir.endsWith('/deploy')) {
+        roots.add(dir.replace(/\/deploy$/, ''));
+    }
+
+    return Array.from(roots)
+        .filter(Boolean)
+        .map(r => `${r}/${REPORTS_GATE_FILE}`);
+}
 
 function onActionClick(e) {
     var $el = $(this);
@@ -346,6 +399,27 @@ window.sdk.on('on_native_message', function(cmd, param) {
     } else
     if (/app\:version/.test(cmd)) {
         $('.tool-menu a[action=about]').parent().removeClass('hidden');
+    }
+
+    if (/files:checked/.test(cmd) && reportsGatePending) {
+        try {
+            const fobjs = JSON.parse(param);
+            let enabled = false;
+            for (const key in reportsGatePending) {
+                if (Object.prototype.hasOwnProperty.call(fobjs, key)) {
+                    const value = JSON.parse(fobjs[key]);
+                    if (value === true) {
+                        enabled = true;
+                        break;
+                    }
+                }
+            }
+            hideAction('reports', !enabled);
+        } catch (e) {
+            hideAction('reports', true);
+        } finally {
+            reportsGatePending = null;
+        }
     }
     
     console.log(cmd, param);
