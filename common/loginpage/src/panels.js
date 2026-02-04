@@ -409,6 +409,10 @@ window.sdk.on('on_native_message', function(cmd, param) {
     if (/files:checked/.test(cmd) && reportsGatePending) {
         try {
             const fobjs = JSON.parse(param);
+            const hasGateKey = Object.keys(fobjs || {}).some(k => k.indexOf(REPORTS_GATE_PREFIX) === 0);
+            if (!hasGateKey) {
+                return;
+            }
             let enabledRoot = null;
             for (const root in reportsGateMap) {
                 if (!Object.prototype.hasOwnProperty.call(reportsGateMap, root)) continue;
