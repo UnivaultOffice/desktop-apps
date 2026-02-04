@@ -144,4 +144,6 @@ l10n.sr_Cyrl_RS = {
     reportsFill: 'Fill',
     reportsSelectTemplate: 'Select a template to create a report.',
     reportsUnnamed: 'Untitled template',
+    reportsMissingTitle: 'Reports module is not installed',
+    reportsMissingText: 'Place reports-ui next to reports.key in the installation folder and restart the app.',
 }

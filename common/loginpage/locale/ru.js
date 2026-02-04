@@ -145,4 +145,6 @@ l10n.ru = {
     reportsFill: 'Заполнить',
     reportsSelectTemplate: 'Выберите шаблон для создания отчета.',
     reportsUnnamed: 'Без названия',
+    reportsMissingTitle: 'Модуль отчетов не установлен',
+    reportsMissingText: 'Положите папку reports-ui рядом с reports.key в папку установки и перезапустите приложение.',
 }

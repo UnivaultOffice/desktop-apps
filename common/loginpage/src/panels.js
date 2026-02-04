@@ -206,8 +206,10 @@ $(document).ready(function() {
 });
 
 const REPORTS_GATE_FILE = 'reports.key';
+const REPORTS_UI_INDEX = 'reports-ui/index.html';
 const REPORTS_GATE_PREFIX = 'reports_gate_';
 let reportsGatePending = null;
+let reportsGateMap = null;
 
 function initReportsGate() {
     hideAction('reports', true);
@@ -216,12 +218,17 @@ function initReportsGate() {
         return;
     }
 
-    const paths = getReportsGatePaths();
-    if (!paths.length) return;
+    const roots = getReportsGateRoots();
+    if (!roots.length) return;
 
     reportsGatePending = {};
-    paths.forEach((p, i) => {
-        reportsGatePending[REPORTS_GATE_PREFIX + i] = p;
+    reportsGateMap = {};
+    roots.forEach((root, i) => {
+        const keyKey = `${REPORTS_GATE_PREFIX}key_${i}`;
+        const uiKey = `${REPORTS_GATE_PREFIX}ui_${i}`;
+        reportsGatePending[keyKey] = `${root}/${REPORTS_GATE_FILE}`;
+        reportsGatePending[uiKey] = `${root}/${REPORTS_UI_INDEX}`;
+        reportsGateMap[root] = { keyKey, uiKey };
     });
 
     try {
@@ -231,7 +238,7 @@ function initReportsGate() {
     }
 }
 
-function getReportsGatePaths() {
+function getReportsGateRoots() {
     let pathname = decodeURIComponent(window.location.pathname || '');
     if (pathname.startsWith('/') && pathname[2] === ':') {
         pathname = pathname.slice(1);
@@ -251,9 +258,7 @@ function getReportsGatePaths() {
         roots.add(dir.replace(/\/deploy$/, ''));
     }
 
-    return Array.from(roots)
-        .filter(Boolean)
-        .map(r => `${r}/${REPORTS_GATE_FILE}`);
+    return Array.from(roots).filter(Boolean);
 }
 
 function onActionClick(e) {
@@ -404,21 +409,30 @@ window.sdk.on('on_native_message', function(cmd, param) {
     if (/files:checked/.test(cmd) && reportsGatePending) {
         try {
             const fobjs = JSON.parse(param);
-            let enabled = false;
-            for (const key in reportsGatePending) {
-                if (Object.prototype.hasOwnProperty.call(fobjs, key)) {
-                    const value = JSON.parse(fobjs[key]);
-                    if (value === true) {
-                        enabled = true;
-                        break;
-                    }
+            let enabledRoot = null;
+            for (const root in reportsGateMap) {
+                if (!Object.prototype.hasOwnProperty.call(reportsGateMap, root)) continue;
+                const keys = reportsGateMap[root];
+                const keyVal = fobjs[keys.keyKey];
+                const uiVal = fobjs[keys.uiKey];
+                const keyOk = keyVal ? JSON.parse(keyVal) === true : false;
+                const uiOk = uiVal ? JSON.parse(uiVal) === true : false;
+                if (keyOk && uiOk) {
+                    enabledRoot = root;
+                    break;
                 }
             }
-            hideAction('reports', !enabled);
+            hideAction('reports', !enabledRoot);
+            window.reportsUiRoot = enabledRoot || null;
+            if (enabledRoot) {
+                CommonEvents.fire('reports:root', [enabledRoot]);
+            }
         } catch (e) {
             hideAction('reports', true);
+            window.reportsUiRoot = null;
         } finally {
             reportsGatePending = null;
+            reportsGateMap = null;
         }
     }
     
