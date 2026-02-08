@@ -99,6 +99,24 @@
                     return (utils.Lang && utils.Lang.id) ? utils.Lang.id : 'en';
                 };
 
+                const getLocaleDict = () => {
+                    const lang = utils.Lang || {};
+                    return {
+                        title: lang.actReports || 'Reports',
+                        create: lang.reportsCreate || lang.actCreateNew || 'Create',
+                        settings: lang.reportsSettings || lang.actSettings || 'Settings',
+                        search: lang.reportsSearch || 'Search reports',
+                        empty_title: lang.reportsEmptyTitle || 'No templates yet',
+                        empty_text: lang.reportsEmptyText || 'Add a template in settings to start generating reports.',
+                        fill: lang.reportsFill || 'Fill',
+                        untitled: lang.reportsUnnamed || 'Untitled'
+                    };
+                };
+
+                const postLocale = (langId) => {
+                    postToIframe({event:'uiLocaleChanged', data: {lang: langId, dict: getLocaleDict()}});
+                };
+
                 const setRoot = (root) => {
                     if (!root) {
                         $missing.removeClass('hidden');
@@ -115,6 +133,7 @@
                 CommonEvents.on('reports:root', (root) => setRoot(root));
                 CommonEvents.on('lang:changed', (prev, next) => {
                     postToIframe({event:'uiLangChanged', data: {new: next, old: prev}});
+                    postLocale(next);
                 });
                 CommonEvents.on('theme:changed', (name, type) => {
                     postToIframe({event:'uiThemeChanged', data: {name: name, type: type}});
@@ -122,8 +141,71 @@
 
                 $iframe.on('load', () => {
                     postToIframe({event:'uiLangChanged', data: {new: getLangId()}});
+                    postLocale(getLangId());
                     postToIframe({event:'uiThemeChanged', data: {name: null}});
                 });
+
+                const parseMessage = (payload) => {
+                    try {
+                        return (typeof payload === 'string') ? JSON.parse(payload) : payload;
+                    } catch (e) {
+                        return null;
+                    }
+                };
+
+                const buildRunScript = (job, debug) => {
+                    const jobStr = JSON.stringify(job || {});
+                    const debugFlag = debug ? 'true' : 'false';
+                    return `function(){try{var job=JSON.parse(${JSON.stringify(jobStr)});var st=window.__reportsState||(window.__reportsState={});if(st.lastJobId===job.id&&st.done)return;st.lastJobId=job.id;st.job=job;st.done=false;st.debug=${debugFlag};st.startedAt=Date.now();var api=(window.Asc&&Asc.editor)?Asc.editor:(window.editor||window.Asc);if(!api||!api.asc_getDocumentName)return;function ready(){var full=api.isLoadFullApi;var loaded=api.isDocumentLoadComplete;try{if(typeof full==='function')full=full.call(api);}catch(e){}try{if(typeof loaded==='function')loaded=loaded.call(api);}catch(e){}return !!(full&&loaded);}function setRange(sheet,addr){var a=String(addr||'').trim();if(!a)return;var s=String(sheet||'').trim();var full=s?(s+'!'+a):a;api.asc_setWorksheetRange(full);}function insertText(val){var text=String(val||'');if(api.asc_insertInCell){api.asc_insertInCell(text);if(api.asc_closeCellEditor)api.asc_closeCellEditor();return;}if(api.asc_enterText){var v=text;try{v=(v&&v.codePointsArray)?v.codePointsArray():v;}catch(e){}api.asc_enterText(v);if(api.asc_closeCellEditor)api.asc_closeCellEditor();}}function run(){if(!ready())return false;var acts=st.job&&st.job.actions?st.job.actions:[];if(st.debug){try{setRange('', 'Z1');insertText('REPORTS DEBUG '+(st.job.id||''));}catch(e){}}function runAction(action){if(!action||!action.type)return;if(action.type==='setText'){var target=String(action.target||'').trim();if(!target)return;setRange(action.sheet,target);insertText(action.value||'');if(action.merge){try{api.asc_mergeCells();}catch(e){}}}else if(action.type==='groupCols'){if(!action.range)return;setRange(action.sheet,action.range);api.asc_group(false);if(typeof action.expanded==='boolean'){try{api.asc_changeGroupDetails(!!action.expanded);}catch(e){}}}else if(action.type==='deleteRow'){if(!action.row)return;var row=String(action.row).trim();if(!row)return;setRange(action.sheet,row+':'+row);api.asc_deleteCells(Asc.c_oAscDeleteOptions.DeleteRows);}}for(var i=0;i<acts.length;i++){runAction(acts[i]);}st.done=true;return true;}if(run())return;if(st.timer){clearInterval(st.timer);st.timer=null;}st.timer=setInterval(function(){try{if(run()){clearInterval(st.timer);st.timer=null;}else if(Date.now()-st.startedAt>60000){clearInterval(st.timer);st.timer=null;}}catch(e){}},500);}catch(e){}}`;
+                };
+
+                const runJob = (payload) => {
+                    if (!payload) return;
+                    const job = payload.job || {};
+                    const templateId = payload.templateId || job.templateId || null;
+                    try {
+                        if (window.sdk && payload.path) {
+                            window.sdk.command('create:new', JSON.stringify({
+                                template: {
+                                    id: templateId,
+                                    type: payload.typeId || 0,
+                                    path: payload.path
+                                }
+                            }));
+                        }
+                    } catch (e) {
+                        // ignore
+                    }
+                    if (!window.AscDesktopEditor || !window.AscDesktopEditor.CallInAllWindows)
+                        return;
+
+                    const script = buildRunScript(job, !!payload.debug);
+                    const sendScript = () => {
+                        try {
+                            if (typeof script === 'string') {
+                                window.AscDesktopEditor.CallInAllWindows(script);
+                            }
+                        } catch (e) {
+                            // ignore
+                        }
+                    };
+
+                    sendScript();
+                    const start = Date.now();
+                    const timer = setInterval(() => {
+                        sendScript();
+                        if (Date.now() - start > 60000) {
+                            clearInterval(timer);
+                        }
+                    }, 1000);
+                };
+
+                window.addEventListener('message', (evt) => {
+                    const msg = parseMessage(evt.data);
+                    if (!msg || msg.event !== 'reportsRun' || msg.source !== 'reports-ui')
+                        return;
+                    runJob(msg.data);
+                }, false);
 
                 return this;
             }

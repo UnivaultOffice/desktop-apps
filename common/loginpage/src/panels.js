@@ -210,11 +210,36 @@ const REPORTS_UI_INDEX = 'reports-ui/index.html';
 const REPORTS_GATE_PREFIX = 'reports_gate_';
 let reportsGatePending = null;
 let reportsGateMap = null;
+let reportsGateKeySet = null;
+let reportsGateMissing = null;
+let reportsGateSeed = null;
+let reportsGateRetryTimer = null;
+let reportsGateFinalizeTimer = null;
+
+function parseCheckedValue(value) {
+    if (value === true || value === 1) return true;
+    if (value === false || value === 0 || value === null || value === undefined) return false;
+    if (typeof value === 'string') {
+        try {
+            return !!JSON.parse(value);
+        } catch (e) {
+            const v = value.toLowerCase();
+            return v === '1' || v === 'true';
+        }
+    }
+    return !!value;
+}
 
 function initReportsGate() {
     hideAction('reports', true);
 
     if (!window.sdk || typeof window.sdk.execCommand !== 'function') {
+        if (!reportsGateRetryTimer) {
+            reportsGateRetryTimer = setTimeout(() => {
+                reportsGateRetryTimer = null;
+                initReportsGate();
+            }, 500);
+        }
         return;
     }
 
@@ -223,19 +248,29 @@ function initReportsGate() {
 
     reportsGatePending = {};
     reportsGateMap = {};
+    reportsGateKeySet = new Set();
+    reportsGateMissing = new Set();
+    if (reportsGateSeed === null) {
+        reportsGateSeed = 7000000 + Math.floor(Math.random() * 1000000);
+    }
     roots.forEach((root, i) => {
-        const keyKey = `${REPORTS_GATE_PREFIX}key_${i}`;
-        const uiKey = `${REPORTS_GATE_PREFIX}ui_${i}`;
-        reportsGatePending[keyKey] = `${root}/${REPORTS_GATE_FILE}`;
-        reportsGatePending[uiKey] = `${root}/${REPORTS_UI_INDEX}`;
-        reportsGateMap[root] = { keyKey, uiKey };
+        const keyKey = reportsGateSeed + (i * 2);
+        const uiKey = reportsGateSeed + (i * 2) + 1;
+        const keyKeyStr = String(keyKey);
+        const uiKeyStr = String(uiKey);
+        reportsGatePending[keyKeyStr] = `${root}/${REPORTS_GATE_FILE}`;
+        reportsGatePending[uiKeyStr] = `${root}/${REPORTS_UI_INDEX}`;
+        reportsGateMap[root] = { keyKey: keyKeyStr, uiKey: uiKeyStr };
+        reportsGateKeySet.add(keyKeyStr);
+        reportsGateKeySet.add(uiKeyStr);
     });
 
     try {
         window.sdk.execCommand('files:check', JSON.stringify(reportsGatePending));
     } catch (e) {
-        // ignore gate failures; keep hidden
+        // if check fails, still allow finalize to decide
     }
+    scheduleReportsGateFinalize(300);
 }
 
 function getReportsGateRoots() {
@@ -259,6 +294,40 @@ function getReportsGateRoots() {
     }
 
     return Array.from(roots).filter(Boolean);
+}
+
+function scheduleReportsGateFinalize(delay) {
+    if (reportsGateFinalizeTimer) {
+        clearTimeout(reportsGateFinalizeTimer);
+    }
+    reportsGateFinalizeTimer = setTimeout(() => {
+        reportsGateFinalizeTimer = null;
+        finalizeReportsGate();
+    }, delay || 0);
+}
+
+function finalizeReportsGate() {
+    if (!reportsGatePending || !reportsGateMap) return;
+    let enabledRoot = null;
+    for (const root in reportsGateMap) {
+        if (!Object.prototype.hasOwnProperty.call(reportsGateMap, root)) continue;
+        const keys = reportsGateMap[root];
+        const keyMissing = reportsGateMissing && reportsGateMissing.has(keys.keyKey);
+        const uiMissing = reportsGateMissing && reportsGateMissing.has(keys.uiKey);
+        if (!keyMissing && !uiMissing) {
+            enabledRoot = root;
+            break;
+        }
+    }
+    hideAction('reports', !enabledRoot);
+    window.reportsUiRoot = enabledRoot || null;
+    if (enabledRoot) {
+        CommonEvents.fire('reports:root', [enabledRoot]);
+    }
+    reportsGatePending = null;
+    reportsGateMap = null;
+    reportsGateKeySet = null;
+    reportsGateMissing = null;
 }
 
 function onActionClick(e) {
@@ -409,34 +478,25 @@ window.sdk.on('on_native_message', function(cmd, param) {
     if (/files:checked/.test(cmd) && reportsGatePending) {
         try {
             const fobjs = JSON.parse(param);
-            const hasGateKey = Object.keys(fobjs || {}).some(k => k.indexOf(REPORTS_GATE_PREFIX) === 0);
+            const hasGateKey = reportsGateKeySet
+                ? Object.keys(fobjs || {}).some(k => reportsGateKeySet.has(k))
+                : false;
             if (!hasGateKey) {
                 return;
             }
-            let enabledRoot = null;
-            for (const root in reportsGateMap) {
-                if (!Object.prototype.hasOwnProperty.call(reportsGateMap, root)) continue;
-                const keys = reportsGateMap[root];
-                const keyVal = fobjs[keys.keyKey];
-                const uiVal = fobjs[keys.uiKey];
-                const keyOk = keyVal ? !!JSON.parse(keyVal) : false;
-                const uiOk = uiVal ? !!JSON.parse(uiVal) : false;
-                if (keyOk && uiOk) {
-                    enabledRoot = root;
-                    break;
+            Object.keys(fobjs || {}).forEach((key) => {
+                if (!reportsGateKeySet || !reportsGateKeySet.has(key)) return;
+                const value = fobjs[key];
+                if (!parseCheckedValue(value)) {
+                    reportsGateMissing && reportsGateMissing.add(key);
                 }
-            }
-            hideAction('reports', !enabledRoot);
-            window.reportsUiRoot = enabledRoot || null;
-            if (enabledRoot) {
-                CommonEvents.fire('reports:root', [enabledRoot]);
-            }
+            });
+            scheduleReportsGateFinalize(150);
         } catch (e) {
             hideAction('reports', true);
             window.reportsUiRoot = null;
         } finally {
-            reportsGatePending = null;
-            reportsGateMap = null;
+            // finalize handles cleanup
         }
     }
     
