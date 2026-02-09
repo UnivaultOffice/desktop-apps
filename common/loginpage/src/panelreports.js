@@ -95,6 +95,21 @@
                     }
                 };
 
+                const reportLog = (message, data) => {
+                    try {
+                        if (!window.__reportsLog) window.__reportsLog = [];
+                        window.__reportsLog.push({ time: Date.now(), message: message, data: data || null });
+                        if (window.__reportsLog.length > 500) {
+                            window.__reportsLog = window.__reportsLog.slice(window.__reportsLog.length - 500);
+                        }
+                        if (window.console && console.log) {
+                            console.log('[reports-host]', message, data || '');
+                        }
+                    } catch (e) {
+                        // ignore
+                    }
+                };
+
                 const getLangId = () => {
                     return (utils.Lang && utils.Lang.id) ? utils.Lang.id : 'en';
                 };
@@ -165,6 +180,7 @@
                     const templateId = payload.templateId || job.templateId || null;
                     try {
                         if (window.sdk && payload.path) {
+                            reportLog('create:new', { path: payload.path, jobId: job.id || '' });
                             window.sdk.command('create:new', JSON.stringify({
                                 template: {
                                     id: templateId,
@@ -172,20 +188,29 @@
                                     path: payload.path
                                 }
                             }));
+                        } else if (payload.path) {
+                            reportLog('create:new skipped: sdk missing', { path: payload.path, jobId: job.id || '' });
                         }
                     } catch (e) {
+                        reportLog('create:new failed', { error: String(e), jobId: job.id || '' });
                         // ignore
                     }
                     if (!window.AscDesktopEditor || !window.AscDesktopEditor.CallInAllWindows)
+                    {
+                        reportLog('CallInAllWindows missing', { jobId: job.id || '' });
+                        postToIframe({ event: 'reportsRunError', data: { jobId: job.id || '', error: 'CallInAllWindows missing' } });
                         return;
+                    }
 
                     const script = buildRunScript(job, !!payload.debug);
                     const sendScript = () => {
                         try {
                             if (typeof script === 'string') {
+                                reportLog('CallInAllWindows', { jobId: job.id || '' });
                                 window.AscDesktopEditor.CallInAllWindows(script);
                             }
                         } catch (e) {
+                            reportLog('CallInAllWindows failed', { error: String(e), jobId: job.id || '' });
                             // ignore
                         }
                     };
@@ -204,6 +229,9 @@
                     const msg = parseMessage(evt.data);
                     if (!msg || msg.event !== 'reportsRun' || msg.source !== 'reports-ui')
                         return;
+                    const jobId = msg.data && msg.data.job && msg.data.job.id ? msg.data.job.id : '';
+                    reportLog('reportsRun received', { jobId: jobId, path: msg.data && msg.data.path ? msg.data.path : '' });
+                    postToIframe({ event: 'reportsRunAck', data: { jobId: jobId, ok: true } });
                     runJob(msg.data);
                 }, false);
 
