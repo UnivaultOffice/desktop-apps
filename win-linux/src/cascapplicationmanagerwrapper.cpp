@@ -12,8 +12,10 @@
 #include <QJsonArray>
 #include <QProcess>
 #include <QScreen>
+#include <QFileInfo>
 #include <algorithm>
 #include <functional>
+#include <memory>
 
 #include "defines.h"
 #include "version.h"
@@ -425,6 +427,312 @@ bool CAscApplicationManagerWrapper::processCommonEvent(NSEditorApi::CAscCefMenuE
         } else
         if ( !(cmd.find(L"files:check") == std::wstring::npos) ) {
             CExistanceController::check(QString::fromStdWString(pData->get_Param()));
+            return true;
+        } else
+        if ( cmd.compare(L"docbuilder:probe") == 0 || cmd.compare(L"docbuilder:run") == 0 || cmd.compare(L"docbuilder:open") == 0 ) {
+            const int senderId = event->get_SenderId();
+            auto sendDocBuilderMessage = [this, senderId](const QString& command, const QJsonObject& payload) {
+                const QString json = Utils::stringifyJson(payload);
+                const std::wstring wcmd = command.toStdWString();
+                const std::wstring wjson = json.toStdWString();
+                if (CCefView * view = GetViewById(senderId)) {
+                    sendCommandTo(view, wcmd, wjson);
+                }
+                // Also broadcast to start pages to make sure the login-page bridge receives the response.
+                sendCommandTo(SEND_TO_ALL_START_PAGE, wcmd, wjson);
+                // And broadcast to all views to avoid missing responses when sender routing is unavailable.
+                sendCommandToAllEditors(wcmd, wjson);
+            };
+
+            const QString rawParam = QString::fromStdWString(pData->get_Param()).trimmed();
+            QJsonObject request;
+            if (!rawParam.isEmpty()) {
+                QJsonParseError jerror;
+                const QJsonDocument jdoc = QJsonDocument::fromJson(rawParam.toUtf8(), &jerror);
+                if (jerror.error == QJsonParseError::NoError && jdoc.isObject()) {
+                    request = jdoc.object();
+                } else {
+                    const QString parseRequestId = QString("docbuilder-%1").arg(QDateTime::currentMSecsSinceEpoch());
+                    sendDocBuilderMessage("docbuilder:result", QJsonObject{
+                        {"ok", false},
+                        {"requestId", parseRequestId},
+                        {"error", "invalid_request"},
+                        {"details", "Request payload must be a JSON object."}
+                    });
+                    return true;
+                }
+            }
+
+            QString requestId = request.value("requestId").toString();
+            if (requestId.isEmpty())
+                requestId = QString("docbuilder-%1").arg(QDateTime::currentMSecsSinceEpoch());
+
+            const QString appDir = QDir::cleanPath(QDir::fromNativeSeparators(qApp->applicationDirPath()));
+            const QString reportsRoot = QDir::cleanPath(QDir(appDir).filePath("reports-ui"));
+            const QString defaultRuntimeDir = QDir::cleanPath(QDir(reportsRoot).filePath("docbuilder/bin"));
+            const QString defaultScriptsDir = QDir::cleanPath(QDir(reportsRoot).filePath("docbuilder/scripts"));
+
+            auto resolvePath = [&](const QString& raw, const QString& baseDir) -> QString {
+                QString value = QDir::fromNativeSeparators(raw.trimmed());
+                if (value.isEmpty())
+                    return QString();
+                if (QFileInfo(value).isAbsolute())
+                    return QDir::cleanPath(value);
+                if (baseDir.isEmpty())
+                    return QDir::cleanPath(value);
+                return QDir::cleanPath(QDir(baseDir).filePath(value));
+            };
+            auto resolveExistingPath = [&](const QString& raw, const QStringList& roots) -> QString {
+                const QString normalized = QDir::fromNativeSeparators(raw.trimmed());
+                if (normalized.isEmpty())
+                    return QString();
+                if (QFileInfo(normalized).isAbsolute()) {
+                    const QString abs = QDir::cleanPath(normalized);
+                    return QFileInfo::exists(abs) ? abs : QString();
+                }
+                for (const QString& root : roots) {
+                    const QString candidate = QDir::cleanPath(QDir(root).filePath(normalized));
+                    if (QFileInfo::exists(candidate))
+                        return candidate;
+                }
+                return QDir::cleanPath(QDir(roots.isEmpty() ? appDir : roots.first()).filePath(normalized));
+            };
+            auto valueToCompactJson = [](const QJsonValue& value) -> QString {
+                if (value.isUndefined() || value.isNull())
+                    return QString();
+                if (value.isString())
+                    return value.toString();
+                if (value.isObject())
+                    return QString::fromUtf8(QJsonDocument(value.toObject()).toJson(QJsonDocument::Compact));
+                if (value.isArray())
+                    return QString::fromUtf8(QJsonDocument(value.toArray()).toJson(QJsonDocument::Compact));
+                if (value.isBool())
+                    return value.toBool() ? "true" : "false";
+                if (value.isDouble())
+                    return QString::number(value.toDouble(), 'g', 16);
+                return QString();
+            };
+            auto extractOutputPathFromArgument = [](const QJsonValue& argumentValue) -> QString {
+                if (argumentValue.isObject()) {
+                    return argumentValue.toObject().value("outputPath").toString().trimmed();
+                }
+                if (argumentValue.isString()) {
+                    const QString maybeJson = argumentValue.toString().trimmed();
+                    if (maybeJson.startsWith("{")) {
+                        QJsonParseError jerror;
+                        const QJsonDocument jdoc = QJsonDocument::fromJson(maybeJson.toUtf8(), &jerror);
+                        if (jerror.error == QJsonParseError::NoError && jdoc.isObject()) {
+                            return jdoc.object().value("outputPath").toString().trimmed();
+                        }
+                    }
+                }
+                return QString();
+            };
+            auto openInEditor = [this](const QString& path) -> bool {
+                if (path.trimmed().isEmpty())
+                    return false;
+
+                const QString nativePath = QDir::toNativeSeparators(QDir::cleanPath(QDir::fromNativeSeparators(path)));
+                if (!QFileInfo::exists(nativePath))
+                    return false;
+
+                // Reuse standard open path: it brings existing tab/window to front and avoids duplicates.
+                this->handleInputCmd(std::vector<std::wstring>{nativePath.toStdWString()});
+                return true;
+            };
+
+            if (cmd.compare(L"docbuilder:open") == 0) {
+                QString pathRaw = request.value("path").toString().trimmed();
+                if (pathRaw.isEmpty())
+                    pathRaw = request.value("outputPath").toString().trimmed();
+
+                const QString resolvedPath = resolvePath(pathRaw, appDir);
+                const QString nativePath = QDir::toNativeSeparators(resolvedPath);
+                const bool exists = !nativePath.isEmpty() && QFileInfo::exists(nativePath);
+                const bool opened = exists ? openInEditor(nativePath) : false;
+
+                QJsonObject response{
+                    {"ok", exists && opened},
+                    {"requestId", requestId},
+                    {"path", nativePath.isEmpty() ? pathRaw : nativePath},
+                    {"exists", exists},
+                    {"opened", opened}
+                };
+                if (!exists)
+                    response["error"] = "file_not_found";
+
+                sendDocBuilderMessage("docbuilder:openResult", response);
+                return true;
+            }
+
+            QString runtimeExe = request.value("runtimeExe").toString();
+            if (!runtimeExe.isEmpty()) {
+                runtimeExe = resolvePath(runtimeExe, appDir);
+            } else {
+                QString runtimeDir = request.value("runtimeDir").toString(defaultRuntimeDir);
+                runtimeDir = resolvePath(runtimeDir, appDir);
+                runtimeExe = QDir(runtimeDir).filePath("docbuilder.exe");
+            }
+
+            if (!QFileInfo::exists(runtimeExe)) {
+                const QString fallback = QDir(defaultRuntimeDir).filePath("docbuilder.exe");
+                if (QFileInfo::exists(fallback))
+                    runtimeExe = fallback;
+            }
+
+            const bool runtimeExists = QFileInfo::exists(runtimeExe);
+            if (cmd.compare(L"docbuilder:probe") == 0) {
+                sendDocBuilderMessage("docbuilder:probeResult", QJsonObject{
+                    {"ok", runtimeExists},
+                    {"requestId", requestId},
+                    {"runtimeExe", runtimeExe},
+                    {"runtimeDir", QFileInfo(runtimeExe).absolutePath()},
+                    {"error", runtimeExists ? QJsonValue() : QJsonValue("runtime_not_found")}
+                });
+                return true;
+            }
+
+            if (!runtimeExists) {
+                sendDocBuilderMessage("docbuilder:result", QJsonObject{
+                    {"ok", false},
+                    {"requestId", requestId},
+                    {"error", "runtime_not_found"},
+                    {"runtimeExe", runtimeExe}
+                });
+                return true;
+            }
+
+            const QString scriptRaw = request.value("script").toString();
+            const QString scriptPath = resolveExistingPath(scriptRaw, QStringList{appDir, reportsRoot, defaultScriptsDir});
+            if (scriptRaw.trimmed().isEmpty() || !QFileInfo::exists(scriptPath)) {
+                sendDocBuilderMessage("docbuilder:result", QJsonObject{
+                    {"ok", false},
+                    {"requestId", requestId},
+                    {"error", "script_not_found"},
+                    {"script", scriptRaw}
+                });
+                return true;
+            }
+
+            QString workDir = request.value("workDir").toString();
+            workDir = resolvePath(workDir, appDir);
+            if (workDir.isEmpty())
+                workDir = QFileInfo(scriptPath).absolutePath();
+
+            const bool openAfterRun = request.value("openAfterRun").toBool(true);
+            const QString outputPathRaw = extractOutputPathFromArgument(request.value("argument"));
+            QString outputPath = resolvePath(outputPathRaw, workDir);
+            if (!outputPath.isEmpty())
+                outputPath = QDir::toNativeSeparators(outputPath);
+
+            QStringList args;
+            const QJsonArray options = request.value("options").toArray();
+            for (const QJsonValue& value : options) {
+                if (value.isString() && !value.toString().trimmed().isEmpty())
+                    args << value.toString().trimmed();
+            }
+
+            const QString argumentJson = valueToCompactJson(request.value("argument"));
+            if (!argumentJson.isEmpty())
+                args << ("--argument=" + argumentJson);
+            args << scriptPath;
+
+            int timeoutMs = request.value("timeoutMs").toInt(120000);
+            timeoutMs = std::max(1000, std::min(timeoutMs, 1800000));
+
+            QProcess * process = new QProcess(this);
+            process->setProgram(runtimeExe);
+            process->setArguments(args);
+            process->setWorkingDirectory(workDir);
+
+            auto outBuffer = std::make_shared<QByteArray>();
+            auto errBuffer = std::make_shared<QByteArray>();
+            auto isTimedOut = std::make_shared<bool>(false);
+
+            const auto appendChunk = [](std::shared_ptr<QByteArray> target, const QByteArray& chunk) {
+                if (!target || chunk.isEmpty())
+                    return;
+                static const int kMaxBytes = 512 * 1024;
+                const int remaining = kMaxBytes - target->size();
+                if (remaining <= 0)
+                    return;
+                target->append(chunk.constData(), std::min(chunk.size(), remaining));
+            };
+
+            QObject::connect(process, &QProcess::readyReadStandardOutput, process, [process, outBuffer, appendChunk]() {
+                appendChunk(outBuffer, process->readAllStandardOutput());
+            });
+            QObject::connect(process, &QProcess::readyReadStandardError, process, [process, errBuffer, appendChunk]() {
+                appendChunk(errBuffer, process->readAllStandardError());
+            });
+
+            QTimer * timeoutTimer = new QTimer(process);
+            timeoutTimer->setSingleShot(true);
+            QObject::connect(timeoutTimer, &QTimer::timeout, process, [process, isTimedOut]() {
+                *isTimedOut = true;
+                if (process->state() != QProcess::NotRunning)
+                    process->kill();
+            });
+
+            QObject::connect(process, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), process,
+                             [sendDocBuilderMessage, timeoutTimer, requestId, runtimeExe, scriptPath, workDir,
+                              outBuffer, errBuffer, isTimedOut, appendChunk, process, openAfterRun, outputPath, openInEditor](int exitCode, QProcess::ExitStatus exitStatus) {
+                timeoutTimer->stop();
+                appendChunk(outBuffer, process->readAllStandardOutput());
+                appendChunk(errBuffer, process->readAllStandardError());
+
+                const bool normalExit = (exitStatus == QProcess::NormalExit);
+                const bool ok = normalExit && (0 == exitCode) && !(*isTimedOut);
+                const QString outText = QString::fromUtf8(*outBuffer).trimmed();
+                const QString errText = QString::fromUtf8(*errBuffer).trimmed();
+                bool opened = false;
+
+                QJsonObject response{
+                    {"ok", ok},
+                    {"requestId", requestId},
+                    {"exitCode", exitCode},
+                    {"runtimeExe", runtimeExe},
+                    {"script", scriptPath},
+                    {"workDir", workDir},
+                    {"timedOut", *isTimedOut}
+                };
+                if (!outText.isEmpty())
+                    response["stdout"] = outText;
+                if (!errText.isEmpty())
+                    response["stderr"] = errText;
+                if (!ok) {
+                    if (*isTimedOut)
+                        response["error"] = "timeout";
+                    else if (!normalExit)
+                        response["error"] = "abnormal_exit";
+                    else
+                        response["error"] = "run_failed";
+                } else if (openAfterRun && !outputPath.isEmpty() && QFileInfo::exists(outputPath)) {
+                    opened = openInEditor(outputPath);
+                }
+                response["openAfterRun"] = openAfterRun;
+                response["opened"] = opened;
+                if (!outputPath.isEmpty())
+                    response["outputPath"] = outputPath;
+
+                sendDocBuilderMessage("docbuilder:result", response);
+            });
+
+            process->start();
+            if (!process->waitForStarted(3000)) {
+                sendDocBuilderMessage("docbuilder:result", QJsonObject{
+                    {"ok", false},
+                    {"requestId", requestId},
+                    {"error", "start_failed"},
+                    {"runtimeExe", runtimeExe},
+                    {"script", scriptPath},
+                    {"details", process->errorString()}
+                });
+                process->deleteLater();
+                return true;
+            }
+
+            timeoutTimer->start(timeoutMs);
             return true;
         } else
         if ( !(cmd.find(L"recent:forget") == std::wstring::npos) ) {
