@@ -168,87 +168,6 @@
                     }
                 };
 
-                const pickerPending = Object.create(null);
-                const clearPickerPending = (requestId) => {
-                    const key = String(requestId || '').trim();
-                    if (!key || !pickerPending[key]) return null;
-                    const item = pickerPending[key];
-                    if (item.timeout) clearTimeout(item.timeout);
-                    if (item.debounce) clearTimeout(item.debounce);
-                    delete pickerPending[key];
-                    return item;
-                };
-                const postPickerResult = (data) => {
-                    postToIframe({ event: 'reportsPickerData', data: data || {} });
-                };
-                const selectPickerBest = (responses) => {
-                    if (!Array.isArray(responses) || !responses.length) return null;
-                    const focused = responses.find((item) => item && item.selection && item.selection.isFocused);
-                    if (focused) return focused;
-                    const withRanges = responses.find((item) => item && item.selection && Array.isArray(item.selection.ranges) && item.selection.ranges.length);
-                    if (withRanges) return withRanges;
-                    return responses[0];
-                };
-                const finishPicker = (requestId, data) => {
-                    const pending = clearPickerPending(requestId);
-                    if (!pending) return;
-                    postPickerResult(data);
-                };
-                const buildPickerScript = (requestId, includeNamed) => {
-                    const requestIdJson = JSON.stringify(String(requestId || ''));
-                    const includeNamedJson = includeNamed ? 'true' : 'false';
-                    return `function(){try{var requestId=${requestIdJson};var includeNamed=${includeNamedJson};var api=(window.Asc&&Asc.editor)?Asc.editor:(window.editor||window.Asc);if(!api||typeof api.asc_getActiveWorksheetIndex!=='function'||typeof api.asc_getWorksheetName!=='function')return;var sheetIndex=-1;try{sheetIndex=api.asc_getActiveWorksheetIndex();}catch(e){}if(typeof sheetIndex!=='number'||sheetIndex<0)return;var sheet='';try{sheet=String(api.asc_getWorksheetName(sheetIndex)||'');}catch(e){}var ranges=[];var seen={};function pushRange(value){var text=String(value==null?'':value).replace(/^=/,'').replace(/\\$/g,'').trim();if(!text)return;text=text.replace(/^'([^']+)'!/,'').replace(/^[^!]+!/,'');text=text.replace(/\\s+/g,'');if(!text)return;text=text.toUpperCase();if(seen[text])return;seen[text]=true;ranges.push(text);}var ws=null;try{if(api.wb&&typeof api.wb.getWorksheet==='function'){ws=api.wb.getWorksheet(sheetIndex);}}catch(e){}try{if(ws&&typeof ws.getSelectionRangeValues==='function'){var vals=ws.getSelectionRangeValues(true,false,false)||[];for(var i=0;i<vals.length;i++){pushRange(vals[i]);}}}catch(e){}try{if(!ranges.length&&ws&&ws.model&&ws.model.selectionRange&&typeof ws.model.selectionRange.getLast==='function'){var sel=ws.model.selectionRange.getLast();if(sel){if(typeof sel.getAbsName==='function')pushRange(sel.getAbsName());else if(typeof sel.getName==='function')pushRange(sel.getName());}}}catch(e){}if(!ranges.length)pushRange('A1');var named=[];if(includeNamed&&typeof api.asc_getDefinedNames==='function'){try{var defs=api.asc_getDefinedNames(null,true)||api.asc_getDefinedNames()||[];var namedSeen={};for(var j=0;j<defs.length;j++){var d=defs[j];if(!d)continue;var name='';try{name=d.asc_getName?String(d.asc_getName(true)||d.asc_getName()||''):String(d.name||d.Name||'');}catch(e){name='';}name=String(name||'').trim();if(!name)continue;var key=name.toLowerCase();if(namedSeen[key])continue;namedSeen[key]=true;var ref='';try{ref=d.asc_getRef?String(d.asc_getRef()||''):String(d.ref||d.Ref||'');}catch(e){ref='';}var scope='';try{var scopeId=d.asc_getScope?d.asc_getScope():d.scope;if(scopeId!==null&&scopeId!==undefined&&scopeId!==''){var scopeIndex=parseInt(scopeId,10);if(!isNaN(scopeIndex)&&scopeIndex>=0&&typeof api.asc_getWorksheetName==='function'){scope=String(api.asc_getWorksheetName(scopeIndex)||'');}}}catch(e){scope='';}named.push({name:name,ref:ref,scope:scope});}}catch(e){}}var docName='';var docPath='';try{if(typeof api.asc_getDocumentName==='function')docName=String(api.asc_getDocumentName()||'');}catch(e){}try{if(typeof api.asc_getDocumentPath==='function')docPath=String(api.asc_getDocumentPath()||'');}catch(e){}var message={source:'reports-host',event:'reportsPickerEditorData',data:{requestId:requestId,ok:true,selection:{sheet:sheet,ranges:ranges,range:ranges.length?ranges[0]:'',sheetIndex:sheetIndex,isFocused:!!(document&&document.hasFocus&&document.hasFocus()),docName:docName,docPath:docPath,href:String((window.location&&window.location.href)||'')},namedRanges:named}};try{window.top.postMessage(JSON.stringify(message),'*');}catch(e){}}catch(e){try{window.top.postMessage(JSON.stringify({source:'reports-host',event:'reportsPickerEditorData',data:{requestId:${requestIdJson},ok:false,error:String(e&&e.message?e.message:e)}}),'*');}catch(_e){}}}`;
-                };
-                const requestPicker = (payload) => {
-                    const data = payload || {};
-                    const requestId = data.requestId ? String(data.requestId) : (`picker-${Date.now()}`);
-                    const includeNamed = data.includeNamed !== false;
-                    if (!window.AscDesktopEditor || !window.AscDesktopEditor.CallInAllWindows) {
-                        postPickerResult({ requestId: requestId, ok: false, error: 'CallInAllWindows missing' });
-                        return;
-                    }
-                    const pending = clearPickerPending(requestId) || {};
-                    pending.responses = [];
-                    pending.timeout = setTimeout(() => {
-                        const current = clearPickerPending(requestId);
-                        if (!current) return;
-                        const best = selectPickerBest(current.responses);
-                        if (best) {
-                            postPickerResult(best);
-                        } else {
-                            postPickerResult({ requestId: requestId, ok: false, error: 'editor_selection_unavailable' });
-                        }
-                    }, 6000);
-                    pickerPending[requestId] = pending;
-                    try {
-                        reportLog('reportsPickerFetch', { requestId: requestId, includeNamed: includeNamed });
-                        window.AscDesktopEditor.CallInAllWindows(buildPickerScript(requestId, includeNamed));
-                    } catch (e) {
-                        clearPickerPending(requestId);
-                        postPickerResult({ requestId: requestId, ok: false, error: String(e) });
-                    }
-                };
-                const onPickerEditorData = (payload) => {
-                    const data = payload || {};
-                    const requestId = data.requestId ? String(data.requestId) : '';
-                    if (!requestId || !pickerPending[requestId]) return;
-                    if (data.ok === false) return;
-                    const pending = pickerPending[requestId];
-                    pending.responses.push(data);
-                    if (data.selection && data.selection.isFocused) {
-                        finishPicker(requestId, data);
-                        return;
-                    }
-                    if (!pending.debounce) {
-                        pending.debounce = setTimeout(() => {
-                            const current = pickerPending[requestId];
-                            if (!current) return;
-                            const best = selectPickerBest(current.responses);
-                            if (best) finishPicker(requestId, best);
-                        }, 120);
-                    }
-                };
-
                 const buildRunScript = (job, debug) => {
                     const jobStr = JSON.stringify(job || {});
                     const debugFlag = debug ? 'true' : 'false';
@@ -308,19 +227,7 @@
 
                 window.addEventListener('message', (evt) => {
                     const msg = parseMessage(evt.data);
-                    if (!msg)
-                        return;
-                    if (msg.event === 'reportsPickerEditorData' && msg.data) {
-                        onPickerEditorData(msg.data);
-                        return;
-                    }
-                    if (msg.source !== 'reports-ui')
-                        return;
-                    if (msg.event === 'reportsPickerFetch') {
-                        requestPicker(msg.data || {});
-                        return;
-                    }
-                    if (msg.event !== 'reportsRun')
+                    if (!msg || msg.event !== 'reportsRun' || msg.source !== 'reports-ui')
                         return;
                     const jobId = msg.data && msg.data.job && msg.data.job.id ? msg.data.job.id : '';
                     reportLog('reportsRun received', { jobId: jobId, path: msg.data && msg.data.path ? msg.data.path : '' });
