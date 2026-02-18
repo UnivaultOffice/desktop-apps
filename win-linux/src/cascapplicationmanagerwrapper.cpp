@@ -6,6 +6,7 @@
 #include <QTimer>
 #include <QDir>
 #include <QDateTime>
+#include <QFile>
 #include <qtcomp/qdesktopwidget.h>
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -13,6 +14,7 @@
 #include <QProcess>
 #include <QScreen>
 #include <QFileInfo>
+#include <QSaveFile>
 #include <algorithm>
 #include <functional>
 #include <memory>
@@ -427,6 +429,108 @@ bool CAscApplicationManagerWrapper::processCommonEvent(NSEditorApi::CAscCefMenuE
         } else
         if ( !(cmd.find(L"files:check") == std::wstring::npos) ) {
             CExistanceController::check(QString::fromStdWString(pData->get_Param()));
+            return true;
+        } else
+        if ( !(cmd.find(L"reports:fileRead") == std::wstring::npos) ||
+             !(cmd.find(L"reports:fileWrite") == std::wstring::npos) )
+        {
+            const bool isWrite = (cmd.find(L"reports:fileWrite") != std::wstring::npos);
+            const QJsonObject request = Utils::parseJsonString(pData->get_Param());
+            QJsonObject response;
+            response["requestId"] = request.value("requestId").toString();
+            const QString encoding = request.value("encoding").toString().trimmed().toLower();
+            const bool base64Mode = (encoding == "base64");
+            response["encoding"] = base64Mode ? "base64" : "utf8";
+
+            const QString rawPath = request.value("path").toString();
+            if ( rawPath.isEmpty() ) {
+                response["ok"] = false;
+                response["error"] = "invalid_path";
+            } else {
+                const QString normalizedPath = QDir::cleanPath(QFileInfo(rawPath).absoluteFilePath());
+                const QString normalizedUnix = QDir::fromNativeSeparators(normalizedPath).toLower();
+                const bool inReportsUi =
+                    normalizedUnix.contains("/reports-ui/") || normalizedUnix.endsWith("/reports-ui");
+
+                response["path"] = QDir::toNativeSeparators(normalizedPath);
+
+                if ( !inReportsUi ) {
+                    response["ok"] = false;
+                    response["error"] = "forbidden_path";
+                } else
+                if ( isWrite ) {
+                    const QString content = request.value("content").toString();
+                    QByteArray bytes;
+                    if ( base64Mode ) {
+                        bytes = QByteArray::fromBase64(content.toUtf8());
+                        if ( !content.isEmpty() && bytes.isEmpty() ) {
+                            response["ok"] = false;
+                            response["error"] = "invalid_base64";
+                            const QString json = QJsonDocument(response).toJson(QJsonDocument::Compact);
+                            sendCommandTo(SEND_TO_ALL_START_PAGE, "reports:fileResult", json);
+                            return true;
+                        }
+                    } else {
+                        bytes = content.toUtf8();
+                    }
+                    const QFileInfo fi(normalizedPath);
+                    QDir dir(fi.absolutePath());
+                    if ( !dir.exists() && !dir.mkpath(".") ) {
+                        response["ok"] = false;
+                        response["error"] = "mkdir_failed";
+                    } else {
+                        QSaveFile outFile(normalizedPath);
+                        if ( !outFile.open(QIODevice::WriteOnly) ) {
+                            response["ok"] = false;
+                            response["error"] = "open_failed";
+                            response["details"] = outFile.errorString();
+                        } else {
+                            if ( outFile.write(bytes) != bytes.size() ) {
+                                response["ok"] = false;
+                                response["error"] = "write_failed";
+                                response["details"] = outFile.errorString();
+                                outFile.cancelWriting();
+                            } else
+                            if ( !outFile.commit() ) {
+                                response["ok"] = false;
+                                response["error"] = "commit_failed";
+                                response["details"] = outFile.errorString();
+                            } else {
+                                response["ok"] = true;
+                                response["bytes"] = static_cast<int>(bytes.size());
+                            }
+                        }
+                    }
+                } else {
+                    QFile inFile(normalizedPath);
+                    if ( !inFile.exists() ) {
+                        response["ok"] = false;
+                        response["error"] = "not_found";
+                    } else
+                    if ( !inFile.open(QIODevice::ReadOnly) ) {
+                        response["ok"] = false;
+                        response["error"] = "open_failed";
+                        response["details"] = inFile.errorString();
+                    } else {
+                        QByteArray bytes = inFile.readAll();
+                        if ( base64Mode ) {
+                            response["ok"] = true;
+                            response["content"] = QString::fromLatin1(bytes.toBase64());
+                            response["bytes"] = static_cast<int>(bytes.size());
+                        } else {
+                            if ( bytes.startsWith("\xEF\xBB\xBF") ) {
+                                bytes.remove(0, 3);
+                            }
+                            response["ok"] = true;
+                            response["content"] = QString::fromUtf8(bytes);
+                            response["bytes"] = static_cast<int>(bytes.size());
+                        }
+                    }
+                }
+            }
+
+            const QString json = QJsonDocument(response).toJson(QJsonDocument::Compact);
+            sendCommandTo(SEND_TO_ALL_START_PAGE, "reports:fileResult", json);
             return true;
         } else
         if ( cmd.compare(L"docbuilder:probe") == 0 || cmd.compare(L"docbuilder:run") == 0 || cmd.compare(L"docbuilder:open") == 0 ) {
