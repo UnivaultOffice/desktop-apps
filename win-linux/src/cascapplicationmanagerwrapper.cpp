@@ -432,9 +432,13 @@ bool CAscApplicationManagerWrapper::processCommonEvent(NSEditorApi::CAscCefMenuE
             return true;
         } else
         if ( !(cmd.find(L"reports:fileRead") == std::wstring::npos) ||
-             !(cmd.find(L"reports:fileWrite") == std::wstring::npos) )
+             !(cmd.find(L"reports:fileWrite") == std::wstring::npos) ||
+             !(cmd.find(L"reports:fileDelete") == std::wstring::npos) ||
+             !(cmd.find(L"reports:fileMove") == std::wstring::npos) )
         {
             const bool isWrite = (cmd.find(L"reports:fileWrite") != std::wstring::npos);
+            const bool isDelete = (cmd.find(L"reports:fileDelete") != std::wstring::npos);
+            const bool isMove = (cmd.find(L"reports:fileMove") != std::wstring::npos);
             const QJsonObject request = Utils::parseJsonString(pData->get_Param());
             QJsonObject response;
             response["requestId"] = request.value("requestId").toString();
@@ -442,22 +446,112 @@ bool CAscApplicationManagerWrapper::processCommonEvent(NSEditorApi::CAscCefMenuE
             const bool base64Mode = (encoding == "base64");
             response["encoding"] = base64Mode ? "base64" : "utf8";
 
-            const QString rawPath = request.value("path").toString();
-            if ( rawPath.isEmpty() ) {
-                response["ok"] = false;
-                response["error"] = "invalid_path";
-            } else {
-                const QString normalizedPath = QDir::cleanPath(QFileInfo(rawPath).absoluteFilePath());
+            auto normalizePath = [](const QString& path) {
+                return QDir::cleanPath(QFileInfo(path).absoluteFilePath());
+            };
+            auto isReportsUiPath = [](const QString& normalizedPath) {
                 const QString normalizedUnix = QDir::fromNativeSeparators(normalizedPath).toLower();
-                const bool inReportsUi =
-                    normalizedUnix.contains("/reports-ui/") || normalizedUnix.endsWith("/reports-ui");
+                return normalizedUnix.contains("/reports-ui/") || normalizedUnix.endsWith("/reports-ui");
+            };
 
-                response["path"] = QDir::toNativeSeparators(normalizedPath);
+            if ( isMove ) {
+                QString rawFrom = request.value("fromPath").toString();
+                if ( rawFrom.isEmpty() ) rawFrom = request.value("srcPath").toString();
+                QString rawTo = request.value("toPath").toString();
+                if ( rawTo.isEmpty() ) rawTo = request.value("dstPath").toString();
 
-                if ( !inReportsUi ) {
+                if ( rawFrom.isEmpty() || rawTo.isEmpty() ) {
                     response["ok"] = false;
-                    response["error"] = "forbidden_path";
-                } else
+                    response["error"] = "invalid_path";
+                } else {
+                    const QString normalizedFrom = normalizePath(rawFrom);
+                    const QString normalizedTo = normalizePath(rawTo);
+                    response["fromPath"] = QDir::toNativeSeparators(normalizedFrom);
+                    response["toPath"] = QDir::toNativeSeparators(normalizedTo);
+
+                    if ( !isReportsUiPath(normalizedFrom) || !isReportsUiPath(normalizedTo) ) {
+                        response["ok"] = false;
+                        response["error"] = "forbidden_path";
+                    } else
+                    if ( normalizedFrom.compare(normalizedTo, Qt::CaseInsensitive) == 0 ) {
+                        response["ok"] = true;
+                    } else {
+                        QFileInfo srcInfo(normalizedFrom);
+                        if ( !srcInfo.exists() ) {
+                            response["ok"] = false;
+                            response["error"] = "not_found";
+                        } else {
+                            QFileInfo dstInfo(normalizedTo);
+                            QDir dstDir(dstInfo.absolutePath());
+                            if ( !dstDir.exists() && !dstDir.mkpath(".") ) {
+                                response["ok"] = false;
+                                response["error"] = "mkdir_failed";
+                            } else {
+                                if ( dstInfo.exists() && !QFile::remove(normalizedTo) ) {
+                                    response["ok"] = false;
+                                    response["error"] = "target_remove_failed";
+                                } else {
+                                    bool moved = QFile::rename(normalizedFrom, normalizedTo);
+                                    if ( !moved ) {
+                                        if ( QFile::copy(normalizedFrom, normalizedTo) ) {
+                                            if ( QFile::remove(normalizedFrom) ) {
+                                                moved = true;
+                                            } else {
+                                                QFile::remove(normalizedTo);
+                                                response["ok"] = false;
+                                                response["error"] = "source_remove_failed";
+                                            }
+                                        } else {
+                                            response["ok"] = false;
+                                            response["error"] = "move_failed";
+                                        }
+                                    }
+                                    if ( moved ) {
+                                        response["ok"] = true;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            } else {
+                const QString rawPath = request.value("path").toString();
+                if ( rawPath.isEmpty() ) {
+                    response["ok"] = false;
+                    response["error"] = "invalid_path";
+                } else {
+                    const QString normalizedPath = normalizePath(rawPath);
+                    response["path"] = QDir::toNativeSeparators(normalizedPath);
+
+                    if ( !isReportsUiPath(normalizedPath) ) {
+                        response["ok"] = false;
+                        response["error"] = "forbidden_path";
+                    } else
+                    if ( isDelete ) {
+                        QFileInfo fi(normalizedPath);
+                        if ( !fi.exists() ) {
+                            response["ok"] = false;
+                            response["error"] = "not_found";
+                        } else
+                        if ( fi.isDir() ) {
+                            QDir dir(normalizedPath);
+                            if ( dir.removeRecursively() ) {
+                                response["ok"] = true;
+                            } else {
+                                response["ok"] = false;
+                                response["error"] = "delete_failed";
+                            }
+                        } else {
+                            if ( QFile::remove(normalizedPath) ) {
+                                response["ok"] = true;
+                            } else {
+                                QFile file(normalizedPath);
+                                response["ok"] = false;
+                                response["error"] = "delete_failed";
+                                response["details"] = file.errorString();
+                            }
+                        }
+                    } else
                 if ( isWrite ) {
                     const QString content = request.value("content").toString();
                     QByteArray bytes;
@@ -527,6 +621,7 @@ bool CAscApplicationManagerWrapper::processCommonEvent(NSEditorApi::CAscCefMenuE
                         }
                     }
                 }
+            }
             }
 
             const QString json = QJsonDocument(response).toJson(QJsonDocument::Compact);
